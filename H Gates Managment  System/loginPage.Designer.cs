@@ -35,7 +35,7 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btForgetPW = new System.Windows.Forms.Button();
-            this.btlogin = new System.Windows.Forms.Button();
+            this.btlogin_Click = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +59,7 @@
             this.label2.Size = new System.Drawing.Size(182, 41);
             this.label2.TabIndex = 1;
             this.label2.Text = "User Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // label3
             // 
@@ -86,6 +86,7 @@
             this.tbPassword.Location = new System.Drawing.Point(398, 217);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(218, 30);
             this.tbPassword.TabIndex = 4;
             // 
@@ -101,17 +102,18 @@
             this.btForgetPW.Text = "Forget Password";
             this.btForgetPW.UseVisualStyleBackColor = false;
             // 
-            // btlogin
+            // btlogin_Click
             // 
-            this.btlogin.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btlogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btlogin.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btlogin.Location = new System.Drawing.Point(398, 304);
-            this.btlogin.Name = "btlogin";
-            this.btlogin.Size = new System.Drawing.Size(218, 38);
-            this.btlogin.TabIndex = 6;
-            this.btlogin.Text = "Login";
-            this.btlogin.UseVisualStyleBackColor = false;
+            this.btlogin_Click.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btlogin_Click.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btlogin_Click.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btlogin_Click.Location = new System.Drawing.Point(398, 304);
+            this.btlogin_Click.Name = "btlogin_Click";
+            this.btlogin_Click.Size = new System.Drawing.Size(218, 38);
+            this.btlogin_Click.TabIndex = 6;
+            this.btlogin_Click.Text = "Login";
+            this.btlogin_Click.UseVisualStyleBackColor = false;
+            this.btlogin_Click.Click += new System.EventHandler(this.Label2_Click);
             // 
             // loginPage
             // 
@@ -120,7 +122,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btlogin);
+            this.Controls.Add(this.btlogin_Click);
             this.Controls.Add(this.btForgetPW);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
@@ -129,6 +131,7 @@
             this.Controls.Add(this.label1);
             this.Name = "loginPage";
             this.Text = "Form1";
+            this.Click += new System.EventHandler(this.Label2_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +145,7 @@
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btForgetPW;
-        private System.Windows.Forms.Button btlogin;
+        private System.Windows.Forms.Button btlogin_Click;
     }
 }
 

@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Condition.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyRelationship.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Intake.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="loginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +96,15 @@
     </Compile>
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nurse.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parish.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientList.cs">
       <SubType>Form</SubType>
@@ -70,8 +118,20 @@
     <Compile Include="PatientsEntry.Designer.cs">
       <DependentUpon>PatientsEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procedure.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Specialization.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>HospitalDb.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="loginPage.resx">
       <DependentUpon>loginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +153,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="HospitalDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HospitalDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HospitalDb.edmx.diagram">
+      <DependentUpon>HospitalDb.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,6 +173,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HospitalDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HospitalDb.Context.cs</LastGenOutput>
+      <DependentUpon>HospitalDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="HospitalDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalDb.edmx</DependentUpon>
+      <LastGenOutput>HospitalDb.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

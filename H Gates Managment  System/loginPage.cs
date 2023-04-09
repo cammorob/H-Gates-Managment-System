@@ -12,14 +12,45 @@ namespace H_Gates_Managment__System
 {
     public partial class loginPage : Form
     {
-        public loginPage()
+
+        private readonly HGatesDesktopAppEntities _db;
+            public loginPage()
         {
             InitializeComponent();
+            _db= new HGatesDesktopAppEntities();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var username = tbUserName.Text.Trim();
+                var password = tbPassword.Text;
 
+                var user =_db.Users.FirstOrDefault(q=>q.username== username && q.password == password);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Please provide valid credentials");
+                
+                }
+                else
+                {
+                    var MainPage = new MainPage(this);
+                    MainPage.Show();
+                    Hide();
+                
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong. Please try again");
+                
+            }
         }
+
     }
 }

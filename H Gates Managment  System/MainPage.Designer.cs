@@ -112,7 +112,6 @@
             this.BtViewPatients.Size = new System.Drawing.Size(217, 43);
             this.BtViewPatients.TabIndex = 10;
             this.BtViewPatients.Text = "View Patients";
-           
             // 
             // pictureBox1
             // 
@@ -136,7 +135,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
-           
             // 
             // MainPage
             // 
@@ -156,6 +154,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MainPage";
             this.Text = "MainPage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainPage_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

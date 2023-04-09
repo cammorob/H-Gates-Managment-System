@@ -47,16 +47,15 @@
             // 
             // menuStrip2
             // 
-            this.menuStrip2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.menuStrip2.AutoSize = false;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewAllPatientsToolStripMenuItem,
             this.searchPatientsToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(9, 46);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(144, 367);
+            this.menuStrip2.Size = new System.Drawing.Size(144, 450);
             this.menuStrip2.TabIndex = 6;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical270;
@@ -64,14 +63,14 @@
             // viewAllPatientsToolStripMenuItem
             // 
             this.viewAllPatientsToolStripMenuItem.Name = "viewAllPatientsToolStripMenuItem";
-            this.viewAllPatientsToolStripMenuItem.Size = new System.Drawing.Size(140, 19);
+            this.viewAllPatientsToolStripMenuItem.Size = new System.Drawing.Size(106, 255);
             this.viewAllPatientsToolStripMenuItem.Text = "View All Patients";
             this.viewAllPatientsToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // searchPatientsToolStripMenuItem
             // 
             this.searchPatientsToolStripMenuItem.Name = "searchPatientsToolStripMenuItem";
-            this.searchPatientsToolStripMenuItem.Size = new System.Drawing.Size(140, 19);
+            this.searchPatientsToolStripMenuItem.Size = new System.Drawing.Size(99, 255);
             this.searchPatientsToolStripMenuItem.Text = "Search Patients";
             this.searchPatientsToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
