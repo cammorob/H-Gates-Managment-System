@@ -28,12 +28,6 @@ namespace H_Gates_Managment__System
             _LoginPage = LoginPage;
         
         }
-        private void label3_Click(object sender, EventArgs e)
-        {
-            var patientList = new PatientList();
-            patientList.Show();
-
-        }
 
         private void MainPage_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -54,6 +48,20 @@ namespace H_Gates_Managment__System
             {
                 C_UserLabel.Text = loginPage.CurrentUser;
             }
+        }
+
+        private void BtAddPatients_Click(object sender, EventArgs e)
+        {
+            var PatientsEntry =new PatientsEntry();
+            PatientsEntry.Show();
+            Hide(); 
+        }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            var loginPage =new loginPage(); 
+            loginPage.Show();
+            Hide();
         }
     }
 }

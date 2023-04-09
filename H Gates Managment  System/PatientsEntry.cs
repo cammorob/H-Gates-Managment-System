@@ -21,5 +21,12 @@ namespace H_Gates_Managment__System
         {
 
         }
+
+        private void PatientsEntry_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var MainPage = new MainPage();
+            MainPage.Show();
+            Hide();
+        }
     }
 }

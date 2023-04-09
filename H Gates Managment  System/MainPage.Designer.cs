@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btLogout = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -48,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-3, -3);
+            this.label1.Location = new System.Drawing.Point(271, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(271, 41);
             this.label1.TabIndex = 1;
@@ -57,13 +58,14 @@
             // C_UserLabel
             // 
             this.C_UserLabel.AutoSize = true;
+            this.C_UserLabel.BackColor = System.Drawing.SystemColors.HighlightText;
             this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C_UserLabel.Location = new System.Drawing.Point(398, 9);
+            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_UserLabel.Location = new System.Drawing.Point(700, 9);
             this.C_UserLabel.Name = "C_UserLabel";
-            this.C_UserLabel.Size = new System.Drawing.Size(129, 24);
+            this.C_UserLabel.Size = new System.Drawing.Size(46, 19);
             this.C_UserLabel.TabIndex = 2;
-            this.C_UserLabel.Text = " Current User";
+            this.C_UserLabel.Text = "  User";
             // 
             // BtAddPatients
             // 
@@ -77,6 +79,7 @@
             this.BtAddPatients.Size = new System.Drawing.Size(192, 43);
             this.BtAddPatients.TabIndex = 5;
             this.BtAddPatients.Text = "Add Patient";
+            this.BtAddPatients.Click += new System.EventHandler(this.BtAddPatients_Click);
             // 
             // pictureBox2
             // 
@@ -142,12 +145,25 @@
             // btLogout
             // 
             this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(611, -3);
+            this.btLogout.Location = new System.Drawing.Point(704, 31);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(75, 23);
             this.btLogout.TabIndex = 13;
             this.btLogout.Text = "Log Out";
             this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(588, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Current User:";
             // 
             // MainPage
             // 
@@ -157,6 +173,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btLogout);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
@@ -188,6 +205,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btLogout;
-        public System.Windows.Forms.Label C_UserLabel;
+        private System.Windows.Forms.Label C_UserLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
