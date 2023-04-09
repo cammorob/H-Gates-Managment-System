@@ -19,6 +19,7 @@ namespace H_Gates_Managment__System
         public MainPage()
         {
             InitializeComponent();
+           
         }
 
         public MainPage(loginPage LoginPage )
@@ -26,7 +27,7 @@ namespace H_Gates_Managment__System
         
         InitializeComponent( );
             _LoginPage = LoginPage;
-        
+            
         }
 
         private void MainPage_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,7 +50,7 @@ namespace H_Gates_Managment__System
                 C_UserLabel.Text = loginPage.CurrentUser;
             }
         }
-
+       
         private void BtAddPatients_Click(object sender, EventArgs e)
         {
             var PatientsEntry =new PatientsEntry();

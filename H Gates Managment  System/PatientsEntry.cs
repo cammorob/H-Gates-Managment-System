@@ -15,6 +15,10 @@ namespace H_Gates_Managment__System
         public PatientsEntry()
         {
             InitializeComponent();
+            if (loginPage.CurrentUser != null)
+            {
+                C_UserLabel.Text = loginPage.CurrentUser;
+            }
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -27,6 +31,14 @@ namespace H_Gates_Managment__System
             var MainPage = new MainPage();
             MainPage.Show();
             Hide();
+        }
+
+        private void Btback_Click(object sender, EventArgs e)
+        {
+            var MainPage = new MainPage();
+            MainPage.Show();
+            Hide();
+
         }
     }
 }
