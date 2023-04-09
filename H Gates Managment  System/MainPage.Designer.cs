@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.C_UserLabel = new System.Windows.Forms.Label();
             this.BtAddPatients = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtMenu = new System.Windows.Forms.Label();
             this.BtViewPatients = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -47,21 +48,22 @@
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(304, 9);
+            this.label1.Location = new System.Drawing.Point(-3, -3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(271, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "H Gates Hospital";
             // 
-            // label2
+            // C_UserLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(574, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "User:";
+            this.C_UserLabel.AutoSize = true;
+            this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_UserLabel.Location = new System.Drawing.Point(398, 9);
+            this.C_UserLabel.Name = "C_UserLabel";
+            this.C_UserLabel.Size = new System.Drawing.Size(129, 24);
+            this.C_UserLabel.TabIndex = 2;
+            this.C_UserLabel.Text = " Current User";
             // 
             // BtAddPatients
             // 
@@ -112,6 +114,7 @@
             this.BtViewPatients.Size = new System.Drawing.Size(217, 43);
             this.BtViewPatients.TabIndex = 10;
             this.BtViewPatients.Text = "View Patients";
+            this.BtViewPatients.Click += new System.EventHandler(this.BtViewPatients_Click);
             // 
             // pictureBox1
             // 
@@ -136,6 +139,16 @@
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
             // 
+            // btLogout
+            // 
+            this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogout.Location = new System.Drawing.Point(611, -3);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 13;
+            this.btLogout.Text = "Log Out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,17 +157,19 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btLogout);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtViewPatients);
             this.Controls.Add(this.BtMenu);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.BtAddPatients);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.C_UserLabel);
             this.Controls.Add(this.label1);
             this.Name = "MainPage";
             this.Text = "MainPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainPage_FormClosing);
+            this.Load += new System.EventHandler(this.MainPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -166,12 +181,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label BtAddPatients;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label BtMenu;
         private System.Windows.Forms.Label BtViewPatients;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btLogout;
+        public System.Windows.Forms.Label C_UserLabel;
     }
 }

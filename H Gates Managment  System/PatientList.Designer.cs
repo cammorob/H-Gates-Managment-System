@@ -83,6 +83,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Name = "PatientList";
             this.Text = "PatientList";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientList_FormClosing);
             this.Load += new System.EventHandler(this.PatientList_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();

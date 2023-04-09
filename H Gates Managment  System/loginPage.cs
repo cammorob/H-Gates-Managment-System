@@ -14,7 +14,9 @@ namespace H_Gates_Managment__System
     {
 
         private readonly HGatesDesktopAppEntities _db;
-            public loginPage()
+        public static string CurrentUser = " ";
+        
+        public loginPage()
         {
             InitializeComponent();
             _db= new HGatesDesktopAppEntities();
@@ -24,6 +26,7 @@ namespace H_Gates_Managment__System
         {
             try
             {
+
                 var username = tbUserName.Text.Trim();
                 var password = tbPassword.Text;
 
@@ -38,6 +41,9 @@ namespace H_Gates_Managment__System
                 {
                     var MainPage = new MainPage(this);
                     MainPage.Show();
+                    CurrentUser = username;
+                    tbUserName.Clear();
+                    tbPassword.Clear(); 
                     Hide();
                 
                 }
