@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H Gates Managment  System", "H Gates Managment  System\H Gates Managment  System.csproj", "{FD81F256-7BC5-4348-B4B3-85922635192F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD81F256-7BC5-4348-B4B3-85922635192F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD81F256-7BC5-4348-B4B3-85922635192F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD81F256-7BC5-4348-B4B3-85922635192F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD81F256-7BC5-4348-B4B3-85922635192F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDD41EB6-C411-4B39-840A-CA4809BF204F}
+	EndGlobalSection
+EndGlobal
