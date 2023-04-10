@@ -42,7 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btAddPatient = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PbSearch = new System.Windows.Forms.PictureBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,7 +145,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.PbSearch);
             this.panel2.Controls.Add(this.dgvPatients);
             this.panel2.Controls.Add(this.tbSearch);
             this.panel2.Controls.Add(this.btAddPatient);
@@ -177,18 +177,19 @@
             this.tbSearch.Size = new System.Drawing.Size(152, 18);
             this.tbSearch.TabIndex = 2;
             // 
-            // pictureBox1
+            // PbSearch
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(558, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 18);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.PbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PbSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.PbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbSearch.Image = ((System.Drawing.Image)(resources.GetObject("PbSearch.Image")));
+            this.PbSearch.Location = new System.Drawing.Point(558, 27);
+            this.PbSearch.Name = "PbSearch";
+            this.PbSearch.Size = new System.Drawing.Size(30, 18);
+            this.PbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbSearch.TabIndex = 2;
+            this.PbSearch.TabStop = false;
+            this.PbSearch.Click += new System.EventHandler(this.PbSearch_Click);
             // 
             // Column1
             // 
@@ -280,7 +281,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,7 +295,7 @@
         private System.Windows.Forms.DataGridView dgvPatients;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PbSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btAddPatient;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

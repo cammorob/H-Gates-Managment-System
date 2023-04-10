@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.ComponentModel.Com2Interop;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
+using MySql.Data.MySqlClient;
 
 namespace H_Gates_Managment__System
 {
@@ -16,10 +18,14 @@ namespace H_Gates_Managment__System
     {
         private MainPage mainPage;
         private readonly HGatesDesktopAppEntities _db;
+       
+
         public PatientList()
         {
             InitializeComponent();
             _db = new HGatesDesktopAppEntities();
+            
+            
         }
 
         public PatientList(MainPage _mainPage)
@@ -38,14 +44,14 @@ namespace H_Gates_Managment__System
 
         private void PatientList_Load(object sender, EventArgs e)
         {
-
-            var Patient = _db.Patients.Select(q => new {q.Id,q.FirstName,q.LastName,q.DateOfBirth, q.GenderID}).ToList();
             
-            dgvPatients.DataSource = Patient;
+           // var Patient = _db.Patients.Select(q => new {q.Id,q.FirstName,q.LastName,q.DateOfBirth, q.GenderID}).ToList();
+
+            //dgvPatients.DataSource = Patient;
              
 ;            
 
-           /* dgvPatients.Columns[0].HeaderText = "ID" ;
+           /*dgvPatients.Columns[0].HeaderText = "ID" ;
             dgvPatients.Columns[1].HeaderText = "First Name";
             dgvPatients.Columns[2].HeaderText = "Last Name";
             dgvPatients.Columns[3].HeaderText = "Date of Birth";
@@ -62,6 +68,41 @@ namespace H_Gates_Managment__System
             var MainPage = new MainPage();
             MainPage.Show();
             Hide();
+        }
+
+        private void PbSearch_Click(object sender, EventArgs e)
+        {
+            var searchValue = tbSearch.Text;
+            int rowIndex = 1;
+            dgvPatients.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                bool valueResult = true;
+                foreach (DataGridViewRow row in dgvPatients.Rows)
+                {
+                    if (row.Cells[rowIndex].Value.ToString().Equals(searchValue))
+                    {
+                        rowIndex = row.Index;
+                        dgvPatients.Rows[rowIndex].Selected = true;
+                        valueResult= false;
+                       
+                    }
+                    if (valueResult != false)
+                    {
+                        MessageBox.Show("Record is not avalable for this Name" + tbSearch.Text, "Not Found");
+                        return;
+                    }
+
+
+
+
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                //throw;
+            }
         }
     }
 }
