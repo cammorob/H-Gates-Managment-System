@@ -40,11 +40,11 @@
             this.btLogout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.btRooms = new System.Windows.Forms.Button();
             this.btEmergencyContact = new System.Windows.Forms.Button();
+            this.btRooms = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -82,7 +82,7 @@
             this.BtAddPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtAddPatients.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtAddPatients.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtAddPatients.Location = new System.Drawing.Point(494, 178);
+            this.BtAddPatients.Location = new System.Drawing.Point(436, 230);
             this.BtAddPatients.Name = "BtAddPatients";
             this.BtAddPatients.Size = new System.Drawing.Size(107, 24);
             this.BtAddPatients.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(463, 60);
+            this.pictureBox2.Location = new System.Drawing.Point(422, 103);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 115);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -107,7 +107,7 @@
             this.BtMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtMenu.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtMenu.Location = new System.Drawing.Point(673, 178);
+            this.BtMenu.Location = new System.Drawing.Point(624, 230);
             this.BtMenu.Name = "BtMenu";
             this.BtMenu.Size = new System.Drawing.Size(59, 24);
             this.BtMenu.TabIndex = 9;
@@ -120,7 +120,7 @@
             this.BtViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtViewPatients.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtViewPatients.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtViewPatients.Location = new System.Drawing.Point(298, 178);
+            this.BtViewPatients.Location = new System.Drawing.Point(261, 230);
             this.BtViewPatients.Name = "BtViewPatients";
             this.BtViewPatients.Size = new System.Drawing.Size(121, 24);
             this.BtViewPatients.TabIndex = 10;
@@ -132,7 +132,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(287, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(261, 103);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 115);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +143,7 @@
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(634, 60);
+            this.pictureBox4.Location = new System.Drawing.Point(592, 103);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(145, 115);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -186,16 +186,23 @@
             this.panel1.Size = new System.Drawing.Size(164, 461);
             this.panel1.TabIndex = 15;
             // 
-            // panel2
+            // btEmergencyContact
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btLogout);
-            this.panel2.Controls.Add(this.C_UserLabel);
-            this.panel2.Location = new System.Drawing.Point(157, -6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(644, 48);
-            this.panel2.TabIndex = 16;
+            this.btEmergencyContact.Location = new System.Drawing.Point(16, 139);
+            this.btEmergencyContact.Name = "btEmergencyContact";
+            this.btEmergencyContact.Size = new System.Drawing.Size(121, 23);
+            this.btEmergencyContact.TabIndex = 4;
+            this.btEmergencyContact.Text = "Emergency Contacts";
+            this.btEmergencyContact.UseVisualStyleBackColor = true;
+            // 
+            // btRooms
+            // 
+            this.btRooms.Location = new System.Drawing.Point(16, 110);
+            this.btRooms.Name = "btRooms";
+            this.btRooms.Size = new System.Drawing.Size(121, 23);
+            this.btRooms.TabIndex = 3;
+            this.btRooms.Text = "Rooms";
+            this.btRooms.UseVisualStyleBackColor = true;
             // 
             // tbSearch
             // 
@@ -207,6 +214,17 @@
             this.tbSearch.Text = "Search";
             this.tbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btLogout);
+            this.panel2.Controls.Add(this.C_UserLabel);
+            this.panel2.Location = new System.Drawing.Point(157, -6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(644, 48);
+            this.panel2.TabIndex = 16;
+            // 
             // entityCommand1
             // 
             this.entityCommand1.CommandTimeout = 0;
@@ -214,24 +232,6 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
-            // 
-            // btRooms
-            // 
-            this.btRooms.Location = new System.Drawing.Point(16, 110);
-            this.btRooms.Name = "btRooms";
-            this.btRooms.Size = new System.Drawing.Size(121, 23);
-            this.btRooms.TabIndex = 3;
-            this.btRooms.Text = "Rooms";
-            this.btRooms.UseVisualStyleBackColor = true;
-            // 
-            // btEmergencyContact
-            // 
-            this.btEmergencyContact.Location = new System.Drawing.Point(16, 139);
-            this.btEmergencyContact.Name = "btEmergencyContact";
-            this.btEmergencyContact.Size = new System.Drawing.Size(121, 23);
-            this.btEmergencyContact.TabIndex = 4;
-            this.btEmergencyContact.Text = "Emergency Contacts";
-            this.btEmergencyContact.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 

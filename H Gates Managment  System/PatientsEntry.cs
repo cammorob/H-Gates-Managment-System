@@ -12,13 +12,11 @@ namespace H_Gates_Managment__System
 {
     public partial class PatientsEntry : Form
     {
+        private readonly HGatesDesktopAppEntities _db;
         public PatientsEntry()
         {
             InitializeComponent();
-            if (loginPage.CurrentUser != null)
-            {
-                C_UserLabel.Text = loginPage.CurrentUser;
-            }
+            _db = new HGatesDesktopAppEntities();
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -39,6 +37,19 @@ namespace H_Gates_Managment__System
             MainPage.Show();
             Hide();
 
+        }
+
+        private void PatientsEntry_Load(object sender, EventArgs e)
+        {
+            var parish = _db.Parishes.ToList();
+            cbParish.DisplayMember = "ParishName";
+            cbParish.ValueMember= "Id";
+            cbParish.DataSource= parish;
+
+            var relationship =_db.EmergencyRelationships.ToList();
+            cbRelationship.DisplayMember = "RelationshipType";
+            cbRelationship.ValueMember = "Id";
+            cbRelationship.DataSource = relationship;
         }
     }
 }
