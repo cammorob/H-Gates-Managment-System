@@ -57,13 +57,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbRelationship = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Btback = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.btLogout = new System.Windows.Forms.Button();
             this.C_UserLabel = new System.Windows.Forms.Label();
             this.cbParish = new System.Windows.Forms.ComboBox();
-            this.cbRelationship = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -359,6 +359,14 @@
             this.panel3.Size = new System.Drawing.Size(426, 225);
             this.panel3.TabIndex = 16;
             // 
+            // cbRelationship
+            // 
+            this.cbRelationship.FormattingEnabled = true;
+            this.cbRelationship.Location = new System.Drawing.Point(121, 115);
+            this.cbRelationship.Name = "cbRelationship";
+            this.cbRelationship.Size = new System.Drawing.Size(159, 21);
+            this.cbRelationship.TabIndex = 24;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -426,19 +434,11 @@
             this.cbParish.Size = new System.Drawing.Size(180, 21);
             this.cbParish.TabIndex = 23;
             // 
-            // cbRelationship
-            // 
-            this.cbRelationship.FormattingEnabled = true;
-            this.cbRelationship.Location = new System.Drawing.Point(121, 115);
-            this.cbRelationship.Name = "cbRelationship";
-            this.cbRelationship.Size = new System.Drawing.Size(159, 21);
-            this.cbRelationship.TabIndex = 24;
-            // 
             // PatientsEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(813, 450);
             this.Controls.Add(this.cbParish);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox4);

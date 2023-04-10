@@ -45,11 +45,11 @@ namespace H_Gates_Managment__System
              
 ;            
 
-            dgvPatients.Columns[0].HeaderText = "ID" ;
+           /* dgvPatients.Columns[0].HeaderText = "ID" ;
             dgvPatients.Columns[1].HeaderText = "First Name";
             dgvPatients.Columns[2].HeaderText = "Last Name";
             dgvPatients.Columns[3].HeaderText = "Date of Birth";
-            dgvPatients.Columns[4].HeaderText = "Gender";
+            dgvPatients.Columns[4].HeaderText = "Gender";*/
         }
 
         private void button1_Click(object sender, EventArgs e)
