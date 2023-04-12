@@ -14,12 +14,14 @@ namespace H_Gates_Managment__System
     {
 
         private readonly HGatesDesktopAppEntities _db;
+        //private readonly HGatesDesktopAppEntities1 _db;
         public static string CurrentUser = " ";
         
         public loginPage()
         {
             InitializeComponent();
             _db= new HGatesDesktopAppEntities();
+            //_db = new HGatesDesktopAppEntities1();
         }
 
         private void Label2_Click(object sender, EventArgs e)

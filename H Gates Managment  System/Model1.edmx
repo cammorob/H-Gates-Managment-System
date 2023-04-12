@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HGatesDesktopAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Conditions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConditionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LicensureDate" Type="date" Nullable="false" />
+          <Property Name="SpecializationID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmergencyRelationships">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RelationshipType" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderName" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="ShortName" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Intakes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="IntakeDate" Type="date" Nullable="false" />
+          <Property Name="ConditionID" Type="int" />
+          <Property Name="ProcedureID" Type="int" />
+          <Property Name="DoctorID" Type="int" />
+          <Property Name="RoomID" Type="int" />
+        </EntityType>
+        <EntityType Name="Nurses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LicensureDate" Type="date" Nullable="false" />
+          <Property Name="DoctorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Parishes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParishName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="GenderID" Type="int" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="ParishID" Type="int" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="70" />
+          <Property Name="EContactNo" Type="nvarchar" MaxLength="12" />
+          <Property Name="ContactAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ERelationshipID" Type="int" />
+        </EntityType>
+        <EntityType Name="Procedures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcedureName" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoomNumber" Type="nvarchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specializations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecializationName" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Doctors__Special__440B1D61">
+          <End Role="Specializations" Type="Self.Specializations" Multiplicity="0..1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="SpecializationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__Conditi__4F7CD00D">
+          <End Role="Conditions" Type="Self.Conditions" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conditions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="ConditionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__DoctorI__5165187F">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__Patient__4E88ABD4">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__Procedu__5070F446">
+          <End Role="Procedures" Type="Self.Procedures" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__RoomID__52593CB8">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nurses__DoctorID__46E78A0C">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+          <End Role="Nurses" Type="Self.Nurses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nurses">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__ERelat__4BAC3F29">
+          <End Role="EmergencyRelationships" Type="Self.EmergencyRelationships" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyRelationships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="ERelationshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__Gender__49C3F6B7">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__Parish__4AB81AF0">
+          <End Role="Parishes" Type="Self.Parishes" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="ParishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HGatesDesktopAppModel1StoreContainer">
+          <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmergencyRelationships" EntityType="Self.EmergencyRelationships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Intakes" EntityType="Self.Intakes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nurses" EntityType="Self.Nurses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parishes" EntityType="Self.Parishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Procedures" EntityType="Self.Procedures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specializations" EntityType="Self.Specializations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Doctors__Special__440B1D61" Association="Self.FK__Doctors__Special__440B1D61">
+            <End Role="Specializations" EntitySet="Specializations" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__Conditi__4F7CD00D" Association="Self.FK__Intakes__Conditi__4F7CD00D">
+            <End Role="Conditions" EntitySet="Conditions" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__DoctorI__5165187F" Association="Self.FK__Intakes__DoctorI__5165187F">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__Patient__4E88ABD4" Association="Self.FK__Intakes__Patient__4E88ABD4">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__Procedu__5070F446" Association="Self.FK__Intakes__Procedu__5070F446">
+            <End Role="Procedures" EntitySet="Procedures" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__RoomID__52593CB8" Association="Self.FK__Intakes__RoomID__52593CB8">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nurses__DoctorID__46E78A0C" Association="Self.FK__Nurses__DoctorID__46E78A0C">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Nurses" EntitySet="Nurses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__ERelat__4BAC3F29" Association="Self.FK__Patients__ERelat__4BAC3F29">
+            <End Role="EmergencyRelationships" EntitySet="EmergencyRelationships" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__Gender__49C3F6B7" Association="Self.FK__Patients__Gender__49C3F6B7">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__Parish__4AB81AF0" Association="Self.FK__Patients__Parish__4AB81AF0">
+            <End Role="Parishes" EntitySet="Parishes" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HGatesDesktopAppModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConditionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Intakes" Relationship="Self.FK__Intakes__Conditi__4F7CD00D" FromRole="Conditions" ToRole="Intakes" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LicensureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SpecializationID" Type="Int32" />
+          <NavigationProperty Name="Specialization" Relationship="Self.FK__Doctors__Special__440B1D61" FromRole="Doctors" ToRole="Specializations" />
+          <NavigationProperty Name="Intakes" Relationship="Self.FK__Intakes__DoctorI__5165187F" FromRole="Doctors" ToRole="Intakes" />
+          <NavigationProperty Name="Nurses" Relationship="Self.FK__Nurses__DoctorID__46E78A0C" FromRole="Doctors" ToRole="Nurses" />
+        </EntityType>
+        <EntityType Name="EmergencyRelationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RelationshipType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__ERelat__4BAC3F29" FromRole="EmergencyRelationships" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderName" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__Gender__49C3F6B7" FromRole="Genders" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Intake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="IntakeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ConditionID" Type="Int32" />
+          <Property Name="ProcedureID" Type="Int32" />
+          <Property Name="DoctorID" Type="Int32" />
+          <Property Name="RoomID" Type="Int32" />
+          <NavigationProperty Name="Condition" Relationship="Self.FK__Intakes__Conditi__4F7CD00D" FromRole="Intakes" ToRole="Conditions" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Intakes__DoctorI__5165187F" FromRole="Intakes" ToRole="Doctors" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Intakes__Patient__4E88ABD4" FromRole="Intakes" ToRole="Patients" />
+          <NavigationProperty Name="Procedure" Relationship="Self.FK__Intakes__Procedu__5070F446" FromRole="Intakes" ToRole="Procedures" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__Intakes__RoomID__52593CB8" FromRole="Intakes" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Nurse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LicensureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DoctorID" Type="Int32" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Nurses__DoctorID__46E78A0C" FromRole="Nurses" ToRole="Doctors" />
+        </EntityType>
+        <EntityType Name="Parish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParishName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__Parish__4AB81AF0" FromRole="Parishes" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GenderID" Type="Int32" />
+          <Property Name="StreetAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParishID" Type="Int32" />
+          <Property Name="ContactName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="EContactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ERelationshipID" Type="Int32" />
+          <NavigationProperty Name="EmergencyRelationship" Relationship="Self.FK__Patients__ERelat__4BAC3F29" FromRole="Patients" ToRole="EmergencyRelationships" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Patients__Gender__49C3F6B7" FromRole="Patients" ToRole="Genders" />
+          <NavigationProperty Name="Intakes" Relationship="Self.FK__Intakes__Patient__4E88ABD4" FromRole="Patients" ToRole="Intakes" />
+          <NavigationProperty Name="Parish" Relationship="Self.FK__Patients__Parish__4AB81AF0" FromRole="Patients" ToRole="Parishes" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcedureName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Intakes" Relationship="Self.FK__Intakes__Procedu__5070F446" FromRole="Procedures" ToRole="Intakes" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Intakes" Relationship="Self.FK__Intakes__RoomID__52593CB8" FromRole="Rooms" ToRole="Intakes" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecializationName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctors__Special__440B1D61" FromRole="Specializations" ToRole="Doctors" />
+        </EntityType>
+        <Association Name="FK__Intakes__Conditi__4F7CD00D">
+          <End Role="Conditions" Type="Self.Condition" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conditions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="ConditionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__Special__440B1D61">
+          <End Role="Specializations" Type="Self.Specialization" Multiplicity="0..1" />
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="SpecializationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__DoctorI__5165187F">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Nurses__DoctorID__46E78A0C">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Nurses" Type="Self.Nurse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nurses">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__ERelat__4BAC3F29">
+          <End Role="EmergencyRelationships" Type="Self.EmergencyRelationship" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyRelationships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="ERelationshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__Gender__49C3F6B7">
+          <End Role="Genders" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__Patient__4E88ABD4">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__Procedu__5070F446">
+          <End Role="Procedures" Type="Self.Procedure" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Intakes__RoomID__52593CB8">
+          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intakes">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patients__Parish__4AB81AF0">
+          <End Role="Parishes" Type="Self.Parish" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="ParishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HGatesDesktopAppEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Conditions" EntityType="Self.Condition" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="EmergencyRelationships" EntityType="Self.EmergencyRelationship" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="Intakes" EntityType="Self.Intake" />
+          <EntitySet Name="Nurses" EntityType="Self.Nurse" />
+          <EntitySet Name="Parishes" EntityType="Self.Parish" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Procedures" EntityType="Self.Procedure" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Specializations" EntityType="Self.Specialization" />
+          <AssociationSet Name="FK__Intakes__Conditi__4F7CD00D" Association="Self.FK__Intakes__Conditi__4F7CD00D">
+            <End Role="Conditions" EntitySet="Conditions" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__Special__440B1D61" Association="Self.FK__Doctors__Special__440B1D61">
+            <End Role="Specializations" EntitySet="Specializations" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__DoctorI__5165187F" Association="Self.FK__Intakes__DoctorI__5165187F">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Nurses__DoctorID__46E78A0C" Association="Self.FK__Nurses__DoctorID__46E78A0C">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Nurses" EntitySet="Nurses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__ERelat__4BAC3F29" Association="Self.FK__Patients__ERelat__4BAC3F29">
+            <End Role="EmergencyRelationships" EntitySet="EmergencyRelationships" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__Gender__49C3F6B7" Association="Self.FK__Patients__Gender__49C3F6B7">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__Patient__4E88ABD4" Association="Self.FK__Intakes__Patient__4E88ABD4">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__Procedu__5070F446" Association="Self.FK__Intakes__Procedu__5070F446">
+            <End Role="Procedures" EntitySet="Procedures" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Intakes__RoomID__52593CB8" Association="Self.FK__Intakes__RoomID__52593CB8">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Intakes" EntitySet="Intakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patients__Parish__4AB81AF0" Association="Self.FK__Patients__Parish__4AB81AF0">
+            <End Role="Parishes" EntitySet="Parishes" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HGatesDesktopAppModel1StoreContainer" CdmEntityContainer="HGatesDesktopAppEntities1">
+          <EntitySetMapping Name="Conditions">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Condition">
+              <MappingFragment StoreEntitySet="Conditions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ConditionName" ColumnName="ConditionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Doctor">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LicensureDate" ColumnName="LicensureDate" />
+                <ScalarProperty Name="SpecializationID" ColumnName="SpecializationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmergencyRelationships">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.EmergencyRelationship">
+              <MappingFragment StoreEntitySet="EmergencyRelationships">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RelationshipType" ColumnName="RelationshipType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Gender">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Intakes">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Intake">
+              <MappingFragment StoreEntitySet="Intakes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="IntakeDate" ColumnName="IntakeDate" />
+                <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+                <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nurses">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Nurse">
+              <MappingFragment StoreEntitySet="Nurses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LicensureDate" ColumnName="LicensureDate" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parishes">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Parish">
+              <MappingFragment StoreEntitySet="Parishes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParishName" ColumnName="ParishName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ParishID" ColumnName="ParishID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="EContactNo" ColumnName="EContactNo" />
+                <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+                <ScalarProperty Name="ERelationshipID" ColumnName="ERelationshipID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Procedures">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Procedure">
+              <MappingFragment StoreEntitySet="Procedures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Room">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Specialization">
+              <MappingFragment StoreEntitySet="Specializations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpecializationName" ColumnName="SpecializationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
