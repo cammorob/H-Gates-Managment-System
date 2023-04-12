@@ -45,17 +45,18 @@ namespace H_Gates_Managment__System
         private void PatientList_Load(object sender, EventArgs e)
         {
             
-           // var Patient = _db.Patients.Select(q => new {q.Id,q.FirstName,q.LastName,q.DateOfBirth, q.GenderID}).ToList();
-
-            //dgvPatients.DataSource = Patient;
+           var Patient = _db.Patients.Select(q => new {q.Id,q.FirstName,q.LastName,q.DateOfBirth, q.GenderID}).ToList();
+            
+            dgvPatients.DataSource = Patient;
              
-;            
-
-           /*dgvPatients.Columns[0].HeaderText = "ID" ;
-            dgvPatients.Columns[1].HeaderText = "First Name";
-            dgvPatients.Columns[2].HeaderText = "Last Name";
-            dgvPatients.Columns[3].HeaderText = "Date of Birth";
-            dgvPatients.Columns[4].HeaderText = "Gender";*/
+;
+            dgvPatients.Columns[0].HeaderText = "";
+            dgvPatients.Columns[1].HeaderText="";
+           dgvPatients.Columns[2].HeaderText = "ID" ;
+            dgvPatients.Columns[3].HeaderText = "First Name";
+            dgvPatients.Columns[4].HeaderText = "Last Name";
+            dgvPatients.Columns[5].HeaderText = "Date of Birth";
+            dgvPatients.Columns[6].HeaderText = "Gender";
         }
 
         private void button1_Click(object sender, EventArgs e)
