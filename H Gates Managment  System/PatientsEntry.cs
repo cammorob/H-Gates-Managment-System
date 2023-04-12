@@ -12,11 +12,13 @@ namespace H_Gates_Managment__System
 {
     public partial class PatientsEntry : Form
     {
-        private readonly HGatesDesktopAppEntities _db;
+        //private readonly HGatesDesktopAppEntities _db;
+        private readonly HGatesDesktopAppEntities1 _db;
         public PatientsEntry()
         {
             InitializeComponent();
-            _db = new HGatesDesktopAppEntities();
+            //_db = new HGatesDesktopAppEntities();
+            _db = new HGatesDesktopAppEntities1();
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -50,6 +52,59 @@ namespace H_Gates_Managment__System
             cbRelationship.DisplayMember = "RelationshipType";
             cbRelationship.ValueMember = "Id";
             cbRelationship.DataSource = relationship;
+        }
+
+        private void Submitbtn_Click(object sender, EventArgs e)
+        {
+
+
+            string FirstName = tbFirstName.Text;
+            string LastName = tbLastName.Text;
+            string City = tbCity.Text;
+            var date = datePicker.Value;
+            string GenderM = MalePicker.ToString();
+            string Genderf = FemalePicker.ToString();
+            string Street = tbStreet.Text;
+            var Parish = cbParish.Text;
+            var Relationship = cbRelationship.Text;
+            string EmfirstName = EfirstName.Text;
+            string ELastName = ElastName.Text;
+            string Emaddress = Eaddress.Text;
+            var Emphone = Ephone.Text;
+
+            if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(Street) || string.IsNullOrWhiteSpace(Emphone) || string.IsNullOrWhiteSpace(ELastName) )
+            {
+
+
+                MessageBox.Show("Please Input the rest of the information");
+
+
+
+            }
+            else
+            {
+
+                MessageBox.Show("Submition Complete");
+
+                var PatiensEntry = new Patient();
+
+                PatiensEntry.FirstName = FirstName;
+                PatiensEntry.LastName = LastName;
+                PatiensEntry.StreetAddress = Street;
+                PatiensEntry.ContactName = EmfirstName;
+                PatiensEntry.ContactAddress = Emaddress;
+                PatiensEntry.EContactNo = Emphone;
+                PatiensEntry.City = City;
+                PatiensEntry.DateOfBirth = date;
+                
+
+
+            }
+
+
+
+
+
         }
     }
 }
