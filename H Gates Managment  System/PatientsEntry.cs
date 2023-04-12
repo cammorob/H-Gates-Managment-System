@@ -52,6 +52,11 @@ namespace H_Gates_Managment__System
             cbRelationship.DisplayMember = "RelationshipType";
             cbRelationship.ValueMember = "Id";
             cbRelationship.DataSource = relationship;
+
+            var gender = _db.Genders.ToList();
+            cbGender.DisplayMember = "ShortName";
+            cbGender.ValueMember = "Id";
+            cbGender.DataSource = gender;
         }
 
         private void Submitbtn_Click(object sender, EventArgs e)
@@ -62,8 +67,9 @@ namespace H_Gates_Managment__System
             string LastName = tbLastName.Text;
             string City = tbCity.Text;
             var date = datePicker.Value;
-            string GenderM = MalePicker.ToString();
-            string Genderf = FemalePicker.ToString();
+            var Gender = cbGender.Text;
+            //string GenderM = MalePicker.ToString();
+            // string Genderf = FemalePicker.ToString();
             string Street = tbStreet.Text;
             var Parish = cbParish.Text;
             var Relationship = cbRelationship.Text;
@@ -96,7 +102,12 @@ namespace H_Gates_Managment__System
                 PatiensEntry.EContactNo = Emphone;
                 PatiensEntry.City = City;
                 PatiensEntry.DateOfBirth = date;
-                
+                PatiensEntry.GenderID = (int)cbGender.SelectedValue;
+                PatiensEntry.ParishID = (int)cbParish.SelectedValue;
+                PatiensEntry.ERelationshipID = (int)cbRelationship.SelectedValue;
+
+                _db.Patients.Add(PatiensEntry);
+                _db.SaveChanges();
 
 
             }

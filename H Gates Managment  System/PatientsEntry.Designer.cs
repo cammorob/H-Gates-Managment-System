@@ -37,8 +37,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.MalePicker = new System.Windows.Forms.RadioButton();
-            this.FemalePicker = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tbStreet = new System.Windows.Forms.TextBox();
@@ -64,6 +62,7 @@
             this.btLogout = new System.Windows.Forms.Button();
             this.C_UserLabel = new System.Windows.Forms.Label();
             this.cbParish = new System.Windows.Forms.ComboBox();
+            this.cbGender = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -151,28 +150,6 @@
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Gender: ";
-            // 
-            // MalePicker
-            // 
-            this.MalePicker.AutoSize = true;
-            this.MalePicker.Location = new System.Drawing.Point(76, 161);
-            this.MalePicker.Name = "MalePicker";
-            this.MalePicker.Size = new System.Drawing.Size(51, 17);
-            this.MalePicker.TabIndex = 11;
-            this.MalePicker.TabStop = true;
-            this.MalePicker.Text = "Male ";
-            this.MalePicker.UseVisualStyleBackColor = true;
-            // 
-            // FemalePicker
-            // 
-            this.FemalePicker.AutoSize = true;
-            this.FemalePicker.Location = new System.Drawing.Point(144, 161);
-            this.FemalePicker.Name = "FemalePicker";
-            this.FemalePicker.Size = new System.Drawing.Size(59, 17);
-            this.FemalePicker.TabIndex = 12;
-            this.FemalePicker.TabStop = true;
-            this.FemalePicker.Text = "Female";
-            this.FemalePicker.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -435,11 +412,20 @@
             this.cbParish.Size = new System.Drawing.Size(180, 21);
             this.cbParish.TabIndex = 23;
             // 
+            // cbGender
+            // 
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Location = new System.Drawing.Point(96, 159);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(121, 21);
+            this.cbGender.TabIndex = 24;
+            // 
             // PatientsEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 450);
+            this.Controls.Add(this.cbGender);
             this.Controls.Add(this.cbParish);
             this.Controls.Add(this.Submitbtn);
             this.Controls.Add(this.tbStreet);
@@ -450,8 +436,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.FemalePicker);
-            this.Controls.Add(this.MalePicker);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.label5);
@@ -484,8 +468,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton MalePicker;
-        private System.Windows.Forms.RadioButton FemalePicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbStreet;
@@ -511,5 +493,6 @@
         private System.Windows.Forms.Button Btback;
         private System.Windows.Forms.ComboBox cbParish;
         private System.Windows.Forms.ComboBox cbRelationship;
+        private System.Windows.Forms.ComboBox cbGender;
     }
 }
