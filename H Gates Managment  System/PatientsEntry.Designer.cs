@@ -138,7 +138,7 @@
             // 
             this.datePicker.Location = new System.Drawing.Point(127, 195);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(129, 20);
+            this.datePicker.Size = new System.Drawing.Size(104, 20);
             this.datePicker.TabIndex = 9;
             // 
             // label6
