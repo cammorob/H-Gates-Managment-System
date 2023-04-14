@@ -13,10 +13,10 @@ namespace H_Gates_Managment__System
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HGatesDesktopAppEntities1 : DbContext
+    public partial class HGatesDesktopApp : DbContext
     {
-        public HGatesDesktopAppEntities1()
-            : base("name=HGatesDesktopAppEntities1")
+        public HGatesDesktopApp()
+            : base("name=HGatesDesktopApp")
         {
         }
     

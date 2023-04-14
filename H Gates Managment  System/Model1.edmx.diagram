@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f834609ff4a047379dc7e697a8257b0b" Name="Diagram1">
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Condition" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Doctor" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.EmergencyRelationship" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Gender" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Intake" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Nurse" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Parish" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Patient" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Procedure" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Room" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Specialization" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__Conditi__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Doctors__Special__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__DoctorI__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Nurses__DoctorID__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Patients__ERelat__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Patients__Gender__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__Patient__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__Procedu__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__RoomID__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="HGatesDesktopAppModel1.FK__Patients__Parish__4AB81AF0" ManuallyRouted="false" />
+      <Diagram DiagramId="0f0cee1cc26c46a1883a5ad388cf719d" Name="Diagram1">
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Condition" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Doctor" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.EmergencyRelationship" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Gender" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Intake" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Nurse" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Parish" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Patient" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Procedure" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Room" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGatesDesktopAppMode.Specialization" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Intakes__Conditi__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Doctors__Special__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Intakes__DoctorI__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Nurses__DoctorID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Patients__ERelat__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Patients__Gender__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Intakes__Patient__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Intakes__Procedu__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Intakes__RoomID__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="HGatesDesktopAppMode.FK__Patients__Parish__4AB81AF0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

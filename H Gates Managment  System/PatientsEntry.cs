@@ -13,13 +13,13 @@ namespace H_Gates_Managment__System
 {
     public partial class PatientsEntry : Form
     {
-        private readonly HGatesDesktopAppEntities _db;
-       // private readonly HGatesDesktopAppEntities1 _db;
+        // private readonly HGatesDesktopAppEntities _db;
+        private readonly HGatesDesktopApp _db;
         public PatientsEntry()
         {
             InitializeComponent();
-            _db = new HGatesDesktopAppEntities();
-           // _db = new HGatesDesktopAppEntities1();
+            //_db = new HGatesDesktopAppEntities();
+           _db = new HGatesDesktopApp();
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -113,6 +113,11 @@ namespace H_Gates_Managment__System
                 _db.SaveChanges();
 
 
+                ReserForm();
+
+
+
+
             }
 
 
@@ -121,19 +126,24 @@ namespace H_Gates_Managment__System
 
         }
 
-
+        
 
         void ReserForm()
 
         {
 
-
-
-
-
+            tbFirstName.Clear();
+            tbLastName.Clear();
+            tbStreet.Clear();
+            tbCity.Clear();          
+            Eaddress.Clear();
+            EfirstName.Clear();
+            ElastName.Clear();
+            Eaddress.Clear();  
+            Ephone.Clear();
 
         }
-
+        
 
     }
 }
