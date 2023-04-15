@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btPrevious = new System.Windows.Forms.Button();
+            this.BtNext = new System.Windows.Forms.Button();
             this.dgvPatients = new System.Windows.Forms.DataGridView();
             this.PbSearch = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -59,8 +61,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.BtNext = new System.Windows.Forms.Button();
-            this.btPrevious = new System.Windows.Forms.Button();
             this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -107,6 +107,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(580, 376);
             this.panel2.TabIndex = 0;
+            // 
+            // btPrevious
+            // 
+            this.btPrevious.Location = new System.Drawing.Point(205, 342);
+            this.btPrevious.Name = "btPrevious";
+            this.btPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btPrevious.TabIndex = 5;
+            this.btPrevious.Text = "Previous";
+            this.btPrevious.UseVisualStyleBackColor = true;
+            // 
+            // BtNext
+            // 
+            this.BtNext.Location = new System.Drawing.Point(311, 342);
+            this.BtNext.Name = "BtNext";
+            this.BtNext.Size = new System.Drawing.Size(75, 23);
+            this.BtNext.TabIndex = 4;
+            this.BtNext.Text = "Next";
+            this.BtNext.UseVisualStyleBackColor = true;
+            this.BtNext.Click += new System.EventHandler(this.BtNext_Click);
             // 
             // dgvPatients
             // 
@@ -155,6 +174,7 @@
             this.btAddPatient.Text = "Add Patient";
             this.btAddPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btAddPatient.UseVisualStyleBackColor = false;
+            this.btAddPatient.Click += new System.EventHandler(this.btAddPatient_Click);
             // 
             // panel3
             // 
@@ -251,6 +271,7 @@
             this.btUpDateDetails.TabIndex = 10;
             this.btUpDateDetails.Text = "Up Date Detials";
             this.btUpDateDetails.UseVisualStyleBackColor = false;
+            this.btUpDateDetails.Click += new System.EventHandler(this.btUpDateDetails_Click);
             // 
             // btViewEContact
             // 
@@ -261,6 +282,7 @@
             this.btViewEContact.TabIndex = 9;
             this.btViewEContact.Text = "View Emergency Contact";
             this.btViewEContact.UseVisualStyleBackColor = false;
+            this.btViewEContact.Click += new System.EventHandler(this.btViewEContact_Click);
             // 
             // label9
             // 
@@ -377,25 +399,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // BtNext
-            // 
-            this.BtNext.Location = new System.Drawing.Point(311, 342);
-            this.BtNext.Name = "BtNext";
-            this.BtNext.Size = new System.Drawing.Size(75, 23);
-            this.BtNext.TabIndex = 4;
-            this.BtNext.Text = "Next";
-            this.BtNext.UseVisualStyleBackColor = true;
-            this.BtNext.Click += new System.EventHandler(this.BtNext_Click);
-            // 
-            // btPrevious
-            // 
-            this.btPrevious.Location = new System.Drawing.Point(205, 342);
-            this.btPrevious.Name = "btPrevious";
-            this.btPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btPrevious.TabIndex = 5;
-            this.btPrevious.Text = "Previous";
-            this.btPrevious.UseVisualStyleBackColor = true;
             // 
             // patientListBindingSource
             // 

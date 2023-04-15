@@ -12,21 +12,23 @@ using System.Data.SqlClient;
 using System.Net.NetworkInformation;
 using MySql.Data.MySqlClient;
 using RestSharp.Extensions;
+using System.Windows.Forms.VisualStyles;
+using System.Runtime.Remoting.Contexts;
 
 namespace H_Gates_Managment__System
 {
     public partial class PatientList : Form
     {
         private MainPage mainPage;
-        //private readonly HGatesDesktopAppEntities _db;
+        private readonly HGatesDesktopAppEntities _db;
 
-        private readonly HGatesDesktopApp _db;
+        //private readonly HGatesDesktopApp _db;
 
         public PatientList()
         {
             InitializeComponent();
-            //_db = new HGatesDesktopAppEntities();
-           _db = new HGatesDesktopApp();
+            _db = new HGatesDesktopAppEntities();
+          // _db = new HGatesDesktopApp();
             
         }
 
@@ -71,51 +73,44 @@ namespace H_Gates_Managment__System
 
                 throw;
             }
-           
-            
-
-            
-            void RefreshGridView()
-            {
-                
-                while (dgvPatients.Rows.Count<10)
-                {
-                    var Patient = _db.Patients.Select(q => new
-                    { q.Id, q.FirstName, q.LastName, q.DateOfBirth, q.GenderID,q.StreetAddress,q.ParishID }).ToList();
-
-                    dgvPatients.DataSource = Patient;
-                }
-                
-            }
-   
 
         }
 
-        int GetSelectedRow()
+        Patient GetSelectedRow(int Id)
         {
-            int selected = (int)dgvPatients.SelectedRows[0].Cells[0].Value;
-            return selected;
-           
+            var patient = _db.Patients.Find(Id);
+            return patient;
+
+        }
+        void RefreshGridView()
+        {
+
+            while (dgvPatients.Rows.Count < 10)
+            {
+                var Patient = _db.Patients.Select(q => new
+                { q.Id, q.FirstName, q.LastName, q.DateOfBirth, q.GenderID, q.StreetAddress, q.ParishID }).ToList();
+
+                dgvPatients.DataSource = Patient;
+            }
 
         }
 
 
 
 
-
-
+        public static int rowid;
         private void dgvPatients_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 var selected = dgvPatients.SelectedRows[0];
 
-
+               
                 tbIDNo.Text = selected.Cells["Id"].Value.ToString();
 
-
-                //dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
-                tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
+               rowid = Convert.ToInt32(tbIDNo.Text); 
+               //dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
+               tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
                 tbLastName.Text = selected.Cells["LastName"].Value.ToString();
 
                 tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
@@ -131,11 +126,53 @@ namespace H_Gates_Managment__System
             
             
             }
+            Patient GetPatientByID(int Id)
+            {
+                var patient = _db.Patients.Find(Id);
+                return patient;
+            }
+
+
+
+        }
+
+        private void btUpDateDetails_Click(object sender, EventArgs e)
+        {
+            try { 
+            var patient = GetSelectedRow(rowid);
+            patient.FirstName = tbFirstName.Text;
+            patient.LastName = tbLastName.Text;
+            patient.GenderID=Convert.ToInt32(tbGender.Text);
+            patient.DateOfBirth=Convert.ToDateTime(tbDateOFBirth.Text);
+            patient.StreetAddress=tbStreetAddress.Text;
+            patient.ParishID=Convert.ToInt32(tbParish.Text);
+
+                _db.SaveChanges();
+                MessageBox.Show("Patient successfully updated.");
+
+                RefreshGridView();
+
+
+
+
+
+
+
+            }
+            catch(Exception) 
+            
+            {
+
+                MessageBox.Show( "Server Unreachable, Please contact Administrator.");
+            }
 
 
 
 
         }
+
+
+
 
         private void BtNext_Click(object sender, EventArgs e)
         {
@@ -146,36 +183,6 @@ namespace H_Gates_Managment__System
 
             
         }
-
-
-
-
-
-
-
-        /* int GetSelectedRow()
-         {
-             int selected = (int)dgvPatients.SelectedRows[0].Cells[0].Value;
-             return selected;
-
-         }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -227,6 +234,20 @@ namespace H_Gates_Managment__System
             }
         }
 
+        private void btAddPatient_Click(object sender, EventArgs e)
+        {
+            var PatientsEntry = new PatientsEntry();
+            PatientsEntry.Show();
+            Hide();
+        }
+
+        private void btViewEContact_Click(object sender, EventArgs e)
+        {
+            var View_Emergency_Contact = new View_Emergency_contact();
+            View_Emergency_Contact.Show();
+        }
+
+       
     }
 }
 

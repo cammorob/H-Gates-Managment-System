@@ -16,9 +16,9 @@ namespace H_Gates_Managment__System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new loginPage());
+            Application.Run(new loginPage());
             Application.Run(new PatientsEntry());
-            //Application.Run(new PatientList());
+            Application.Run(new PatientList());
         }
     }
 }

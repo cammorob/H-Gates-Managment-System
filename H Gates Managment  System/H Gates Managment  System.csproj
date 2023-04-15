@@ -359,6 +359,12 @@
     <Compile Include="User.cs">
       <DependentUpon>HospitalDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_Emergency_Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View_Emergency_Contact.Designer.cs">
+      <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="loginPage.resx">
       <DependentUpon>loginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +386,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View_Emergency_Contact.resx">
+      <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="HospitalDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HospitalDb.Designer.cs</LastGenOutput>
