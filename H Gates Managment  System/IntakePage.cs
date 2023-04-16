@@ -12,8 +12,15 @@ namespace H_Gates_Managment__System
 {
     public partial class IntakePage : Form
     {
+        private readonly HGatesDesktopApp _db;
+
+        private readonly HGatesDesktopAppEntities _db;
         public IntakePage()
         {
+            _db = new HGatesDesktopApp();
+            _db = new HGatesDesktopAppEntities();
+
+
             InitializeComponent();
         }
     }
