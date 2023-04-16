@@ -51,12 +51,7 @@ namespace H_Gates_Managment__System
             }
         }
        
-        private void BtAddPatients_Click(object sender, EventArgs e)
-        {
-            var PatientsEntry =new PatientsEntry();
-            PatientsEntry.Show();
-            Hide(); 
-        }
+       
 
         private void btLogout_Click(object sender, EventArgs e)
         {
@@ -64,5 +59,22 @@ namespace H_Gates_Managment__System
             loginPage.Show();
             Hide();
         }
+
+        private void bAddPatients_Click(object sender, EventArgs e)
+        {
+            var PatientsEntry = new PatientsEntry();
+            PatientsEntry.Show();
+            Hide();
+        }
+
+        private void LabelAddPatients_Click(object sender, EventArgs e)
+        {
+            var PatientsEntry = new PatientsEntry();
+            PatientsEntry.Show();
+            Hide();
+        }
+
+        
     }
-}
+    }
+    

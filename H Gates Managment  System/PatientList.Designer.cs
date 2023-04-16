@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientList));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.C_UserLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btPrevious = new System.Windows.Forms.Button();
             this.BtNext = new System.Windows.Forms.Button();
@@ -40,6 +42,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btAddPatient = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btDeletePatient = new System.Windows.Forms.Button();
             this.tbParish = new System.Windows.Forms.TextBox();
             this.tbStreetAddress = new System.Windows.Forms.TextBox();
             this.tbAge = new System.Windows.Forms.TextBox();
@@ -61,8 +64,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btLogout = new System.Windows.Forms.Button();
             this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btDeletePatient = new System.Windows.Forms.Button();
+            this.BTHome = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
@@ -85,12 +89,40 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.BTHome);
+            this.panel1.Controls.Add(this.btLogout);
+            this.panel1.Controls.Add(this.C_UserLabel);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(981, 76);
             this.panel1.TabIndex = 0;
+            // 
+            // C_UserLabel
+            // 
+            this.C_UserLabel.AutoSize = true;
+            this.C_UserLabel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_UserLabel.Location = new System.Drawing.Point(711, 30);
+            this.C_UserLabel.Name = "C_UserLabel";
+            this.C_UserLabel.Size = new System.Drawing.Size(38, 15);
+            this.C_UserLabel.TabIndex = 16;
+            this.C_UserLabel.Text = "  User";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(630, 30);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 15);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Current User:";
             // 
             // panel2
             // 
@@ -106,7 +138,7 @@
             this.panel2.Controls.Add(this.btAddPatient);
             this.panel2.Location = new System.Drawing.Point(401, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(580, 376);
+            this.panel2.Size = new System.Drawing.Size(568, 376);
             this.panel2.TabIndex = 0;
             // 
             // btPrevious
@@ -145,7 +177,7 @@
             this.PbSearch.BackColor = System.Drawing.SystemColors.Control;
             this.PbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbSearch.Image = ((System.Drawing.Image)(resources.GetObject("PbSearch.Image")));
-            this.PbSearch.Location = new System.Drawing.Point(522, 27);
+            this.PbSearch.Location = new System.Drawing.Point(510, 27);
             this.PbSearch.Name = "PbSearch";
             this.PbSearch.Size = new System.Drawing.Size(30, 18);
             this.PbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,7 +188,7 @@
             // tbSearch
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearch.Location = new System.Drawing.Point(378, 27);
+            this.tbSearch.Location = new System.Drawing.Point(366, 27);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(152, 18);
@@ -200,6 +232,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(405, 376);
             this.panel3.TabIndex = 1;
+            // 
+            // btDeletePatient
+            // 
+            this.btDeletePatient.BackColor = System.Drawing.Color.Red;
+            this.btDeletePatient.Location = new System.Drawing.Point(259, 342);
+            this.btDeletePatient.Name = "btDeletePatient";
+            this.btDeletePatient.Size = new System.Drawing.Size(115, 23);
+            this.btDeletePatient.TabIndex = 18;
+            this.btDeletePatient.Text = "Delete Selected Record";
+            this.btDeletePatient.UseVisualStyleBackColor = false;
+            this.btDeletePatient.Click += new System.EventHandler(this.btDeletePatient_Click);
             // 
             // tbParish
             // 
@@ -402,20 +445,30 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btLogout
+            // 
+            this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogout.Location = new System.Drawing.Point(878, 26);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 17;
+            this.btLogout.Text = "Log Out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            // 
             // patientListBindingSource
             // 
             this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
             // 
-            // btDeletePatient
+            // BTHome
             // 
-            this.btDeletePatient.BackColor = System.Drawing.Color.Red;
-            this.btDeletePatient.Location = new System.Drawing.Point(259, 342);
-            this.btDeletePatient.Name = "btDeletePatient";
-            this.btDeletePatient.Size = new System.Drawing.Size(115, 23);
-            this.btDeletePatient.TabIndex = 18;
-            this.btDeletePatient.Text = "Delete Selected Record";
-            this.btDeletePatient.UseVisualStyleBackColor = false;
-            this.btDeletePatient.Click += new System.EventHandler(this.btDeletePatient_Click);
+            this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTHome.Location = new System.Drawing.Point(797, 26);
+            this.BTHome.Name = "BTHome";
+            this.BTHome.Size = new System.Drawing.Size(75, 23);
+            this.BTHome.TabIndex = 18;
+            this.BTHome.Text = "Home";
+            this.BTHome.UseVisualStyleBackColor = true;
+            this.BTHome.Click += new System.EventHandler(this.BTHome_Click);
             // 
             // PatientList
             // 
@@ -428,7 +481,7 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PatientList";
-            this.Text = "000";
+            this.Text = "MainPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientList_FormClosing);
             this.Load += new System.EventHandler(this.PatientList_Load);
             this.panel1.ResumeLayout(false);
@@ -481,5 +534,9 @@
         private System.Windows.Forms.Button btPrevious;
         private System.Windows.Forms.Button BtNext;
         private System.Windows.Forms.Button btDeletePatient;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label C_UserLabel;
+        private System.Windows.Forms.Button btLogout;
+        private System.Windows.Forms.Button BTHome;
     }
 }

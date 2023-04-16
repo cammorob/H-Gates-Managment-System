@@ -361,11 +361,11 @@
             // Btback
             // 
             this.Btback.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btback.Location = new System.Drawing.Point(379, 18);
+            this.Btback.Location = new System.Drawing.Point(621, 17);
             this.Btback.Name = "Btback";
             this.Btback.Size = new System.Drawing.Size(94, 21);
             this.Btback.TabIndex = 18;
-            this.Btback.Text = "Back";
+            this.Btback.Text = "Home";
             this.Btback.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Btback.UseVisualStyleBackColor = true;
             this.Btback.Click += new System.EventHandler(this.Btback_Click);
@@ -375,19 +375,19 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.SystemColors.HighlightText;
             this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(509, 17);
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(486, 20);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(117, 20);
+            this.label17.Size = new System.Drawing.Size(85, 15);
             this.label17.TabIndex = 14;
             this.label17.Text = "Current User:";
             // 
             // btLogout
             // 
             this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(717, 14);
+            this.btLogout.Location = new System.Drawing.Point(717, 17);
             this.btLogout.Name = "btLogout";
-            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.Size = new System.Drawing.Size(75, 20);
             this.btLogout.TabIndex = 13;
             this.btLogout.Text = "Log Out";
             this.btLogout.UseVisualStyleBackColor = true;
@@ -397,10 +397,10 @@
             this.C_UserLabel.AutoSize = true;
             this.C_UserLabel.BackColor = System.Drawing.SystemColors.HighlightText;
             this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C_UserLabel.Location = new System.Drawing.Point(636, 18);
+            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_UserLabel.Location = new System.Drawing.Point(568, 20);
             this.C_UserLabel.Name = "C_UserLabel";
-            this.C_UserLabel.Size = new System.Drawing.Size(46, 19);
+            this.C_UserLabel.Size = new System.Drawing.Size(38, 15);
             this.C_UserLabel.TabIndex = 2;
             this.C_UserLabel.Text = "  User";
             // 

@@ -48,7 +48,10 @@ namespace H_Gates_Managment__System
 
         public void PatientList_Load(object sender, EventArgs e)
         {
-
+            if (loginPage.CurrentUser != null)
+            {
+                C_UserLabel.Text = loginPage.CurrentUser;
+            }
             try
             {
                 RefreshGridView();
@@ -281,6 +284,13 @@ namespace H_Gates_Managment__System
             
             }
             
+        }
+
+        private void BTHome_Click(object sender, EventArgs e)
+        {
+            var MainPage = new MainPage();
+            MainPage.Show();
+            Hide();
         }
     }
 }
