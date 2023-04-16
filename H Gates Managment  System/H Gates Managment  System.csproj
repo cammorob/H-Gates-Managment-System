@@ -297,6 +297,24 @@
     <Compile Include="Intake.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="IntakeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntakeList.Designer.cs">
+      <DependentUpon>IntakeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntakeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntakeManagement.Designer.cs">
+      <DependentUpon>IntakeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntakePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntakePage.Designer.cs">
+      <DependentUpon>IntakePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="loginPage.cs">
       <SubType>Form</SubType>
     </Compile>
