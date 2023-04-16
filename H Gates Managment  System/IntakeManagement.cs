@@ -28,7 +28,8 @@ namespace H_Gates_Managment__System
         {
 
 
-            var Intake = _db.Intakes.ToList();
+            //var Intake = _db.Intakes.ToList();
+            var Intake = _db.Intakes.Select(w => new { ID = w.PatientID, Intake_Date = w.IntakeDate, Condition = w.ConditionID, Procedure = w.ProcedureID, Doctor = w.DoctorID, Room = w.RoomID} ) . ToList();
             dvIntake_Managment_list.DataSource = Intake;
 
 
