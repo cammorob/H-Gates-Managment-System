@@ -31,14 +31,19 @@ namespace H_Gates_Managment__System
 
                 var username = tbUserName.Text.Trim();
                 var password = tbPassword.Text;
-                
+                 
                 var user =_db.Users.FirstOrDefault(q=>q.username== username && q.password == password);
 
                 if (user == null)
                 {
                     MessageBox.Show("Please provide valid credentials");
+                    tbUserName.Clear();
+                    tbPassword.Clear();
+
                 
                 }
+               
+
                 else
                 {
                     var MainPage = new MainPage(this);
@@ -56,7 +61,9 @@ namespace H_Gates_Managment__System
             catch (Exception)
             {
                 MessageBox.Show("Something went wrong. Please try again");
-                
+                tbUserName.Clear();
+                tbPassword.Clear();
+
             }
         }
 
