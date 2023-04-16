@@ -386,6 +386,9 @@
     <EmbeddedResource Include="IntakeList.resx">
       <DependentUpon>IntakeList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IntakeManagement.resx">
+      <DependentUpon>IntakeManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IntakePage.resx">
       <DependentUpon>IntakePage.cs</DependentUpon>
     </EmbeddedResource>

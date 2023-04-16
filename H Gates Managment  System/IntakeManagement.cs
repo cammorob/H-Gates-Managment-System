@@ -23,5 +23,15 @@ namespace H_Gates_Managment__System
             //_db = new HGatesDesktopAppEntities();
             InitializeComponent();
         }
+
+        private void IntakeManagement_Load(object sender, EventArgs e)
+        {
+
+
+            var Intake = _db.Intakes.ToList();
+            dvIntake_Managment_list.DataSource = Intake;
+
+
+        }
     }
 }
