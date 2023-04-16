@@ -95,7 +95,7 @@ namespace H_Gates_Managment__System
 
 
 
-                SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,Parishes.ParishName,Patients.EContactNo from [dbo].[Patients]"+
+                SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,RPatients.EContactNo from [dbo].[Patients]"+
                    " inner join [dbo].EmergencyRelationships  on Patients.Id =EmergencyRelationships.Id"+
                 "inner join [dbo].Parishes on Patients.ID=Parishes.Id", conn);
                 SqlDataAdapter adapter = new SqlDataAdapter();

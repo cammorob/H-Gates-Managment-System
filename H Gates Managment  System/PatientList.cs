@@ -85,7 +85,7 @@ namespace H_Gates_Managment__System
         void RefreshGridView()
         {
 
-            while (dgvPatients.Rows.Count < 10)
+          //  while (dgvPatients.Rows.Count ==100)
             {
                 var Patient = _db.Patients.Select(q => new
                 { q.Id, q.FirstName, q.LastName, q.DateOfBirth, q.GenderID, q.StreetAddress, q.ParishID }).ToList();
@@ -129,15 +129,17 @@ namespace H_Gates_Managment__System
             
             
             }
-            Patient GetPatientByID(int Id)
-            {
-                var patient = _db.Patients.Find(Id);
-                return patient;
-            }
-
+            
 
 
         }
+
+        Patient GetPatientByID(int Id)
+        {
+            var patient = _db.Patients.Find(Id);
+            return patient;
+        }
+
 
         private void btUpDateDetails_Click(object sender, EventArgs e)
         {
@@ -205,18 +207,18 @@ namespace H_Gates_Managment__System
         private void PbSearch_Click(object sender, EventArgs e)
         {
             string searchValue =  tbSearch.Text;
-            //int rowIndex=1;
+            var rowIndex=0;
             dgvPatients.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
             try
             {
                 bool valueResult = true;
                 foreach (DataGridViewRow row in dgvPatients.Rows)
                 {
-                    for (int i = 0; i < row.Cells.Count; i++)
+                    for (int i = 1; i < row.Cells.Count; i++)
                     {
                         if (row.Cells[i].Value != null && row.Cells[i].Value.ToString()== (searchValue))
                         {
-                           int rowIndex = row.Index;
+                           //rowIndex = row.Index;
                             dgvPatients.Rows[rowIndex].Selected = true;
                             
                             valueResult = false;
@@ -254,7 +256,32 @@ namespace H_Gates_Managment__System
             View_Emergency_Contact.Show();
         }
 
-       
+        private void btDeletePatient_Click(object sender, EventArgs e)
+        {
+            int rowid = PatientList.rowid;
+
+            try
+            {
+                if (MessageBox.Show("Do You Want To Remove This Record", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    var patient = GetPatientByID(rowid);
+                    _db.Patients.Remove(patient);
+                    _db.SaveChanges();
+                    MessageBox.Show("Record Delete Successfully.");
+                    dgvPatients.Refresh();
+
+                }
+            }
+
+            catch (Exception exc) 
+            { 
+            
+            
+            
+            
+            }
+            
+        }
     }
 }
 

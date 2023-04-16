@@ -62,6 +62,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btDeletePatient = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
@@ -178,6 +179,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btDeletePatient);
             this.panel3.Controls.Add(this.tbParish);
             this.panel3.Controls.Add(this.tbStreetAddress);
             this.panel3.Controls.Add(this.tbAge);
@@ -404,6 +406,17 @@
             // 
             this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
             // 
+            // btDeletePatient
+            // 
+            this.btDeletePatient.BackColor = System.Drawing.Color.Red;
+            this.btDeletePatient.Location = new System.Drawing.Point(259, 342);
+            this.btDeletePatient.Name = "btDeletePatient";
+            this.btDeletePatient.Size = new System.Drawing.Size(115, 23);
+            this.btDeletePatient.TabIndex = 18;
+            this.btDeletePatient.Text = "Delete Selected Record";
+            this.btDeletePatient.UseVisualStyleBackColor = false;
+            this.btDeletePatient.Click += new System.EventHandler(this.btDeletePatient_Click);
+            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,5 +480,6 @@
         private System.Windows.Forms.DataGridView dgvPatients;
         private System.Windows.Forms.Button btPrevious;
         private System.Windows.Forms.Button BtNext;
+        private System.Windows.Forms.Button btDeletePatient;
     }
 }
