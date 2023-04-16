@@ -30,8 +30,8 @@
         {
             this.dvIntake_Managment_list = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Editbt = new System.Windows.Forms.Button();
+            this.Deletebt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvIntake_Managment_list)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,31 +55,33 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Intake Data Management System";
             // 
-            // button2
+            // Editbt
             // 
-            this.button2.Location = new System.Drawing.Point(641, 100);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 72);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Edit Intake List";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Editbt.Location = new System.Drawing.Point(641, 100);
+            this.Editbt.Name = "Editbt";
+            this.Editbt.Size = new System.Drawing.Size(166, 72);
+            this.Editbt.TabIndex = 6;
+            this.Editbt.Text = "Edit Intake List";
+            this.Editbt.UseVisualStyleBackColor = true;
+            this.Editbt.Click += new System.EventHandler(this.Editbt_Click);
             // 
-            // button3
+            // Deletebt
             // 
-            this.button3.Location = new System.Drawing.Point(641, 224);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 79);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Delete Intake List";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Deletebt.Location = new System.Drawing.Point(641, 224);
+            this.Deletebt.Name = "Deletebt";
+            this.Deletebt.Size = new System.Drawing.Size(166, 79);
+            this.Deletebt.TabIndex = 7;
+            this.Deletebt.Text = "Delete Intake List";
+            this.Deletebt.UseVisualStyleBackColor = true;
+            this.Deletebt.Click += new System.EventHandler(this.Deletebt_Click);
             // 
             // IntakeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 541);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Deletebt);
+            this.Controls.Add(this.Editbt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dvIntake_Managment_list);
             this.Name = "IntakeManagement";
@@ -95,7 +97,7 @@
 
         private System.Windows.Forms.DataGridView dvIntake_Managment_list;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Editbt;
+        private System.Windows.Forms.Button Deletebt;
     }
 }
