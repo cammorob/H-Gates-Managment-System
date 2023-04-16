@@ -71,7 +71,7 @@
             this.Emergencydgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Emergencydgv.Location = new System.Drawing.Point(84, 34);
             this.Emergencydgv.Name = "Emergencydgv";
-            this.Emergencydgv.Size = new System.Drawing.Size(523, 66);
+            this.Emergencydgv.Size = new System.Drawing.Size(523, 54);
             this.Emergencydgv.TabIndex = 12;
             // 
             // btUpDateEmergency

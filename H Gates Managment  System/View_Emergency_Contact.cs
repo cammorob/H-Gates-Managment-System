@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +28,7 @@ namespace H_Gates_Managment__System
         //private readonly HGatesDesktopApp _db;
         public View_Emergency_contact()
         {
+            
             InitializeComponent();
             _db = new HGatesDesktopAppEntities();
             // _db = new HGatesDesktopApp();
@@ -33,16 +37,34 @@ namespace H_Gates_Managment__System
 
         private void btExit_Click(object sender, EventArgs e)
         {
+            Emergencydgv.Refresh();
+            
             Hide();
         }
-        //public static int Rowid;
+       
         private void View_Emergency_contact_Load(object sender, EventArgs e)
         {
+            //populate address and Relationship list for update when necessary
+            var addr = _db.Parishes.ToList();
+            tbEAddress.DisplayMember = "ParishName";
+            tbEAddress.ValueMember = "Id";
+            tbEAddress.DataSource = addr;
+
+            var relation =_db.EmergencyRelationships.ToList();
+            tbERelationship.DisplayMember = "RelationshipType";
+            tbERelationship.ValueMember = "Id";
+            tbERelationship.DataSource = relation;
+                
+
 
             //PatientList patientList = new PatientList();
             var patient = _db.Patients.FirstOrDefault(x => x.Id == PatientList.rowid);
             var Contactname = patient.ContactName;
-           
+            var Erelation = _db.EmergencyRelationships.FirstOrDefault(r => r.Id == r.Id);
+            var erelation = Erelation.RelationshipType;
+            var PName = _db.Parishes.FirstOrDefault(p=>p.Id == p.Id);
+            var pName = PName.ParishName;
+
             try
             {
             RefreshGrid();
@@ -57,41 +79,44 @@ namespace H_Gates_Managment__System
                 throw;
             }
         }
-       /* Patient GetSelectedRow(int Id)
-        {
-            var patient = _db.Patients.Find(Id);
-            return patient;
-
-        }*/
-
 
 
         void RefreshGrid()
         {
 
-
             try
             {
-                var pd = _db.Patients.FirstOrDefault(x => x.Id == PatientList.rowid);
-                var emergency = _db.Patients.Where(x => x.Id == PatientList.rowid).Select(q => new
+                // var connstring = "Server= DESKTOP-CVIOCU7\\SQLEXPRESS; Initial Catalog=HGateDesktopAdd;Intergrated Security=true";
+                var connstring = "data source=DESKTOP-CVIOCU7\\SQLEXPRESS;initial catalog=HGatesDesktopApp;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
 
-                {
-                    q.ContactName,
-                    q.EmergencyRelationship,
-                    q.ERelationshipID,
-                    q.EContactNo
-                }
-                 ).ToList();
-                Emergencydgv.DataSource = emergency;
+                SqlConnection conn = new SqlConnection(connstring);
+                conn.Open();
+
+
+
+
+                SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,Parishes.ParishName,Patients.EContactNo from [dbo].[Patients]"+
+                   " inner join [dbo].EmergencyRelationships  on Patients.Id =EmergencyRelationships.Id"+
+                "inner join [dbo].Parishes on Patients.ID=Parishes.Id", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                
+
+                Emergencydgv.DataSource = dataTable;
+                
             }
-            catch (Exception)
+            catch (Exception ex) 
             {
-
-                throw;
-            } 
-
-
+            
+            
+            
+            
+            }
+           
         }
+
         int GetSelectedRow()
         {
             int row = (int)Emergencydgv.SelectedRows[0].Cells[0].Value;
@@ -102,34 +127,54 @@ namespace H_Gates_Managment__System
             var patient = _db.Patients.Find(Id);
             return patient;
         }
+        EmergencyRelationship GetEID(int Id)
+        {
+            var erelation = _db.EmergencyRelationships.Find(Id);
+            return erelation;
+
+        }
+
+        Parish GetPID(int Id)
+        {
+            var pName = _db.Parishes.Find(Id);
+            return pName;
+
+
+        }
 
 
 
+        //Update Emergency Contact
         private void btUpDateEmergency_Click(object sender, EventArgs e)
         {
-            
-            int rowid=PatientList.rowid;
+
+            int rowid = PatientList.rowid;
             try
             {
-                var patient = GetPatientByID(rowid);
-                patient.ContactName = tbEName.Text;
-                patient.EContactNo=tbENumber.Text;
-                patient.ContactName =tbEAddress.Text ;
-                patient.
-              
-
-                _db.SaveChanges();
-                RefreshGrid();
-                MessageBox.Show("Patient successfully updated.");
-
-           // RefreshGridView();
+                {
+                    var patient = GetPatientByID(rowid);
+                    var erelation = GetEID(rowid);
+                    var pName = GetPID(rowid);
+                    patient.ContactName = tbEName.Text;
+                    patient.EContactNo = tbENumber.Text;
+                    patient.ContactAddress =tbEAddress.SelectedValue.ToString() ;
+                    patient.ERelationshipID = (int)tbERelationship.SelectedValue;
+                    // patient.
 
 
+                    _db.SaveChanges();
+                    RefreshGrid();
+                    MessageBox.Show("Patient successfully updated.");
+
+                    RefreshGrid();
 
 
 
 
 
+
+
+                }
             }
             catch (Exception)
 
@@ -145,6 +190,7 @@ namespace H_Gates_Managment__System
         {
 
             int rowid = PatientList.rowid;
+            
             try
             {
                 var patient = GetPatientByID(rowid);

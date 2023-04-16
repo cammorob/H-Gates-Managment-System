@@ -99,6 +99,7 @@ namespace H_Gates_Managment__System
 
 
         public static int rowid;
+        
         private void dgvPatients_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -108,9 +109,11 @@ namespace H_Gates_Managment__System
                
                 tbIDNo.Text = selected.Cells["Id"].Value.ToString();
 
-               rowid = Convert.ToInt32(tbIDNo.Text); 
-               //dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
-               tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
+               rowid = Convert.ToInt32(tbIDNo.Text);
+              
+
+                //dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
+                tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
                 tbLastName.Text = selected.Cells["LastName"].Value.ToString();
 
                 tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
@@ -201,20 +204,24 @@ namespace H_Gates_Managment__System
 
         private void PbSearch_Click(object sender, EventArgs e)
         {
-            var searchValue = tbSearch.Text;
-            int rowIndex = 1;
+            string searchValue =  tbSearch.Text;
+            //int rowIndex=1;
             dgvPatients.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
             try
             {
                 bool valueResult = true;
                 foreach (DataGridViewRow row in dgvPatients.Rows)
                 {
-                    if (row.Cells[rowIndex].Value.ToString().Equals(searchValue))
+                    for (int i = 0; i < row.Cells.Count; i++)
                     {
-                        rowIndex = row.Index;
-                        dgvPatients.Rows[rowIndex].Selected = true;
-                        valueResult= false;
-                       
+                        if (row.Cells[i].Value != null && row.Cells[i].Value.ToString()== (searchValue))
+                        {
+                           int rowIndex = row.Index;
+                            dgvPatients.Rows[rowIndex].Selected = true;
+                            
+                            valueResult = false;
+                            rowIndex++;
+                        }
                     }
                     if (valueResult != false)
                     {
