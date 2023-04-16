@@ -14,14 +14,34 @@ namespace H_Gates_Managment__System
     {
         private readonly HGatesDesktopApp _db;
 
-        private readonly HGatesDesktopAppEntities _db;
+        //private readonly HGatesDesktopAppEntities _db;
         public IntakePage()
         {
             _db = new HGatesDesktopApp();
-            _db = new HGatesDesktopAppEntities();
+            //_db = new HGatesDesktopAppEntities();
 
 
             InitializeComponent();
+        }
+
+        private void intakeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var IntakeList = new IntakeList();
+            IntakeList.MdiParent = this;
+            IntakeList.Show();
+
+
+        }
+
+        private void intakeManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var IntakeManagement  = new IntakeManagement();
+            IntakeManagement.MdiParent = this;
+            IntakeManagement.Show();
+
+
         }
     }
 }

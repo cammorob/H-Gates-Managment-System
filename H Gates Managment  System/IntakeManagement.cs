@@ -14,13 +14,13 @@ namespace H_Gates_Managment__System
     {
         private readonly HGatesDesktopApp _db;
 
-        private readonly HGatesDesktopAppEntities _db;
+       // private readonly HGatesDesktopAppEntities _db;
 
 
         public IntakeManagement()
         {
             _db = new HGatesDesktopApp();
-            _db = new HGatesDesktopAppEntities();
+            //_db = new HGatesDesktopAppEntities();
             InitializeComponent();
         }
     }

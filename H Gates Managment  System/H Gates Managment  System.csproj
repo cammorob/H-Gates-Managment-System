@@ -383,6 +383,12 @@
     <Compile Include="View_Emergency_Contact.Designer.cs">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="IntakeList.resx">
+      <DependentUpon>IntakeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntakePage.resx">
+      <DependentUpon>IntakePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginPage.resx">
       <DependentUpon>loginPage.cs</DependentUpon>
     </EmbeddedResource>

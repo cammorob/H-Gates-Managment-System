@@ -36,7 +36,7 @@
             this.btLogout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Intake_Pagebt = new System.Windows.Forms.Button();
             this.btRooms = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -125,7 +125,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.Intake_Pagebt);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btRooms);
             this.panel1.Controls.Add(this.tbSearch);
@@ -135,14 +135,15 @@
             this.panel1.Size = new System.Drawing.Size(164, 461);
             this.panel1.TabIndex = 15;
             // 
-            // button1
+            // Intake_Pagebt
             // 
-            this.button1.Location = new System.Drawing.Point(16, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Intakes";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Intake_Pagebt.Location = new System.Drawing.Point(16, 163);
+            this.Intake_Pagebt.Name = "Intake_Pagebt";
+            this.Intake_Pagebt.Size = new System.Drawing.Size(121, 23);
+            this.Intake_Pagebt.TabIndex = 13;
+            this.Intake_Pagebt.Text = "Intakes";
+            this.Intake_Pagebt.UseVisualStyleBackColor = true;
+            this.Intake_Pagebt.Click += new System.EventHandler(this.Intake_Pagebt_Click);
             // 
             // btRooms
             // 
@@ -274,6 +275,6 @@
         private System.Windows.Forms.Label LabelAddPatients;
         private System.Windows.Forms.Button bAddPatients;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Intake_Pagebt;
     }
 }
