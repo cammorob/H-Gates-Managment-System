@@ -39,9 +39,9 @@ namespace H_Gates_Managment__System
             cbCondition.DataSource = Condition;
 
             var Procedure = _db.Procedures.ToList();
-            cbCondition.DisplayMember = "ProcedureName";
-            cbCondition.ValueMember = "Id";
-            cbCondition.DataSource = Procedure;
+            cbProcedure.DisplayMember = "ProcedureName";
+            cbProcedure.ValueMember = "Id";
+            cbProcedure.DataSource = Procedure;
 
             var Doctors_Last_Name = _db.Doctors.ToList();
             cbDoctors_Last_Name.DisplayMember = "LastName";
