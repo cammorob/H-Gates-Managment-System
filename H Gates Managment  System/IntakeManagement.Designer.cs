@@ -39,7 +39,7 @@
             // 
             this.dvIntake_Managment_list.AllowUserToAddRows = false;
             this.dvIntake_Managment_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvIntake_Managment_list.Location = new System.Drawing.Point(12, 100);
+            this.dvIntake_Managment_list.Location = new System.Drawing.Point(12, 136);
             this.dvIntake_Managment_list.Name = "dvIntake_Managment_list";
             this.dvIntake_Managment_list.Size = new System.Drawing.Size(579, 345);
             this.dvIntake_Managment_list.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // Editbt
             // 
-            this.Editbt.Location = new System.Drawing.Point(641, 100);
+            this.Editbt.Location = new System.Drawing.Point(641, 136);
             this.Editbt.Name = "Editbt";
             this.Editbt.Size = new System.Drawing.Size(166, 72);
             this.Editbt.TabIndex = 6;
@@ -67,7 +67,7 @@
             // 
             // Deletebt
             // 
-            this.Deletebt.Location = new System.Drawing.Point(641, 224);
+            this.Deletebt.Location = new System.Drawing.Point(641, 239);
             this.Deletebt.Name = "Deletebt";
             this.Deletebt.Size = new System.Drawing.Size(166, 79);
             this.Deletebt.TabIndex = 7;

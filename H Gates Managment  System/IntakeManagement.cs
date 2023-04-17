@@ -38,6 +38,8 @@ namespace H_Gates_Managment__System
         private void Editbt_Click(object sender, EventArgs e)
         {
 
+
+
         }
 
         private void Deletebt_Click(object sender, EventArgs e)
