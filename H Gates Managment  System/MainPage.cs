@@ -74,7 +74,14 @@ namespace H_Gates_Managment__System
             Hide();
         }
 
-        
+        private void Intake_Pagebt_Click(object sender, EventArgs e)
+        {
+            var Intake_Page = new IntakePage();
+            Intake_Page.Show();
+            Hide();
+
+
+        }
     }
     }
     
