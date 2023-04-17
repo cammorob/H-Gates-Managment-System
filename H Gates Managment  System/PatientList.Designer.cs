@@ -65,8 +65,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btLogout = new System.Windows.Forms.Button();
-            this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BTHome = new System.Windows.Forms.Button();
+            this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
@@ -138,7 +138,7 @@
             this.panel2.Controls.Add(this.btAddPatient);
             this.panel2.Location = new System.Drawing.Point(401, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(568, 376);
+            this.panel2.Size = new System.Drawing.Size(580, 376);
             this.panel2.TabIndex = 0;
             // 
             // btPrevious
@@ -177,7 +177,7 @@
             this.PbSearch.BackColor = System.Drawing.SystemColors.Control;
             this.PbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbSearch.Image = ((System.Drawing.Image)(resources.GetObject("PbSearch.Image")));
-            this.PbSearch.Location = new System.Drawing.Point(510, 27);
+            this.PbSearch.Location = new System.Drawing.Point(522, 27);
             this.PbSearch.Name = "PbSearch";
             this.PbSearch.Size = new System.Drawing.Size(30, 18);
             this.PbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -188,7 +188,7 @@
             // tbSearch
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearch.Location = new System.Drawing.Point(366, 27);
+            this.tbSearch.Location = new System.Drawing.Point(378, 27);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(152, 18);
@@ -455,10 +455,6 @@
             this.btLogout.Text = "Log Out";
             this.btLogout.UseVisualStyleBackColor = true;
             // 
-            // patientListBindingSource
-            // 
-            this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
-            // 
             // BTHome
             // 
             this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -469,6 +465,10 @@
             this.BTHome.Text = "Home";
             this.BTHome.UseVisualStyleBackColor = true;
             this.BTHome.Click += new System.EventHandler(this.BTHome_Click);
+            // 
+            // patientListBindingSource
+            // 
+            this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
             // 
             // PatientList
             // 
