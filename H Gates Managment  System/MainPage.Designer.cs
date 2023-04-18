@@ -124,7 +124,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.Intake_Pagebt);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btRooms);
@@ -132,7 +131,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-4, -9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 461);
+            this.panel1.Size = new System.Drawing.Size(167, 461);
             this.panel1.TabIndex = 15;
             // 
             // Intake_Pagebt

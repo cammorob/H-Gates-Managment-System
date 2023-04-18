@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.btExit = new System.Windows.Forms.Button();
             this.Emergencydgv = new System.Windows.Forms.DataGridView();
+            this.viewEmergencycontactBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btUpDateEmergency = new System.Windows.Forms.Button();
             this.tbEAddress = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -41,7 +43,21 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbERelationship = new System.Windows.Forms.ComboBox();
             this.TbEDelete = new System.Windows.Forms.Button();
+            this.viewEmergencycontactBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewEmergencycontactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hGatesDesktopAppDataSet = new H_Gates_Managment__System.HGatesDesktopAppDataSet();
+            this.viewEmergencyContactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.viewEmergencyContactTableAdapter = new H_Gates_Managment__System.HGatesDesktopAppDataSetTableAdapters.ViewEmergencyContactTableAdapter();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eContactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relationshipTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parishNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Emergencydgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hGatesDesktopAppDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencyContactBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -68,11 +84,25 @@
             // 
             // Emergencydgv
             // 
+            this.Emergencydgv.AllowUserToAddRows = false;
+            this.Emergencydgv.AllowUserToDeleteRows = false;
+            this.Emergencydgv.AutoGenerateColumns = false;
             this.Emergencydgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Emergencydgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.contactNameDataGridViewTextBoxColumn,
+            this.eContactNoDataGridViewTextBoxColumn,
+            this.relationshipTypeDataGridViewTextBoxColumn,
+            this.parishNameDataGridViewTextBoxColumn});
+            this.Emergencydgv.DataSource = this.viewEmergencyContactBindingSource3;
             this.Emergencydgv.Location = new System.Drawing.Point(84, 34);
             this.Emergencydgv.Name = "Emergencydgv";
-            this.Emergencydgv.Size = new System.Drawing.Size(523, 54);
+            this.Emergencydgv.ReadOnly = true;
+            this.Emergencydgv.Size = new System.Drawing.Size(443, 54);
             this.Emergencydgv.TabIndex = 12;
+            // 
+            // viewEmergencycontactBindingSource2
+            // 
+            this.viewEmergencycontactBindingSource2.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
             // 
             // btUpDateEmergency
             // 
@@ -170,6 +200,56 @@
             this.TbEDelete.UseVisualStyleBackColor = false;
             this.TbEDelete.Click += new System.EventHandler(this.TbEDelete_Click);
             // 
+            // viewEmergencycontactBindingSource
+            // 
+            this.viewEmergencycontactBindingSource.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
+            // 
+            // viewEmergencycontactBindingSource1
+            // 
+            this.viewEmergencycontactBindingSource1.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
+            // 
+            // hGatesDesktopAppDataSet
+            // 
+            this.hGatesDesktopAppDataSet.DataSetName = "HGatesDesktopAppDataSet";
+            this.hGatesDesktopAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // viewEmergencyContactBindingSource3
+            // 
+            this.viewEmergencyContactBindingSource3.DataMember = "ViewEmergencyContact";
+            this.viewEmergencyContactBindingSource3.DataSource = this.hGatesDesktopAppDataSet;
+            // 
+            // viewEmergencyContactTableAdapter
+            // 
+            this.viewEmergencyContactTableAdapter.ClearBeforeFill = true;
+            // 
+            // contactNameDataGridViewTextBoxColumn
+            // 
+            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
+            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eContactNoDataGridViewTextBoxColumn
+            // 
+            this.eContactNoDataGridViewTextBoxColumn.DataPropertyName = "EContactNo";
+            this.eContactNoDataGridViewTextBoxColumn.HeaderText = "EContactNo";
+            this.eContactNoDataGridViewTextBoxColumn.Name = "eContactNoDataGridViewTextBoxColumn";
+            this.eContactNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // relationshipTypeDataGridViewTextBoxColumn
+            // 
+            this.relationshipTypeDataGridViewTextBoxColumn.DataPropertyName = "RelationshipType";
+            this.relationshipTypeDataGridViewTextBoxColumn.HeaderText = "RelationshipType";
+            this.relationshipTypeDataGridViewTextBoxColumn.Name = "relationshipTypeDataGridViewTextBoxColumn";
+            this.relationshipTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // parishNameDataGridViewTextBoxColumn
+            // 
+            this.parishNameDataGridViewTextBoxColumn.DataPropertyName = "ParishName";
+            this.parishNameDataGridViewTextBoxColumn.HeaderText = "ParishName";
+            this.parishNameDataGridViewTextBoxColumn.Name = "parishNameDataGridViewTextBoxColumn";
+            this.parishNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // View_Emergency_contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +273,11 @@
             this.Text = "View_Emergency_contact";
             this.Load += new System.EventHandler(this.View_Emergency_contact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Emergencydgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hGatesDesktopAppDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencyContactBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +297,15 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox tbERelationship;
         private System.Windows.Forms.Button TbEDelete;
+        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource1;
+        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource;
+        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource2;
+        private HGatesDesktopAppDataSet hGatesDesktopAppDataSet;
+        private System.Windows.Forms.BindingSource viewEmergencyContactBindingSource3;
+        private HGatesDesktopAppDataSetTableAdapters.ViewEmergencyContactTableAdapter viewEmergencyContactTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eContactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn relationshipTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parishNameDataGridViewTextBoxColumn;
     }
 }

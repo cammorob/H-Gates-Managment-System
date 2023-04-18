@@ -23,16 +23,16 @@ namespace H_Gates_Managment__System
         
 
     {
-        private readonly HGatesDesktopAppEntities _db;
+        private readonly HGatesDesktopAppEntities2 _db;
 
         //private readonly HGatesDesktopApp _db;
         public View_Emergency_contact()
         {
             
             InitializeComponent();
-            _db = new HGatesDesktopAppEntities();
+            _db = new HGatesDesktopAppEntities2();
             // _db = new HGatesDesktopApp();
-
+            
         }
 
         private void btExit_Click(object sender, EventArgs e)
@@ -44,6 +44,8 @@ namespace H_Gates_Managment__System
        
         private void View_Emergency_contact_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hGatesDesktopAppDataSet.ViewEmergencyContact' table. You can move, or remove it, as needed.
+            this.viewEmergencyContactTableAdapter.Fill(this.hGatesDesktopAppDataSet.ViewEmergencyContact);
             //populate address and Relationship list for update when necessary
             var addr = _db.Parishes.ToList();
             tbEAddress.DisplayMember = "ParishName";
@@ -86,25 +88,32 @@ namespace H_Gates_Managment__System
 
             try
             {
-                // var connstring = "Server= DESKTOP-CVIOCU7\\SQLEXPRESS; Initial Catalog=HGateDesktopAdd;Intergrated Security=true";
-                var connstring = "data source=DESKTOP-CVIOCU7\\SQLEXPRESS;initial catalog=HGatesDesktopApp;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+                /* // var connstring = "Server= DESKTOP-CVIOCU7\\SQLEXPRESS; Initial Catalog=HGateDesktopAdd;Intergrated Security=true";
+                 //var connstring = "data source=DESKTOP-CVIOCU7\\SQLEXPRESS;initial catalog=HGatesDesktopApp;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
 
-                SqlConnection conn = new SqlConnection(connstring);
-                conn.Open();
-
-
+                 SqlConnection conn = new SqlConnection(connstring);
+                 conn.Open();
 
 
-                SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,RPatients.EContactNo from [dbo].[Patients]"+
-                   " inner join [dbo].EmergencyRelationships  on Patients.Id =EmergencyRelationships.Id"+
-                "inner join [dbo].Parishes on Patients.ID=Parishes.Id", conn);
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+
+
+                 SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,Patients.EContactNo from [dbo].[Patients]" +
+                    " inner join [dbo].EmergencyRelationships  on Patients.Id =EmergencyRelationships.Id", conn);
+                 //"inner join [dbo].Parishes on [dbo].Patients.Id=Parishes.Id", conn);
+                 SqlDataAdapter adapter = new SqlDataAdapter();
+                 adapter.SelectCommand = cmd;
+                 DataTable dataTable = new DataTable();
+                 adapter.Fill(dataTable);
+
+                 */
+                _db.
+                Emergencydgv.Refresh();
                 
 
-                Emergencydgv.DataSource = dataTable;
+
+
+
+
                 
             }
             catch (Exception ex) 

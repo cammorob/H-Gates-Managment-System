@@ -12,11 +12,13 @@ namespace H_Gates_Managment__System
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class HGatesDesktopAppEntities : DbContext
+    public partial class HGatesDesktopAppEntities2 : DbContext
     {
-        public HGatesDesktopAppEntities()
-            : base("name=HGatesDesktopAppEntities")
+        public HGatesDesktopAppEntities2()
+            : base("name=HGatesDesktopAppEntities2")
         {
         }
     
@@ -37,5 +39,10 @@ namespace H_Gates_Managment__System
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<GetPatientsList_Result> GetPatientsList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPatientsList_Result>("GetPatientsList");
+        }
     }
 }

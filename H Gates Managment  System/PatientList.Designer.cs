@@ -32,12 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientList));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BTHome = new System.Windows.Forms.Button();
+            this.btLogout = new System.Windows.Forms.Button();
             this.C_UserLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pa = new System.Windows.Forms.Panel();
+            this.dgvPatients = new System.Windows.Forms.DataGridView();
             this.btPrevious = new System.Windows.Forms.Button();
             this.BtNext = new System.Windows.Forms.Button();
-            this.dgvPatients = new System.Windows.Forms.DataGridView();
             this.PbSearch = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btAddPatient = new System.Windows.Forms.Button();
@@ -64,11 +66,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btLogout = new System.Windows.Forms.Button();
-            this.BTHome = new System.Windows.Forms.Button();
             this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).BeginInit();
             this.panel3.SuspendLayout();
@@ -100,6 +100,27 @@
             this.panel1.Size = new System.Drawing.Size(981, 76);
             this.panel1.TabIndex = 0;
             // 
+            // BTHome
+            // 
+            this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTHome.Location = new System.Drawing.Point(797, 26);
+            this.BTHome.Name = "BTHome";
+            this.BTHome.Size = new System.Drawing.Size(75, 23);
+            this.BTHome.TabIndex = 18;
+            this.BTHome.Text = "Home";
+            this.BTHome.UseVisualStyleBackColor = true;
+            this.BTHome.Click += new System.EventHandler(this.BTHome_Click);
+            // 
+            // btLogout
+            // 
+            this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogout.Location = new System.Drawing.Point(878, 26);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 17;
+            this.btLogout.Text = "Log Out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            // 
             // C_UserLabel
             // 
             this.C_UserLabel.AutoSize = true;
@@ -124,22 +145,34 @@
             this.label11.TabIndex = 15;
             this.label11.Text = "Current User:";
             // 
-            // panel2
+            // pa
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.panel2.Controls.Add(this.btPrevious);
-            this.panel2.Controls.Add(this.BtNext);
-            this.panel2.Controls.Add(this.dgvPatients);
-            this.panel2.Controls.Add(this.PbSearch);
-            this.panel2.Controls.Add(this.tbSearch);
-            this.panel2.Controls.Add(this.btAddPatient);
-            this.panel2.Location = new System.Drawing.Point(401, 71);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(580, 376);
-            this.panel2.TabIndex = 0;
+            this.pa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.pa.Controls.Add(this.dgvPatients);
+            this.pa.Controls.Add(this.btPrevious);
+            this.pa.Controls.Add(this.BtNext);
+            this.pa.Controls.Add(this.PbSearch);
+            this.pa.Controls.Add(this.tbSearch);
+            this.pa.Controls.Add(this.btAddPatient);
+            this.pa.Location = new System.Drawing.Point(401, 71);
+            this.pa.Name = "pa";
+            this.pa.Size = new System.Drawing.Size(580, 376);
+            this.pa.TabIndex = 0;
+            // 
+            // dgvPatients
+            // 
+            this.dgvPatients.AllowUserToDeleteRows = false;
+            this.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatients.Location = new System.Drawing.Point(62, 110);
+            this.dgvPatients.Name = "dgvPatients";
+            this.dgvPatients.ReadOnly = true;
+            this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPatients.Size = new System.Drawing.Size(468, 150);
+            this.dgvPatients.TabIndex = 6;
+            this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged_1);
             // 
             // btPrevious
             // 
@@ -159,17 +192,6 @@
             this.BtNext.Text = "Next";
             this.BtNext.UseVisualStyleBackColor = true;
             this.BtNext.Click += new System.EventHandler(this.BtNext_Click);
-            // 
-            // dgvPatients
-            // 
-            this.dgvPatients.BackgroundColor = System.Drawing.Color.White;
-            this.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPatients.Location = new System.Drawing.Point(24, 51);
-            this.dgvPatients.Name = "dgvPatients";
-            this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatients.Size = new System.Drawing.Size(528, 285);
-            this.dgvPatients.TabIndex = 3;
-            this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged);
             // 
             // PbSearch
             // 
@@ -445,27 +467,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btLogout
-            // 
-            this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(878, 26);
-            this.btLogout.Name = "btLogout";
-            this.btLogout.Size = new System.Drawing.Size(75, 23);
-            this.btLogout.TabIndex = 17;
-            this.btLogout.Text = "Log Out";
-            this.btLogout.UseVisualStyleBackColor = true;
-            // 
-            // BTHome
-            // 
-            this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTHome.Location = new System.Drawing.Point(797, 26);
-            this.BTHome.Name = "BTHome";
-            this.BTHome.Size = new System.Drawing.Size(75, 23);
-            this.BTHome.TabIndex = 18;
-            this.BTHome.Text = "Home";
-            this.BTHome.UseVisualStyleBackColor = true;
-            this.BTHome.Click += new System.EventHandler(this.BTHome_Click);
-            // 
             // patientListBindingSource
             // 
             this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
@@ -475,7 +476,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 450);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pa);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -486,8 +487,8 @@
             this.Load += new System.EventHandler(this.PatientList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pa.ResumeLayout(false);
+            this.pa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -503,7 +504,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pa;
         private System.Windows.Forms.PictureBox PbSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btAddPatient;
@@ -530,7 +531,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox tbIDNo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvPatients;
         private System.Windows.Forms.Button btPrevious;
         private System.Windows.Forms.Button BtNext;
         private System.Windows.Forms.Button btDeletePatient;
@@ -538,5 +538,6 @@
         private System.Windows.Forms.Label C_UserLabel;
         private System.Windows.Forms.Button btLogout;
         private System.Windows.Forms.Button BTHome;
+        private System.Windows.Forms.DataGridView dgvPatients;
     }
 }

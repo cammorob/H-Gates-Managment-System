@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HGatesDesktopAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HGatesDesktopAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Conditions">
           <Key>
             <PropertyRef Name="Id" />
@@ -232,7 +232,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HGatesDesktopAppModelStoreContainer">
+        <Function Name="GetPatientsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="HGatesDesktopAppModel1StoreContainer">
           <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmergencyRelationships" EntityType="Self.EmergencyRelationships" Schema="dbo" store:Type="Tables" />
@@ -290,7 +291,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HGatesDesktopAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HGatesDesktopAppModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Condition">
           <Key>
             <PropertyRef Name="Id" />
@@ -538,7 +539,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HGatesDesktopAppEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HGatesDesktopAppEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Conditions" EntityType="Self.Condition" />
           <EntitySet Name="Doctors" EntityType="Self.Doctor" />
           <EntitySet Name="EmergencyRelationships" EntityType="Self.EmergencyRelationship" />
@@ -591,15 +592,26 @@
             <End Role="Parishes" EntitySet="Parishes" />
             <End Role="Patients" EntitySet="Patients" />
           </AssociationSet>
+          <FunctionImport Name="GetPatientsList" ReturnType="Collection(HGatesDesktopAppModel1.GetPatientsList_Result)" />
         </EntityContainer>
+        <ComplexType Name="GetPatientsList_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="GenderName" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="StreetAddress" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="ParishName" Nullable="false" MaxLength="20" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HGatesDesktopAppModelStoreContainer" CdmEntityContainer="HGatesDesktopAppEntities">
+        <EntityContainerMapping StorageEntityContainer="HGatesDesktopAppModel1StoreContainer" CdmEntityContainer="HGatesDesktopAppEntities2">
           <EntitySetMapping Name="Conditions">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Condition">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Condition">
               <MappingFragment StoreEntitySet="Conditions">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ConditionName" ColumnName="ConditionName" />
@@ -607,7 +619,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Doctors">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Doctor">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Doctor">
               <MappingFragment StoreEntitySet="Doctors">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -618,7 +630,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmergencyRelationships">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.EmergencyRelationship">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.EmergencyRelationship">
               <MappingFragment StoreEntitySet="EmergencyRelationships">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RelationshipType" ColumnName="RelationshipType" />
@@ -626,7 +638,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Genders">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Gender">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Gender">
               <MappingFragment StoreEntitySet="Genders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
@@ -635,7 +647,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Intakes">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Intake">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Intake">
               <MappingFragment StoreEntitySet="Intakes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
@@ -648,7 +660,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nurses">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Nurse">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Nurse">
               <MappingFragment StoreEntitySet="Nurses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -659,7 +671,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Parishes">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Parish">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Parish">
               <MappingFragment StoreEntitySet="Parishes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ParishName" ColumnName="ParishName" />
@@ -667,7 +679,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Patient">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Patient">
               <MappingFragment StoreEntitySet="Patients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -685,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Procedures">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Procedure">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Procedure">
               <MappingFragment StoreEntitySet="Procedures">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
@@ -693,7 +705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Room">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Room">
               <MappingFragment StoreEntitySet="Rooms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
@@ -701,7 +713,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specializations">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.Specialization">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Specialization">
               <MappingFragment StoreEntitySet="Specializations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SpecializationName" ColumnName="SpecializationName" />
@@ -709,7 +721,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel.User">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />
@@ -717,6 +729,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPatientsList" FunctionName="HGatesDesktopAppModel1.Store.GetPatientsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HGatesDesktopAppModel1.GetPatientsList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ParishName" ColumnName="ParishName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

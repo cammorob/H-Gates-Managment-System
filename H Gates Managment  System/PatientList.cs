@@ -20,24 +20,24 @@ namespace H_Gates_Managment__System
     public partial class PatientList : Form
     {
         private MainPage mainPage;
-        private readonly HGatesDesktopAppEntities _db;
+        private readonly HGatesDesktopAppEntities2 _db;
 
         //private readonly HGatesDesktopApp _db;
 
         public PatientList()
         {
             InitializeComponent();
-            _db = new HGatesDesktopAppEntities();
-          // _db = new HGatesDesktopApp();
-            
+            _db = new HGatesDesktopAppEntities2();
+            // _db = new HGatesDesktopApp();
+
         }
 
         public PatientList(MainPage _mainPage)
         {
             InitializeComponent();
             mainPage = _mainPage;
-            
-        
+
+
         }
 
 
@@ -52,30 +52,17 @@ namespace H_Gates_Managment__System
             {
                 C_UserLabel.Text = loginPage.CurrentUser;
             }
-            try
-            {
-                RefreshGridView();
+
+
+            RefreshGridView();
 
 
 
 
 
-                dgvPatients.Columns["Id"].HeaderText = "ID";
-                dgvPatients.Columns["FirstName"].HeaderText = "First Name";
-                dgvPatients.Columns["LastName"].HeaderText = "Last Name";
-                dgvPatients.Columns["DateOfBirth"].HeaderText = "Date of Birth";
-                dgvPatients.Columns["GenderID"].HeaderText = "Gender";
-                dgvPatients.Columns["StreetAddress"].HeaderText = "Street Address";
-                dgvPatients.Columns["ParishID"].HeaderText = "Parish";
-                dgvPatients.Columns[0].Visible= false;
-                dgvPatients.Rows[0].Selected = true;
-                
-            }
-            catch (Exception ex)
-            {
 
-                throw;
-            }
+
+
 
         }
 
@@ -88,12 +75,32 @@ namespace H_Gates_Managment__System
         void RefreshGridView()
         {
 
-          //  while (dgvPatients.Rows.Count ==100)
-            {
-                var Patient = _db.Patients.Select(q => new
-                { q.Id, q.FirstName, q.LastName, q.DateOfBirth, q.GenderID, q.StreetAddress, q.ParishID }).ToList();
 
-                dgvPatients.DataSource = Patient;
+
+            {
+
+
+
+
+                 var Patient= _db.GetPatientsList();
+               // var Patient = _db.Patients.Select(q => new { q.Id, q.FirstName, q.LastName });
+                dgvPatients.DataSource = Patient.ToList();
+
+
+                dgvPatients.Columns["Id"].HeaderText = "ID";
+                dgvPatients.Columns["FirstName"].HeaderText = "First Name";
+                dgvPatients.Columns["LastName"].HeaderText = "Last Name";
+                dgvPatients.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+                dgvPatients.Columns["GenderName"].HeaderText = "Gender";
+                dgvPatients.Columns["StreetAddress"].HeaderText = "Street Address";
+                dgvPatients.Columns["City"].HeaderText = "City";
+                dgvPatients.Columns["ParishName"].HeaderText = "Parish";
+                 dgvPatients.Columns[0].Visible = false;
+                dgvPatients.Rows[0].Selected = true;
+
+
+
+
             }
 
         }
@@ -102,40 +109,7 @@ namespace H_Gates_Managment__System
 
 
         public static int rowid;
-        
-        private void dgvPatients_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var selected = dgvPatients.SelectedRows[0];
 
-               
-                tbIDNo.Text = selected.Cells["Id"].Value.ToString();
-
-               rowid = Convert.ToInt32(tbIDNo.Text);
-              
-
-                //dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
-                tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
-                tbLastName.Text = selected.Cells["LastName"].Value.ToString();
-
-                tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
-                tbGender.Text = selected.Cells["GenderID"].Value.ToString();
-                tbStreetAddress.Text = selected.Cells["StreetAddress"].Value.ToString();
-                tbParish.Text = selected.Cells["ParishID"].Value.ToString();
-                
-                
-                
-            }
-            catch(Exception) 
-            { 
-            
-            
-            }
-            
-
-
-        }
 
         Patient GetPatientByID(int Id)
         {
@@ -146,14 +120,15 @@ namespace H_Gates_Managment__System
 
         private void btUpDateDetails_Click(object sender, EventArgs e)
         {
-            try { 
-            var patient = GetSelectedRow(rowid);
-            patient.FirstName = tbFirstName.Text;
-            patient.LastName = tbLastName.Text;
-            patient.GenderID=Convert.ToInt32(tbGender.Text);
-            patient.DateOfBirth=Convert.ToDateTime(tbDateOFBirth.Text);
-            patient.StreetAddress=tbStreetAddress.Text;
-            patient.ParishID=Convert.ToInt32(tbParish.Text);
+            try
+            {
+                var patient = GetSelectedRow(rowid);
+                patient.FirstName = tbFirstName.Text;
+                patient.LastName = tbLastName.Text;
+                patient.GenderID = Convert.ToInt32(tbGender.Text);
+                patient.DateOfBirth = Convert.ToDateTime(tbDateOFBirth.Text);
+                patient.StreetAddress = tbStreetAddress.Text;
+                patient.ParishID = Convert.ToInt32(tbParish.Text);
 
                 _db.SaveChanges();
                 MessageBox.Show("Patient successfully updated.");
@@ -167,11 +142,11 @@ namespace H_Gates_Managment__System
 
 
             }
-            catch(Exception) 
-            
+            catch (Exception)
+
             {
 
-                MessageBox.Show( "Server Unreachable, Please contact Administrator.");
+                MessageBox.Show("Server Unreachable, Please contact Administrator.");
             }
 
 
@@ -185,20 +160,20 @@ namespace H_Gates_Managment__System
         private void BtNext_Click(object sender, EventArgs e)
         {
 
-           
-            
 
 
-            
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 
-        
+
 
         private void PatientList_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -209,9 +184,9 @@ namespace H_Gates_Managment__System
 
         private void PbSearch_Click(object sender, EventArgs e)
         {
-            string searchValue =  tbSearch.Text;
-            var rowIndex=0;
-            dgvPatients.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
+            string searchValue = tbSearch.Text;
+            var rowIndex = 0;
+            dgvPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
                 bool valueResult = true;
@@ -219,11 +194,11 @@ namespace H_Gates_Managment__System
                 {
                     for (int i = 1; i < row.Cells.Count; i++)
                     {
-                        if (row.Cells[i].Value != null && row.Cells[i].Value.ToString()== (searchValue))
+                        if (row.Cells[i].Value != null && row.Cells[i].Value.ToString() == (searchValue))
                         {
-                           //rowIndex = row.Index;
+                            //rowIndex = row.Index;
                             dgvPatients.Rows[rowIndex].Selected = true;
-                            
+
                             valueResult = false;
                             rowIndex++;
                         }
@@ -276,14 +251,14 @@ namespace H_Gates_Managment__System
                 }
             }
 
-            catch (Exception exc) 
-            { 
-            
-            
-            
-            
+            catch (Exception exc)
+            {
+
+
+
+
             }
-            
+
         }
 
         private void BTHome_Click(object sender, EventArgs e)
@@ -291,6 +266,36 @@ namespace H_Gates_Managment__System
             var MainPage = new MainPage();
             MainPage.Show();
             Hide();
+        }
+
+        private void dgvPatients_SelectionChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                var selected = dgvPatients.SelectedRows[0];
+
+                tbIDNo.Text = selected.Cells["Id"].Value.ToString();
+
+                rowid = Convert.ToInt32(tbIDNo.Text);
+
+
+
+                tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
+                tbLastName.Text = selected.Cells["LastName"].Value.ToString();
+                tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
+                tbGender.Text = selected.Cells["GenderName"].Value.ToString();
+                tbStreetAddress.Text = selected.Cells["StreetAddress"].Value.ToString();
+                tbParish.Text = selected.Cells["ParishName"].Value.ToString();
+                dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
+
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

@@ -267,35 +267,43 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2ndHospitalDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>2ndHospitalDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="2ndHospitalDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="2ndHospitalDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Condition.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Doctor.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="EmergencyRelationship.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Gender.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="HospitalDb.Context.cs">
+    <Compile Include="GetPatientsList_Result.cs">
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HGatesDesktopAppDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HospitalDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HospitalDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalDb.edmx</DependentUpon>
+      <DependentUpon>HGatesDesktopAppDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Intake.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="IntakeList.cs">
       <SubType>Form</SubType>
@@ -343,13 +351,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Nurse.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Parish.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientList.cs">
       <SubType>Form</SubType>
@@ -364,18 +372,18 @@
       <DependentUpon>PatientsEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Procedure.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Specialization.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>HospitalDb.tt</DependentUpon>
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
     <Compile Include="View_Emergency_Contact.cs">
       <SubType>Form</SubType>
@@ -416,21 +424,57 @@
     <EmbeddedResource Include="View_Emergency_Contact.resx">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="HospitalDb.edmx">
+    <EntityDeploy Include="2ndHospitalDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HospitalDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>2ndHospitalDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="HospitalDb.edmx.diagram">
-      <DependentUpon>HospitalDb.edmx</DependentUpon>
+    <None Include="2ndHospitalDb.edmx.diagram">
+      <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
     </None>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="HGatesDesktopAppDataSet.xsc">
+      <DependentUpon>HGatesDesktopAppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HGatesDesktopAppDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HGatesDesktopAppDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HGatesDesktopAppDataSet.xss">
+      <DependentUpon>HGatesDesktopAppDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Condition.datasource" />
+    <None Include="Properties\DataSources\Doctor.datasource" />
+    <None Include="Properties\DataSources\EmergencyRelationship.datasource" />
+    <None Include="Properties\DataSources\Gender.datasource" />
+    <None Include="Properties\DataSources\HGatesDesktopApp.datasource" />
+    <None Include="Properties\DataSources\HGatesDesktopAppEntities.datasource" />
+    <None Include="Properties\DataSources\H_Gates_Managment__System.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\H_Gates_Managment__System.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Intake.datasource" />
+    <None Include="Properties\DataSources\IntakeList.datasource" />
+    <None Include="Properties\DataSources\IntakeManagement.datasource" />
+    <None Include="Properties\DataSources\IntakePage.datasource" />
+    <None Include="Properties\DataSources\loginPage.datasource" />
+    <None Include="Properties\DataSources\MainPage.datasource" />
+    <None Include="Properties\DataSources\Nurse.datasource" />
+    <None Include="Properties\DataSources\Parish.datasource" />
+    <None Include="Properties\DataSources\Patient.datasource" />
+    <None Include="Properties\DataSources\PatientList.datasource" />
+    <None Include="Properties\DataSources\PatientsEntry.datasource" />
+    <None Include="Properties\DataSources\Procedure.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Room.datasource" />
+    <None Include="Properties\DataSources\Specialization.datasource" />
+    <None Include="Properties\DataSources\User.datasource" />
+    <None Include="Properties\DataSources\View_Emergency_contact.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -445,15 +489,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HospitalDb.Context.tt">
+    <Content Include="2ndHospitalDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HospitalDb.Context.cs</LastGenOutput>
-      <DependentUpon>HospitalDb.edmx</DependentUpon>
+      <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
+      <LastGenOutput>2ndHospitalDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HospitalDb.tt">
+    <Content Include="2ndHospitalDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HospitalDb.edmx</DependentUpon>
-      <LastGenOutput>HospitalDb.cs</LastGenOutput>
+      <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
+      <LastGenOutput>2ndHospitalDb.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
