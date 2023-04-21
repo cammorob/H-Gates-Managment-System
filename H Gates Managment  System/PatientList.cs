@@ -14,6 +14,12 @@ using MySql.Data.MySqlClient;
 using RestSharp.Extensions;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.Remoting.Contexts;
+using Mysqlx.Crud;
+using System.Data.Entity.Core.Common.CommandTrees;
+using System.Web.UI.Design.WebControls;
+using System.Web.Services.Protocols;
+using Org.BouncyCastle.Bcpg;
+using Org.BouncyCastle.Crypto.Engines;
 
 namespace H_Gates_Managment__System
 {
@@ -34,6 +40,7 @@ namespace H_Gates_Managment__System
 
         public PatientList(MainPage _mainPage)
         {
+               
             InitializeComponent();
             mainPage = _mainPage;
 
@@ -48,6 +55,7 @@ namespace H_Gates_Managment__System
 
         public void PatientList_Load(object sender, EventArgs e)
         {
+            
             if (loginPage.CurrentUser != null)
             {
                 C_UserLabel.Text = loginPage.CurrentUser;
@@ -80,23 +88,34 @@ namespace H_Gates_Managment__System
             {
 
 
+                
+                
 
+                    var patients = _db.Patients.Select(q => new { q.Id, q.FirstName, q.LastName,
+                      q.DateOfBirth,q.GenderID,q.StreetAddress,q.City,q.ParishID,q.ContactName,
+                    q.ContactAddress,q.EContactNo,q.ERelationshipID});
+                   GridViewPatients.DataSource = patients.ToList();
+                        
 
-                 var Patient= _db.GetPatientsList();
-               // var Patient = _db.Patients.Select(q => new { q.Id, q.FirstName, q.LastName });
-                dgvPatients.DataSource = Patient.ToList();
+                    GridViewPatients.Columns["Id"].HeaderText = "ID";
+                    GridViewPatients.Columns["FirstName"].HeaderText = "First Name";
+                    GridViewPatients.Columns["LastName"].HeaderText = "Last Name";
+                    GridViewPatients.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+                    GridViewPatients.Columns["GenderID"].HeaderText = "Gender";
+                    GridViewPatients.Columns["StreetAddress"].HeaderText = "Street Address";
+                    GridViewPatients.Columns["City"].HeaderText = "City";
+                    GridViewPatients.Columns["ParishID"].HeaderText = "Parish";
+                    GridViewPatients.Columns["ContactName"].HeaderText = "Contact Name";
+                    GridViewPatients.Columns["ContactAddress"].HeaderText = "Contact Address";
+                    GridViewPatients.Columns["EContactNo"].HeaderText = "Phone Number";
+                    GridViewPatients.Columns["ERelationshipID"].HeaderText = "Relationship";
+                    GridViewPatients.Columns[0].Visible = false;
+                    GridViewPatients.Rows[0].Selected = true;
+                    GridViewPatients.Columns["ContactName"].Visible = false;
+                    GridViewPatients.Columns["ContactAddress"].Visible = false;
+                    GridViewPatients.Columns["EContactNo"].Visible = false;
+                    GridViewPatients.Columns["ERelationshipID"].Visible = false;
 
-
-                dgvPatients.Columns["Id"].HeaderText = "ID";
-                dgvPatients.Columns["FirstName"].HeaderText = "First Name";
-                dgvPatients.Columns["LastName"].HeaderText = "Last Name";
-                dgvPatients.Columns["DateOfBirth"].HeaderText = "Date of Birth";
-                dgvPatients.Columns["GenderName"].HeaderText = "Gender";
-                dgvPatients.Columns["StreetAddress"].HeaderText = "Street Address";
-                dgvPatients.Columns["City"].HeaderText = "City";
-                dgvPatients.Columns["ParishName"].HeaderText = "Parish";
-                 dgvPatients.Columns[0].Visible = false;
-                dgvPatients.Rows[0].Selected = true;
 
 
 
@@ -133,7 +152,7 @@ namespace H_Gates_Managment__System
                 _db.SaveChanges();
                 MessageBox.Show("Patient successfully updated.");
 
-                RefreshGridView();
+                GridViewPatients.Refresh();
 
 
 
@@ -186,18 +205,18 @@ namespace H_Gates_Managment__System
         {
             string searchValue = tbSearch.Text;
             var rowIndex = 0;
-            dgvPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridViewPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
                 bool valueResult = true;
-                foreach (DataGridViewRow row in dgvPatients.Rows)
+                foreach (DataGridViewRow row in GridViewPatients.Rows)
                 {
                     for (int i = 1; i < row.Cells.Count; i++)
                     {
                         if (row.Cells[i].Value != null && row.Cells[i].Value.ToString() == (searchValue))
                         {
                             //rowIndex = row.Index;
-                            dgvPatients.Rows[rowIndex].Selected = true;
+                            GridViewPatients.Rows[rowIndex].Selected = true;
 
                             valueResult = false;
                             rowIndex++;
@@ -230,9 +249,43 @@ namespace H_Gates_Managment__System
 
         private void btViewEContact_Click(object sender, EventArgs e)
         {
-            var View_Emergency_Contact = new View_Emergency_contact();
-            View_Emergency_Contact.Show();
+
+
+
+            var Emr = GridViewPatients.SelectedRows[0];
+            tbshowRelation VE_Con = new tbshowRelation();
+
+
+
+
+
+
+            if (GridViewPatients.Columns["ContactName"].ToString().Equals(null))
+            {
+                MessageBox.Show("No Emergency Contact Found, Please Update Record");
+                UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
+                upDateEmergencyContact.Show();
+
+            }
+            else
+            {
+
+
+                VE_Con.tbDisplayEname.Text = Emr.Cells["ContactName"].Value.ToString();
+                VE_Con.tbContactAddress.Text = Emr.Cells["ContactAddress"].Value.ToString();
+                VE_Con.tbContactNumber.Text = Emr.Cells["ContactName"].Value.ToString();
+                VE_Con.tbERelation.Text = Emr.Cells["ERelationshipID"].Value.ToString();
+                VE_Con.Show();
+            }
+
+
         }
+
+
+            
+            
+
+        
 
         private void btDeletePatient_Click(object sender, EventArgs e)
         {
@@ -246,7 +299,7 @@ namespace H_Gates_Managment__System
                     _db.Patients.Remove(patient);
                     _db.SaveChanges();
                     MessageBox.Show("Record Delete Successfully.");
-                    dgvPatients.Refresh();
+                    GridViewPatients.Refresh();
 
                 }
             }
@@ -267,14 +320,14 @@ namespace H_Gates_Managment__System
             MainPage.Show();
             Hide();
         }
-
-        private void dgvPatients_SelectionChanged_1(object sender, EventArgs e)
+        
+        public void GridViewPatients_SelectionChanged_1(object sender, EventArgs e)
         {
             try
             {
+               
 
-
-                var selected = dgvPatients.SelectedRows[0];
+                var selected = GridViewPatients.SelectedRows[0];
 
                 tbIDNo.Text = selected.Cells["Id"].Value.ToString();
 
@@ -285,18 +338,28 @@ namespace H_Gates_Managment__System
                 tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
                 tbLastName.Text = selected.Cells["LastName"].Value.ToString();
                 tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
-                tbGender.Text = selected.Cells["GenderName"].Value.ToString();
+                tbGender.Text = selected.Cells["GenderID"].Value.ToString();
                 tbStreetAddress.Text = selected.Cells["StreetAddress"].Value.ToString();
-                tbParish.Text = selected.Cells["ParishName"].Value.ToString();
-                dgvPatients.SelectedRows[0].Cells[0].Value.ToString();
+                tbCity.Text = selected.Cells["City"].Value.ToString();
+                tbParish.Text = selected.Cells["ParishID"].Value.ToString();
 
+                GridViewPatients.SelectedRows[0].Cells[0].Value.ToString();
+                
+                
+               
 
+               
+
+                
+              
             }
             catch (Exception)
             {
 
             }
         }
+
+       
     }
 }
 

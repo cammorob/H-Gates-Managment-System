@@ -1,6 +1,6 @@
 ﻿namespace H_Gates_Managment__System
 {
-    partial class View_Emergency_contact
+    partial class tbshowRelation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.btExit = new System.Windows.Forms.Button();
             this.Emergencydgv = new System.Windows.Forms.DataGridView();
-            this.viewEmergencycontactBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btUpDateEmergency = new System.Windows.Forms.Button();
             this.tbEAddress = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -43,21 +41,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbERelationship = new System.Windows.Forms.ComboBox();
             this.TbEDelete = new System.Windows.Forms.Button();
-            this.viewEmergencycontactBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.viewEmergencycontactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.hGatesDesktopAppDataSet = new H_Gates_Managment__System.HGatesDesktopAppDataSet();
-            this.viewEmergencyContactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.viewEmergencyContactTableAdapter = new H_Gates_Managment__System.HGatesDesktopAppDataSetTableAdapters.ViewEmergencyContactTableAdapter();
-            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eContactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.relationshipTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parishNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbDisplayEname = new System.Windows.Forms.TextBox();
+            this.tbContactNumber = new System.Windows.Forms.TextBox();
+            this.tbERelation = new System.Windows.Forms.TextBox();
+            this.tbContactAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Emergencydgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hGatesDesktopAppDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencyContactBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -86,27 +80,16 @@
             // 
             this.Emergencydgv.AllowUserToAddRows = false;
             this.Emergencydgv.AllowUserToDeleteRows = false;
-            this.Emergencydgv.AutoGenerateColumns = false;
             this.Emergencydgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Emergencydgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.contactNameDataGridViewTextBoxColumn,
-            this.eContactNoDataGridViewTextBoxColumn,
-            this.relationshipTypeDataGridViewTextBoxColumn,
-            this.parishNameDataGridViewTextBoxColumn});
-            this.Emergencydgv.DataSource = this.viewEmergencyContactBindingSource3;
-            this.Emergencydgv.Location = new System.Drawing.Point(84, 34);
+            this.Emergencydgv.Location = new System.Drawing.Point(594, 40);
             this.Emergencydgv.Name = "Emergencydgv";
             this.Emergencydgv.ReadOnly = true;
-            this.Emergencydgv.Size = new System.Drawing.Size(443, 54);
+            this.Emergencydgv.Size = new System.Drawing.Size(131, 54);
             this.Emergencydgv.TabIndex = 12;
-            // 
-            // viewEmergencycontactBindingSource2
-            // 
-            this.viewEmergencycontactBindingSource2.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
             // 
             // btUpDateEmergency
             // 
-            this.btUpDateEmergency.Location = new System.Drawing.Point(233, 106);
+            this.btUpDateEmergency.Location = new System.Drawing.Point(86, 129);
             this.btUpDateEmergency.Name = "btUpDateEmergency";
             this.btUpDateEmergency.Size = new System.Drawing.Size(106, 34);
             this.btUpDateEmergency.TabIndex = 13;
@@ -117,7 +100,7 @@
             // tbEAddress
             // 
             this.tbEAddress.FormattingEnabled = true;
-            this.tbEAddress.Location = new System.Drawing.Point(368, 176);
+            this.tbEAddress.Location = new System.Drawing.Point(409, 235);
             this.tbEAddress.Name = "tbEAddress";
             this.tbEAddress.Size = new System.Drawing.Size(159, 21);
             this.tbEAddress.TabIndex = 34;
@@ -126,23 +109,23 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(246, 146);
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(622, 165);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 18);
+            this.label16.Size = new System.Drawing.Size(76, 17);
             this.label16.TabIndex = 33;
             this.label16.Text = "Relationship";
             // 
             // tbENumber
             // 
-            this.tbENumber.Location = new System.Drawing.Point(560, 177);
+            this.tbENumber.Location = new System.Drawing.Point(585, 235);
             this.tbENumber.Name = "tbENumber";
             this.tbENumber.Size = new System.Drawing.Size(159, 20);
             this.tbENumber.TabIndex = 32;
             // 
             // tbEName
             // 
-            this.tbEName.Location = new System.Drawing.Point(12, 176);
+            this.tbEName.Location = new System.Drawing.Point(409, 186);
             this.tbEName.Name = "tbEName";
             this.tbEName.Size = new System.Drawing.Size(159, 20);
             this.tbEName.TabIndex = 31;
@@ -151,10 +134,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(411, 143);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(457, 215);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 22);
+            this.label12.Size = new System.Drawing.Size(55, 17);
             this.label12.TabIndex = 27;
             this.label12.Text = "Address";
             // 
@@ -162,10 +145,10 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(612, 143);
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(622, 210);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 22);
+            this.label13.Size = new System.Drawing.Size(51, 17);
             this.label13.TabIndex = 28;
             this.label13.Text = "Number";
             // 
@@ -173,17 +156,17 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(67, 143);
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(457, 165);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 18);
+            this.label14.Size = new System.Drawing.Size(72, 17);
             this.label14.TabIndex = 29;
             this.label14.Text = "First Name :";
             // 
             // tbERelationship
             // 
             this.tbERelationship.FormattingEnabled = true;
-            this.tbERelationship.Location = new System.Drawing.Point(198, 175);
+            this.tbERelationship.Location = new System.Drawing.Point(585, 186);
             this.tbERelationship.Name = "tbERelationship";
             this.tbERelationship.Size = new System.Drawing.Size(159, 21);
             this.tbERelationship.TabIndex = 35;
@@ -200,62 +183,109 @@
             this.TbEDelete.UseVisualStyleBackColor = false;
             this.TbEDelete.Click += new System.EventHandler(this.TbEDelete_Click);
             // 
-            // viewEmergencycontactBindingSource
-            // 
-            this.viewEmergencycontactBindingSource.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
-            // 
-            // viewEmergencycontactBindingSource1
-            // 
-            this.viewEmergencycontactBindingSource1.DataSource = typeof(H_Gates_Managment__System.View_Emergency_contact);
-            // 
             // hGatesDesktopAppDataSet
             // 
             this.hGatesDesktopAppDataSet.DataSetName = "HGatesDesktopAppDataSet";
             this.hGatesDesktopAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // viewEmergencyContactBindingSource3
+            // tbDisplayEname
             // 
-            this.viewEmergencyContactBindingSource3.DataMember = "ViewEmergencyContact";
-            this.viewEmergencyContactBindingSource3.DataSource = this.hGatesDesktopAppDataSet;
+            this.tbDisplayEname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDisplayEname.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplayEname.Location = new System.Drawing.Point(39, 58);
+            this.tbDisplayEname.Name = "tbDisplayEname";
+            this.tbDisplayEname.ReadOnly = true;
+            this.tbDisplayEname.Size = new System.Drawing.Size(123, 15);
+            this.tbDisplayEname.TabIndex = 37;
             // 
-            // viewEmergencyContactTableAdapter
+            // tbContactNumber
             // 
-            this.viewEmergencyContactTableAdapter.ClearBeforeFill = true;
+            this.tbContactNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbContactNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContactNumber.Location = new System.Drawing.Point(297, 60);
+            this.tbContactNumber.Name = "tbContactNumber";
+            this.tbContactNumber.ReadOnly = true;
+            this.tbContactNumber.Size = new System.Drawing.Size(123, 15);
+            this.tbContactNumber.TabIndex = 38;
             // 
-            // contactNameDataGridViewTextBoxColumn
+            // tbERelation
             // 
-            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
-            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tbERelation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbERelation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbERelation.Location = new System.Drawing.Point(426, 60);
+            this.tbERelation.Name = "tbERelation";
+            this.tbERelation.ReadOnly = true;
+            this.tbERelation.Size = new System.Drawing.Size(123, 15);
+            this.tbERelation.TabIndex = 39;
             // 
-            // eContactNoDataGridViewTextBoxColumn
+            // tbContactAddress
             // 
-            this.eContactNoDataGridViewTextBoxColumn.DataPropertyName = "EContactNo";
-            this.eContactNoDataGridViewTextBoxColumn.HeaderText = "EContactNo";
-            this.eContactNoDataGridViewTextBoxColumn.Name = "eContactNoDataGridViewTextBoxColumn";
-            this.eContactNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tbContactAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbContactAddress.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContactAddress.Location = new System.Drawing.Point(168, 58);
+            this.tbContactAddress.Name = "tbContactAddress";
+            this.tbContactAddress.ReadOnly = true;
+            this.tbContactAddress.Size = new System.Drawing.Size(123, 15);
+            this.tbContactAddress.TabIndex = 40;
             // 
-            // relationshipTypeDataGridViewTextBoxColumn
+            // label1
             // 
-            this.relationshipTypeDataGridViewTextBoxColumn.DataPropertyName = "RelationshipType";
-            this.relationshipTypeDataGridViewTextBoxColumn.HeaderText = "RelationshipType";
-            this.relationshipTypeDataGridViewTextBoxColumn.Name = "relationshipTypeDataGridViewTextBoxColumn";
-            this.relationshipTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(86, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Name ";
             // 
-            // parishNameDataGridViewTextBoxColumn
+            // label2
             // 
-            this.parishNameDataGridViewTextBoxColumn.DataPropertyName = "ParishName";
-            this.parishNameDataGridViewTextBoxColumn.HeaderText = "ParishName";
-            this.parishNameDataGridViewTextBoxColumn.Name = "parishNameDataGridViewTextBoxColumn";
-            this.parishNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(202, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Address";
             // 
-            // View_Emergency_contact
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(340, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Number";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(453, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Relationship";
+            // 
+            // tbshowRelation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(756, 209);
+            this.ClientSize = new System.Drawing.Size(756, 286);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbContactAddress);
+            this.Controls.Add(this.tbERelation);
+            this.Controls.Add(this.tbContactNumber);
+            this.Controls.Add(this.tbDisplayEname);
             this.Controls.Add(this.TbEDelete);
             this.Controls.Add(this.tbERelationship);
             this.Controls.Add(this.tbEAddress);
@@ -269,15 +299,11 @@
             this.Controls.Add(this.Emergencydgv);
             this.Controls.Add(this.btExit);
             this.Controls.Add(this.label5);
-            this.Name = "View_Emergency_contact";
+            this.Name = "tbshowRelation";
             this.Text = "View_Emergency_contact";
             this.Load += new System.EventHandler(this.View_Emergency_contact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Emergencydgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencycontactBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hGatesDesktopAppDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewEmergencyContactBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,15 +323,14 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox tbERelationship;
         private System.Windows.Forms.Button TbEDelete;
-        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource1;
-        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource;
-        private System.Windows.Forms.BindingSource viewEmergencycontactBindingSource2;
         private HGatesDesktopAppDataSet hGatesDesktopAppDataSet;
-        private System.Windows.Forms.BindingSource viewEmergencyContactBindingSource3;
-        private HGatesDesktopAppDataSetTableAdapters.ViewEmergencyContactTableAdapter viewEmergencyContactTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eContactNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn relationshipTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parishNameDataGridViewTextBoxColumn;
+        public System.Windows.Forms.TextBox tbDisplayEname;
+        public System.Windows.Forms.TextBox tbContactNumber;
+        public System.Windows.Forms.TextBox tbERelation;
+        public System.Windows.Forms.TextBox tbContactAddress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

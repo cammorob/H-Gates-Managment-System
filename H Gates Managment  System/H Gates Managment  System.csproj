@@ -302,6 +302,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HGatesDesktopAppDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HGatesDesktopAppDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HGatesDesktopAppDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Intake.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
@@ -382,6 +387,12 @@
     <Compile Include="Specialization.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpDateEmergencyContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpDateEmergencyContact.Designer.cs">
+      <DependentUpon>UpDateEmergencyContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
@@ -421,6 +432,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpDateEmergencyContact.resx">
+      <DependentUpon>UpDateEmergencyContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View_Emergency_Contact.resx">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +459,17 @@
     </None>
     <None Include="HGatesDesktopAppDataSet.xss">
       <DependentUpon>HGatesDesktopAppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HGatesDesktopAppDataSet1.xsc">
+      <DependentUpon>HGatesDesktopAppDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HGatesDesktopAppDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HGatesDesktopAppDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HGatesDesktopAppDataSet1.xss">
+      <DependentUpon>HGatesDesktopAppDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>

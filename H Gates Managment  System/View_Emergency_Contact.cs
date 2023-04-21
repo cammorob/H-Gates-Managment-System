@@ -19,25 +19,30 @@ namespace H_Gates_Managment__System
 
     //private readonly HGatesDesktopApp _db;
 
-    public partial class View_Emergency_contact : Form
+    public partial class tbshowRelation : Form
         
 
     {
         private readonly HGatesDesktopAppEntities2 _db;
 
         //private readonly HGatesDesktopApp _db;
-        public View_Emergency_contact()
+        
+        public tbshowRelation()
         {
             
             InitializeComponent();
+            
             _db = new HGatesDesktopAppEntities2();
             // _db = new HGatesDesktopApp();
-            
+           
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
-            Emergencydgv.Refresh();
+            tbERelation.Clear();
+            tbDisplayEname.Clear(); 
+            tbContactAddress.Clear();
+            tbContactNumber.Clear();    
             
             Hide();
         }
@@ -45,7 +50,6 @@ namespace H_Gates_Managment__System
         private void View_Emergency_contact_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hGatesDesktopAppDataSet.ViewEmergencyContact' table. You can move, or remove it, as needed.
-            this.viewEmergencyContactTableAdapter.Fill(this.hGatesDesktopAppDataSet.ViewEmergencyContact);
             //populate address and Relationship list for update when necessary
             var addr = _db.Parishes.ToList();
             tbEAddress.DisplayMember = "ParishName";
@@ -56,75 +60,17 @@ namespace H_Gates_Managment__System
             tbERelationship.DisplayMember = "RelationshipType";
             tbERelationship.ValueMember = "Id";
             tbERelationship.DataSource = relation;
-                
-
-
-            //PatientList patientList = new PatientList();
-            var patient = _db.Patients.FirstOrDefault(x => x.Id == PatientList.rowid);
-            var Contactname = patient.ContactName;
-            var Erelation = _db.EmergencyRelationships.FirstOrDefault(r => r.Id == r.Id);
-            var erelation = Erelation.RelationshipType;
-            var PName = _db.Parishes.FirstOrDefault(p=>p.Id == p.Id);
-            var pName = PName.ParishName;
-
-            try
-            {
-            RefreshGrid();
-                
 
 
 
-            }
-            catch (Exception)
-            {
+            
 
-                throw;
-            }
+
+      
         }
 
 
-        void RefreshGrid()
-        {
-
-            try
-            {
-                /* // var connstring = "Server= DESKTOP-CVIOCU7\\SQLEXPRESS; Initial Catalog=HGateDesktopAdd;Intergrated Security=true";
-                 //var connstring = "data source=DESKTOP-CVIOCU7\\SQLEXPRESS;initial catalog=HGatesDesktopApp;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
-
-                 SqlConnection conn = new SqlConnection(connstring);
-                 conn.Open();
-
-
-
-
-                 SqlCommand cmd = new SqlCommand("Select Patients.ContactName, Patients.ContactAddress,EmergencyRelationships.RelationshipType,Patients.EContactNo from [dbo].[Patients]" +
-                    " inner join [dbo].EmergencyRelationships  on Patients.Id =EmergencyRelationships.Id", conn);
-                 //"inner join [dbo].Parishes on [dbo].Patients.Id=Parishes.Id", conn);
-                 SqlDataAdapter adapter = new SqlDataAdapter();
-                 adapter.SelectCommand = cmd;
-                 DataTable dataTable = new DataTable();
-                 adapter.Fill(dataTable);
-
-                 */
-                _db.
-                Emergencydgv.Refresh();
-                
-
-
-
-
-
-                
-            }
-            catch (Exception ex) 
-            {
-            
-            
-            
-            
-            }
-           
-        }
+    
 
         int GetSelectedRow()
         {
@@ -157,10 +103,10 @@ namespace H_Gates_Managment__System
         private void btUpDateEmergency_Click(object sender, EventArgs e)
         {
 
-            int rowid = PatientList.rowid;
-            try
-            {
-                {
+            UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
+            upDateEmergencyContact.Show();
+
+            /*
                     var patient = GetPatientByID(rowid);
                     var erelation = GetEID(rowid);
                     var pName = GetPID(rowid);
@@ -172,28 +118,17 @@ namespace H_Gates_Managment__System
 
 
                     _db.SaveChanges();
-                    RefreshGrid();
+                   
                     MessageBox.Show("Patient successfully updated.");
+            */
 
-                    RefreshGrid();
-
-
-
-
-
-
-
-                }
-            }
-            catch (Exception)
-
-            {
-
-                MessageBox.Show("Server Unreachable, Please contact Administrator.");
-            }
 
 
         }
+
+
+
+
 
         private void TbEDelete_Click(object sender, EventArgs e)
         {
@@ -209,7 +144,7 @@ namespace H_Gates_Managment__System
                 
                 _db.SaveChanges();
                 MessageBox.Show("Record Delete Successfully.");
-                RefreshGrid();
+              
 
 
 
@@ -237,5 +172,7 @@ namespace H_Gates_Managment__System
 
 
         }
+
+        
     }
 }

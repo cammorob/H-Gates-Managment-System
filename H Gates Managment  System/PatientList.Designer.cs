@@ -36,8 +36,8 @@
             this.btLogout = new System.Windows.Forms.Button();
             this.C_UserLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.GridViewPatients = new System.Windows.Forms.DataGridView();
             this.pa = new System.Windows.Forms.Panel();
-            this.dgvPatients = new System.Windows.Forms.DataGridView();
             this.btPrevious = new System.Windows.Forms.Button();
             this.BtNext = new System.Windows.Forms.Button();
             this.PbSearch = new System.Windows.Forms.PictureBox();
@@ -66,14 +66,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.patientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getAllPatientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbCity = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatients)).BeginInit();
             this.pa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patientListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllPatientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,13 +147,26 @@
             this.label11.TabIndex = 15;
             this.label11.Text = "Current User:";
             // 
+            // GridViewPatients
+            // 
+            this.GridViewPatients.AllowUserToAddRows = false;
+            this.GridViewPatients.AllowUserToDeleteRows = false;
+            this.GridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewPatients.Location = new System.Drawing.Point(24, 87);
+            this.GridViewPatients.Name = "GridViewPatients";
+            this.GridViewPatients.ReadOnly = true;
+            this.GridViewPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridViewPatients.Size = new System.Drawing.Size(528, 234);
+            this.GridViewPatients.TabIndex = 19;
+            this.GridViewPatients.SelectionChanged += new System.EventHandler(this.GridViewPatients_SelectionChanged_1);
+            // 
             // pa
             // 
             this.pa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.pa.Controls.Add(this.dgvPatients);
+            this.pa.Controls.Add(this.GridViewPatients);
             this.pa.Controls.Add(this.btPrevious);
             this.pa.Controls.Add(this.BtNext);
             this.pa.Controls.Add(this.PbSearch);
@@ -161,18 +176,6 @@
             this.pa.Name = "pa";
             this.pa.Size = new System.Drawing.Size(580, 376);
             this.pa.TabIndex = 0;
-            // 
-            // dgvPatients
-            // 
-            this.dgvPatients.AllowUserToDeleteRows = false;
-            this.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPatients.Location = new System.Drawing.Point(62, 110);
-            this.dgvPatients.Name = "dgvPatients";
-            this.dgvPatients.ReadOnly = true;
-            this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatients.Size = new System.Drawing.Size(468, 150);
-            this.dgvPatients.TabIndex = 6;
-            this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged_1);
             // 
             // btPrevious
             // 
@@ -233,6 +236,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.tbCity);
+            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.btDeletePatient);
             this.panel3.Controls.Add(this.tbParish);
             this.panel3.Controls.Add(this.tbStreetAddress);
@@ -269,7 +274,7 @@
             // tbParish
             // 
             this.tbParish.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbParish.Location = new System.Drawing.Point(117, 178);
+            this.tbParish.Location = new System.Drawing.Point(117, 210);
             this.tbParish.Multiline = true;
             this.tbParish.Name = "tbParish";
             this.tbParish.Size = new System.Drawing.Size(147, 20);
@@ -332,7 +337,7 @@
             // btUpDateDetails
             // 
             this.btUpDateDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btUpDateDetails.Location = new System.Drawing.Point(207, 237);
+            this.btUpDateDetails.Location = new System.Drawing.Point(207, 267);
             this.btUpDateDetails.Name = "btUpDateDetails";
             this.btUpDateDetails.Size = new System.Drawing.Size(167, 23);
             this.btUpDateDetails.TabIndex = 10;
@@ -343,7 +348,7 @@
             // btViewEContact
             // 
             this.btViewEContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btViewEContact.Location = new System.Drawing.Point(35, 237);
+            this.btViewEContact.Location = new System.Drawing.Point(35, 267);
             this.btViewEContact.Name = "btViewEContact";
             this.btViewEContact.Size = new System.Drawing.Size(155, 23);
             this.btViewEContact.TabIndex = 9;
@@ -355,7 +360,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(32, 185);
+            this.label9.Location = new System.Drawing.Point(32, 214);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 16);
             this.label9.TabIndex = 8;
@@ -467,9 +472,24 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // patientListBindingSource
+            // label12
             // 
-            this.patientListBindingSource.DataSource = typeof(H_Gates_Managment__System.PatientList);
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(36, 187);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 16);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "City:";
+            // 
+            // tbCity
+            // 
+            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCity.Location = new System.Drawing.Point(128, 184);
+            this.tbCity.Multiline = true;
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(136, 20);
+            this.tbCity.TabIndex = 20;
             // 
             // PatientList
             // 
@@ -487,15 +507,15 @@
             this.Load += new System.EventHandler(this.PatientList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewPatients)).EndInit();
             this.pa.ResumeLayout(false);
             this.pa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbSearch)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patientListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllPatientsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,7 +528,6 @@
         private System.Windows.Forms.PictureBox PbSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btAddPatient;
-        private System.Windows.Forms.BindingSource patientListBindingSource;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox tbParish;
         private System.Windows.Forms.TextBox tbStreetAddress;
@@ -538,6 +557,9 @@
         private System.Windows.Forms.Label C_UserLabel;
         private System.Windows.Forms.Button btLogout;
         private System.Windows.Forms.Button BTHome;
-        private System.Windows.Forms.DataGridView dgvPatients;
+        private System.Windows.Forms.BindingSource getAllPatientsBindingSource;
+        private System.Windows.Forms.DataGridView GridViewPatients;
+        private System.Windows.Forms.TextBox tbCity;
+        private System.Windows.Forms.Label label12;
     }
 }
