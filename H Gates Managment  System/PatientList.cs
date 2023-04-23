@@ -55,7 +55,18 @@ namespace H_Gates_Managment__System
 
         public void PatientList_Load(object sender, EventArgs e)
         {
-            
+
+            var par = _db.Parishes.ToList();
+            tbdropParish.Text= "ParishName";
+            tbdropParish.ValueMember = "ParishName";
+            tbdropParish.DataSource = par;
+
+            var gen =_db.Genders.ToList();
+            cbListGender.Text = "GenderName";
+            cbListGender.ValueMember = "GenderName";
+            cbListGender.DataSource = gen;
+
+
             if (loginPage.CurrentUser != null)
             {
                 C_UserLabel.Text = loginPage.CurrentUser;
@@ -90,10 +101,11 @@ namespace H_Gates_Managment__System
 
                 
                 
+                
 
                     var patients = _db.Patients.Select(q => new { q.Id, q.FirstName, q.LastName,
-                      q.DateOfBirth,q.GenderID,q.StreetAddress,q.City,q.ParishID,q.ContactName,
-                    q.ContactAddress,q.EContactNo,q.ERelationshipID});
+                      q.DateOfBirth,q.Gender.GenderName,q.StreetAddress,q.City,q.Parish.ParishName,q.ContactName,
+                    ContactAddress=q.ContactAddress,q.EContactNo,q.EmergencyRelationship.RelationshipType});
                    GridViewPatients.DataSource = patients.ToList();
                         
 
@@ -101,20 +113,20 @@ namespace H_Gates_Managment__System
                     GridViewPatients.Columns["FirstName"].HeaderText = "First Name";
                     GridViewPatients.Columns["LastName"].HeaderText = "Last Name";
                     GridViewPatients.Columns["DateOfBirth"].HeaderText = "Date of Birth";
-                    GridViewPatients.Columns["GenderID"].HeaderText = "Gender";
+                    GridViewPatients.Columns["GenderName"].HeaderText = "Gender";
                     GridViewPatients.Columns["StreetAddress"].HeaderText = "Street Address";
                     GridViewPatients.Columns["City"].HeaderText = "City";
-                    GridViewPatients.Columns["ParishID"].HeaderText = "Parish";
+                    GridViewPatients.Columns["ParishName"].HeaderText = "Parish";
                     GridViewPatients.Columns["ContactName"].HeaderText = "Contact Name";
                     GridViewPatients.Columns["ContactAddress"].HeaderText = "Contact Address";
                     GridViewPatients.Columns["EContactNo"].HeaderText = "Phone Number";
-                    GridViewPatients.Columns["ERelationshipID"].HeaderText = "Relationship";
+                    GridViewPatients.Columns["RelationshipType"].HeaderText = "Relationship";
                     GridViewPatients.Columns[0].Visible = false;
                     GridViewPatients.Rows[0].Selected = true;
                     GridViewPatients.Columns["ContactName"].Visible = false;
                     GridViewPatients.Columns["ContactAddress"].Visible = false;
                     GridViewPatients.Columns["EContactNo"].Visible = false;
-                    GridViewPatients.Columns["ERelationshipID"].Visible = false;
+                    GridViewPatients.Columns["RelationshipType"].Visible = false;
 
 
 
@@ -144,10 +156,13 @@ namespace H_Gates_Managment__System
                 var patient = GetSelectedRow(rowid);
                 patient.FirstName = tbFirstName.Text;
                 patient.LastName = tbLastName.Text;
-                patient.GenderID = Convert.ToInt32(tbGender.Text);
-                patient.DateOfBirth = Convert.ToDateTime(tbDateOFBirth.Text);
+                cbListGender.ValueMember = "Id";
+                // patient.GenderID= Convert.ToInt32(cbListGender);
+                patient.GenderID = (int)cbListGender.SelectedValue;
+                patient.DateOfBirth = tbDatePick.Value;
                 patient.StreetAddress = tbStreetAddress.Text;
-                patient.ParishID = Convert.ToInt32(tbParish.Text);
+                tbdropParish.ValueMember = "Id";
+                patient.ParishID = (int)tbdropParish.SelectedValue;
 
                 _db.SaveChanges();
                 MessageBox.Show("Patient successfully updated.");
@@ -254,28 +269,34 @@ namespace H_Gates_Managment__System
 
             var Emr = GridViewPatients.SelectedRows[0];
             tbshowRelation VE_Con = new tbshowRelation();
+            VE_Con.MdiParent = this.MdiParent;
 
 
 
 
 
 
-            if (GridViewPatients.Columns["ContactName"].ToString().Equals(null))
+
+            try
             {
-                MessageBox.Show("No Emergency Contact Found, Please Update Record");
-                UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
-                upDateEmergencyContact.Show();
 
-            }
-            else
-            {
 
 
                 VE_Con.tbDisplayEname.Text = Emr.Cells["ContactName"].Value.ToString();
                 VE_Con.tbContactAddress.Text = Emr.Cells["ContactAddress"].Value.ToString();
-                VE_Con.tbContactNumber.Text = Emr.Cells["ContactName"].Value.ToString();
-                VE_Con.tbERelation.Text = Emr.Cells["ERelationshipID"].Value.ToString();
+                VE_Con.tbContactNumber.Text = Emr.Cells["EContactNo"].Value.ToString();
+                VE_Con.tbERelation.Text = Emr.Cells["RelationshipType"].Value.ToString();
                 VE_Con.Show();
+
+                
+
+
+            }
+            catch
+            {
+                MessageBox.Show("No Emergency Contact Found, Please Update Record");
+                UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
+                upDateEmergencyContact.Show();
             }
 
 
@@ -337,15 +358,28 @@ namespace H_Gates_Managment__System
 
                 tbFirstName.Text = selected.Cells["FirstName"].Value.ToString();
                 tbLastName.Text = selected.Cells["LastName"].Value.ToString();
-                tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
-                tbGender.Text = selected.Cells["GenderID"].Value.ToString();
+                //tbDateOFBirth.Text = selected.Cells["DateOfBirth"].Value.ToString();
+                tbDatePick.Text = selected.Cells["DateofBirth"].Value.ToString();
+                   
+
+
+                cbListGender.Text = selected.Cells["GenderName"].Value.ToString();
                 tbStreetAddress.Text = selected.Cells["StreetAddress"].Value.ToString();
                 tbCity.Text = selected.Cells["City"].Value.ToString();
-                tbParish.Text = selected.Cells["ParishID"].Value.ToString();
-
+                tbdropParish.Text = selected.Cells["ParishName"].Value.ToString();
+               
+                
                 GridViewPatients.SelectedRows[0].Cells[0].Value.ToString();
                 
-                
+                int CalulateAge()
+                {
+                    var today = DateTime.Now;
+                    int dob = Convert.ToInt32(tbDatePick.Value);
+                    int age = today.Year - dob;
+                   
+                    tbAge.Text = age.ToString();    
+                    return age;
+                }
                
 
                
@@ -359,7 +393,12 @@ namespace H_Gates_Managment__System
             }
         }
 
-       
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            var loginPage = new loginPage();
+            loginPage.Show();
+            Hide();
+        }
     }
 }
 

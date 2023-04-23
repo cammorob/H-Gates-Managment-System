@@ -49,22 +49,11 @@ namespace H_Gates_Managment__System
        
         private void View_Emergency_contact_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hGatesDesktopAppDataSet.ViewEmergencyContact' table. You can move, or remove it, as needed.
-            //populate address and Relationship list for update when necessary
-            var addr = _db.Parishes.ToList();
-            tbEAddress.DisplayMember = "ParishName";
-            tbEAddress.ValueMember = "Id";
-            tbEAddress.DataSource = addr;
-
-            var relation =_db.EmergencyRelationships.ToList();
-            tbERelationship.DisplayMember = "RelationshipType";
-            tbERelationship.ValueMember = "Id";
-            tbERelationship.DataSource = relation;
+           
 
 
 
-            
-
+       
 
       
         }
@@ -72,11 +61,7 @@ namespace H_Gates_Managment__System
 
     
 
-        int GetSelectedRow()
-        {
-            int row = (int)Emergencydgv.SelectedRows[0].Cells[0].Value;
-            return row;
-        }
+       
         Patient GetPatientByID(int Id)
         {
             var patient = _db.Patients.Find(Id);
@@ -105,23 +90,8 @@ namespace H_Gates_Managment__System
 
             UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
             upDateEmergencyContact.Show();
-
-            /*
-                    var patient = GetPatientByID(rowid);
-                    var erelation = GetEID(rowid);
-                    var pName = GetPID(rowid);
-                    patient.ContactName = tbEName.Text;
-                    patient.EContactNo = tbENumber.Text;
-                    patient.ContactAddress =tbEAddress.SelectedValue.ToString() ;
-                    patient.ERelationshipID = (int)tbERelationship.SelectedValue;
-                    // patient.
-
-
-                    _db.SaveChanges();
-                   
-                    MessageBox.Show("Patient successfully updated.");
-            */
-
+            Hide();
+           
 
 
         }
@@ -130,48 +100,7 @@ namespace H_Gates_Managment__System
 
 
 
-        private void TbEDelete_Click(object sender, EventArgs e)
-        {
-
-            int rowid = PatientList.rowid;
-            
-            try
-            {
-                var patient = GetPatientByID(rowid);
-                patient.ContactName = tbEName.Text;
-                patient.EContactNo = tbENumber.Text;
-                patient.ContactName = tbEAddress.Text;
-                
-                _db.SaveChanges();
-                MessageBox.Show("Record Delete Successfully.");
-              
-
-
-
-
-
-
-
-
-
-            }
-            catch (Exception)
-
-            {
-
-                MessageBox.Show("Server Unreachable, Please contact Administrator.");
-            }
-
-
-
-
-
-
-
-
-
-
-        }
+        
 
         
     }

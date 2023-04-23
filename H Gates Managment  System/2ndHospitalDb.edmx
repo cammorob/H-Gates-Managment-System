@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HGatesDesktopAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HGatesDesktopAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Conditions">
           <Key>
             <PropertyRef Name="Id" />
@@ -232,7 +232,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="GetPatientsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllPatients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HGatesDesktopAppModel1StoreContainer">
           <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
@@ -287,8 +287,7 @@
             <End Role="Patients" EntitySet="Patients" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HGatesDesktopAppModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -593,6 +592,7 @@
             <End Role="Patients" EntitySet="Patients" />
           </AssociationSet>
           <FunctionImport Name="GetPatientsList" ReturnType="Collection(HGatesDesktopAppModel1.GetPatientsList_Result)" />
+          <FunctionImport Name="GetAllPatients" ReturnType="Collection(HGatesDesktopAppModel1.GetAllPatients_Result)" />
         </EntityContainer>
         <ComplexType Name="GetPatientsList_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -603,6 +603,16 @@
           <Property Type="String" Name="StreetAddress" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="City" Nullable="false" MaxLength="70" />
           <Property Type="String" Name="ParishName" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetAllPatients_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="ParishName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="GenderName" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="StreetAddress" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="70" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -729,17 +739,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetPatientsList" FunctionName="HGatesDesktopAppModel1.Store.GetPatientsList">
+          <FunctionImportMapping FunctionImportName="GetAllPatients" FunctionName="HGatesDesktopAppModel1.Store.GetAllPatients">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HGatesDesktopAppModel1.GetPatientsList_Result">
+              <ComplexTypeMapping TypeName="HGatesDesktopAppModel1.GetAllPatients_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ParishName" ColumnName="ParishName" />
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
                 <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
                 <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="ParishName" ColumnName="ParishName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -33,6 +33,7 @@ namespace H_Gates_Managment__System
         private void MainPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             _LoginPage.Show();
+            Hide();
         }
 
         private void BtViewPatients_Click(object sender, EventArgs e)

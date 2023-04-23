@@ -44,12 +44,14 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btAddPatient = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbDatePick = new System.Windows.Forms.DateTimePicker();
+            this.cbListGender = new System.Windows.Forms.ComboBox();
+            this.tbdropParish = new System.Windows.Forms.ComboBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btDeletePatient = new System.Windows.Forms.Button();
-            this.tbParish = new System.Windows.Forms.TextBox();
             this.tbStreetAddress = new System.Windows.Forms.TextBox();
             this.tbAge = new System.Windows.Forms.TextBox();
-            this.tbDateOFBirth = new System.Windows.Forms.TextBox();
-            this.tbGender = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.btUpDateDetails = new System.Windows.Forms.Button();
@@ -67,8 +69,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.getAllPatientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbCity = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPatients)).BeginInit();
             this.pa.SuspendLayout();
@@ -122,6 +122,7 @@
             this.btLogout.TabIndex = 17;
             this.btLogout.Text = "Log Out";
             this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
             // 
             // C_UserLabel
             // 
@@ -236,14 +237,14 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.tbDatePick);
+            this.panel3.Controls.Add(this.cbListGender);
+            this.panel3.Controls.Add(this.tbdropParish);
             this.panel3.Controls.Add(this.tbCity);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.btDeletePatient);
-            this.panel3.Controls.Add(this.tbParish);
             this.panel3.Controls.Add(this.tbStreetAddress);
             this.panel3.Controls.Add(this.tbAge);
-            this.panel3.Controls.Add(this.tbDateOFBirth);
-            this.panel3.Controls.Add(this.tbGender);
             this.panel3.Controls.Add(this.tbLastName);
             this.panel3.Controls.Add(this.tbFirstName);
             this.panel3.Controls.Add(this.btUpDateDetails);
@@ -260,6 +261,51 @@
             this.panel3.Size = new System.Drawing.Size(405, 376);
             this.panel3.TabIndex = 1;
             // 
+            // tbDatePick
+            // 
+            this.tbDatePick.Location = new System.Drawing.Point(111, 127);
+            this.tbDatePick.Name = "tbDatePick";
+            this.tbDatePick.Size = new System.Drawing.Size(200, 20);
+            this.tbDatePick.TabIndex = 46;
+            // 
+            // cbListGender
+            // 
+            this.cbListGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbListGender.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbListGender.FormattingEnabled = true;
+            this.cbListGender.Location = new System.Drawing.Point(111, 96);
+            this.cbListGender.Name = "cbListGender";
+            this.cbListGender.Size = new System.Drawing.Size(159, 23);
+            this.cbListGender.TabIndex = 45;
+            // 
+            // tbdropParish
+            // 
+            this.tbdropParish.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tbdropParish.FormattingEnabled = true;
+            this.tbdropParish.Location = new System.Drawing.Point(128, 212);
+            this.tbdropParish.Name = "tbdropParish";
+            this.tbdropParish.Size = new System.Drawing.Size(159, 21);
+            this.tbdropParish.TabIndex = 44;
+            // 
+            // tbCity
+            // 
+            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCity.Location = new System.Drawing.Point(128, 184);
+            this.tbCity.Multiline = true;
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(136, 20);
+            this.tbCity.TabIndex = 20;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(36, 187);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 16);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "City:";
+            // 
             // btDeletePatient
             // 
             this.btDeletePatient.BackColor = System.Drawing.Color.Red;
@@ -270,15 +316,6 @@
             this.btDeletePatient.Text = "Delete Selected Record";
             this.btDeletePatient.UseVisualStyleBackColor = false;
             this.btDeletePatient.Click += new System.EventHandler(this.btDeletePatient_Click);
-            // 
-            // tbParish
-            // 
-            this.tbParish.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbParish.Location = new System.Drawing.Point(117, 210);
-            this.tbParish.Multiline = true;
-            this.tbParish.Name = "tbParish";
-            this.tbParish.Size = new System.Drawing.Size(147, 20);
-            this.tbParish.TabIndex = 17;
             // 
             // tbStreetAddress
             // 
@@ -292,29 +329,11 @@
             // tbAge
             // 
             this.tbAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAge.Location = new System.Drawing.Point(307, 127);
+            this.tbAge.Location = new System.Drawing.Point(350, 127);
             this.tbAge.Multiline = true;
             this.tbAge.Name = "tbAge";
-            this.tbAge.Size = new System.Drawing.Size(76, 20);
+            this.tbAge.Size = new System.Drawing.Size(52, 20);
             this.tbAge.TabIndex = 15;
-            // 
-            // tbDateOFBirth
-            // 
-            this.tbDateOFBirth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDateOFBirth.Location = new System.Drawing.Point(111, 127);
-            this.tbDateOFBirth.Multiline = true;
-            this.tbDateOFBirth.Name = "tbDateOFBirth";
-            this.tbDateOFBirth.Size = new System.Drawing.Size(121, 20);
-            this.tbDateOFBirth.TabIndex = 14;
-            // 
-            // tbGender
-            // 
-            this.tbGender.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbGender.Location = new System.Drawing.Point(111, 99);
-            this.tbGender.Multiline = true;
-            this.tbGender.Name = "tbGender";
-            this.tbGender.Size = new System.Drawing.Size(79, 20);
-            this.tbGender.TabIndex = 13;
             // 
             // tbLastName
             // 
@@ -410,7 +429,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(268, 127);
+            this.label4.Location = new System.Drawing.Point(317, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 16);
             this.label4.TabIndex = 3;
@@ -472,25 +491,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(36, 187);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 16);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "City:";
-            // 
-            // tbCity
-            // 
-            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCity.Location = new System.Drawing.Point(128, 184);
-            this.tbCity.Multiline = true;
-            this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(136, 20);
-            this.tbCity.TabIndex = 20;
-            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,11 +529,8 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btAddPatient;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox tbParish;
         private System.Windows.Forms.TextBox tbStreetAddress;
         private System.Windows.Forms.TextBox tbAge;
-        private System.Windows.Forms.TextBox tbDateOFBirth;
-        private System.Windows.Forms.TextBox tbGender;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Button btUpDateDetails;
@@ -561,5 +558,8 @@
         private System.Windows.Forms.DataGridView GridViewPatients;
         private System.Windows.Forms.TextBox tbCity;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox tbdropParish;
+        private System.Windows.Forms.ComboBox cbListGender;
+        private System.Windows.Forms.DateTimePicker tbDatePick;
     }
 }

@@ -14,19 +14,19 @@ namespace H_Gates_Managment__System
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-
+    
     public partial class HGatesDesktopAppEntities2 : DbContext
     {
         public HGatesDesktopAppEntities2()
             : base("name=HGatesDesktopAppEntities2")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Condition> Conditions { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<EmergencyRelationship> EmergencyRelationships { get; set; }
@@ -39,6 +39,15 @@ namespace H_Gates_Managment__System
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
         public virtual DbSet<User> Users { get; set; }
-
+    
+        public virtual ObjectResult<GetPatientsList_Result> GetPatientsList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPatientsList_Result>("GetPatientsList");
+        }
+    
+        public virtual ObjectResult<GetAllPatients_Result> GetAllPatients()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllPatients_Result>("GetAllPatients");
+        }
     }
 }

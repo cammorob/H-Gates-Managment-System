@@ -294,6 +294,9 @@
     <Compile Include="Gender.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetAllPatients_Result.cs">
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetPatientsList_Result.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
@@ -310,17 +313,11 @@
     <Compile Include="Intake.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="IntakeList.cs">
+    <Compile Include="AdmitToIntake.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IntakeList.Designer.cs">
-      <DependentUpon>IntakeList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IntakeManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IntakeManagement.Designer.cs">
-      <DependentUpon>IntakeManagement.cs</DependentUpon>
+    <Compile Include="AdmitToIntake.Designer.cs">
+      <DependentUpon>AdmitToIntake.cs</DependentUpon>
     </Compile>
     <Compile Include="IntakePage.cs">
       <SubType>Form</SubType>
@@ -402,11 +399,8 @@
     <Compile Include="View_Emergency_Contact.Designer.cs">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="IntakeList.resx">
-      <DependentUpon>IntakeList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IntakeManagement.resx">
-      <DependentUpon>IntakeManagement.cs</DependentUpon>
+    <EmbeddedResource Include="AdmitToIntake.resx">
+      <DependentUpon>AdmitToIntake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IntakePage.resx">
       <DependentUpon>IntakePage.cs</DependentUpon>

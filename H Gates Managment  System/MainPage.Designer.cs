@@ -68,7 +68,7 @@
             this.C_UserLabel.BackColor = System.Drawing.SystemColors.HighlightText;
             this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C_UserLabel.Location = new System.Drawing.Point(394, 20);
+            this.C_UserLabel.Location = new System.Drawing.Point(612, 24);
             this.C_UserLabel.Name = "C_UserLabel";
             this.C_UserLabel.Size = new System.Drawing.Size(38, 15);
             this.C_UserLabel.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.BtViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtViewPatients.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtViewPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtViewPatients.Location = new System.Drawing.Point(405, 103);
+            this.BtViewPatients.Location = new System.Drawing.Point(641, 101);
             this.BtViewPatients.Name = "BtViewPatients";
             this.BtViewPatients.Size = new System.Drawing.Size(103, 21);
             this.BtViewPatients.TabIndex = 10;
@@ -101,7 +101,7 @@
             // btLogout
             // 
             this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(516, 16);
+            this.btLogout.Location = new System.Drawing.Point(679, 16);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(75, 23);
             this.btLogout.TabIndex = 13;
@@ -115,7 +115,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(312, 20);
+            this.label2.Location = new System.Drawing.Point(530, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 15);
             this.label2.TabIndex = 14;
@@ -131,7 +131,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-4, -9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(167, 461);
+            this.panel1.Size = new System.Drawing.Size(167, 619);
             this.panel1.TabIndex = 15;
             // 
             // Intake_Pagebt
@@ -171,7 +171,7 @@
             this.panel2.Controls.Add(this.C_UserLabel);
             this.panel2.Location = new System.Drawing.Point(157, -6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(644, 48);
+            this.panel2.Size = new System.Drawing.Size(872, 48);
             this.panel2.TabIndex = 16;
             // 
             // entityCommand1
@@ -189,9 +189,9 @@
             this.panel3.Controls.Add(this.LabelAddPatients);
             this.panel3.Controls.Add(this.BtViewPatients);
             this.panel3.Controls.Add(this.bAddPatients);
-            this.panel3.Location = new System.Drawing.Point(159, 230);
+            this.panel3.Location = new System.Drawing.Point(159, 242);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(642, 136);
+            this.panel3.Size = new System.Drawing.Size(870, 130);
             this.panel3.TabIndex = 17;
             // 
             // button2
@@ -199,9 +199,9 @@
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(374, 15);
+            this.button2.Location = new System.Drawing.Point(634, 15);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 85);
+            this.button2.Size = new System.Drawing.Size(118, 85);
             this.button2.TabIndex = 14;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -211,7 +211,7 @@
             this.LabelAddPatients.BackColor = System.Drawing.Color.White;
             this.LabelAddPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelAddPatients.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAddPatients.Location = new System.Drawing.Point(162, 103);
+            this.LabelAddPatients.Location = new System.Drawing.Point(289, 103);
             this.LabelAddPatients.Name = "LabelAddPatients";
             this.LabelAddPatients.Size = new System.Drawing.Size(87, 19);
             this.LabelAddPatients.TabIndex = 13;
@@ -224,9 +224,9 @@
             this.bAddPatients.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAddPatients.BackgroundImage")));
             this.bAddPatients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bAddPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAddPatients.Location = new System.Drawing.Point(131, 15);
+            this.bAddPatients.Location = new System.Drawing.Point(269, 16);
             this.bAddPatients.Name = "bAddPatients";
-            this.bAddPatients.Size = new System.Drawing.Size(150, 85);
+            this.bAddPatients.Size = new System.Drawing.Size(126, 85);
             this.bAddPatients.TabIndex = 12;
             this.bAddPatients.UseVisualStyleBackColor = true;
             this.bAddPatients.Click += new System.EventHandler(this.bAddPatients_Click);
@@ -238,7 +238,7 @@
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1025, 603);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);

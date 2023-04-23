@@ -1,6 +1,6 @@
 ﻿namespace H_Gates_Managment__System
 {
-    partial class IntakeList
+    partial class AdmitToIntake
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,18 +42,20 @@
             this.cbRoom = new System.Windows.Forms.ComboBox();
             this.Intake_Submitbt = new System.Windows.Forms.Button();
             this.dpIntake_Date = new System.Windows.Forms.DateTimePicker();
+            this.tbExit = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.IdLblL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label2
+            // lblTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(307, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 33);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Intake List ";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(251, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(2, 33);
+            this.lblTitle.TabIndex = 4;
             // 
             // label1
             // 
@@ -152,7 +154,7 @@
             // 
             // Intake_Submitbt
             // 
-            this.Intake_Submitbt.Location = new System.Drawing.Point(550, 317);
+            this.Intake_Submitbt.Location = new System.Drawing.Point(443, 134);
             this.Intake_Submitbt.Name = "Intake_Submitbt";
             this.Intake_Submitbt.Size = new System.Drawing.Size(205, 83);
             this.Intake_Submitbt.TabIndex = 16;
@@ -167,11 +169,43 @@
             this.dpIntake_Date.Size = new System.Drawing.Size(243, 20);
             this.dpIntake_Date.TabIndex = 17;
             // 
-            // IntakeList
+            // tbExit
+            // 
+            this.tbExit.Location = new System.Drawing.Point(556, 350);
+            this.tbExit.Name = "tbExit";
+            this.tbExit.Size = new System.Drawing.Size(92, 46);
+            this.tbExit.TabIndex = 18;
+            this.tbExit.Text = "Exit";
+            this.tbExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.tbExit.UseVisualStyleBackColor = true;
+            this.tbExit.Click += new System.EventHandler(this.tbExit_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(25, 101);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.TabIndex = 19;
+            this.lblID.Visible = false;
+            // 
+            // IdLblL
+            // 
+            this.IdLblL.AutoSize = true;
+            this.IdLblL.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdLblL.Location = new System.Drawing.Point(166, 110);
+            this.IdLblL.Name = "IdLblL";
+            this.IdLblL.Size = new System.Drawing.Size(0, 15);
+            this.IdLblL.TabIndex = 20;
+            // 
+            // AdmitToIntake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 450);
+            this.ClientSize = new System.Drawing.Size(660, 450);
+            this.Controls.Add(this.IdLblL);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.tbExit);
             this.Controls.Add(this.dpIntake_Date);
             this.Controls.Add(this.Intake_Submitbt);
             this.Controls.Add(this.cbRoom);
@@ -185,8 +219,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Name = "IntakeList";
+            this.Controls.Add(this.lblTitle);
+            this.Name = "AdmitToIntake";
             this.Text = "IntakeList";
             this.Load += new System.EventHandler(this.IntakeList_Load);
             this.ResumeLayout(false);
@@ -196,7 +230,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -210,5 +244,8 @@
         private System.Windows.Forms.ComboBox cbRoom;
         private System.Windows.Forms.Button Intake_Submitbt;
         private System.Windows.Forms.DateTimePicker dpIntake_Date;
+        private System.Windows.Forms.Button tbExit;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label IdLblL;
     }
 }

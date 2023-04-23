@@ -122,7 +122,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Location = new System.Drawing.Point(320, 54);
+            this.panel1.Location = new System.Drawing.Point(554, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(481, 55);
             this.panel1.TabIndex = 7;
@@ -130,7 +130,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel2.Location = new System.Drawing.Point(-1, 340);
+            this.panel2.Location = new System.Drawing.Point(233, 365);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(802, 53);
             this.panel2.TabIndex = 8;
@@ -142,7 +142,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1029, 633);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btlogin_Click);

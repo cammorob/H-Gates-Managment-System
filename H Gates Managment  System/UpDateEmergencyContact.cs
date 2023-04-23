@@ -41,6 +41,8 @@ namespace H_Gates_Managment__System
 
         private void UpDateEmergencyContact_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hGatesDesktopAppDataSet.ViewEmergencyContact' table. You can move, or remove it, as needed.
+            //populate address and Relationship list for update when necessary
             var addr = _db.Parishes.ToList();
             tbEAddress.DisplayMember = "ParishName";
             tbEAddress.ValueMember = "Id";
@@ -50,6 +52,13 @@ namespace H_Gates_Managment__System
             tbERelationship.DisplayMember = "RelationshipType";
             tbERelationship.ValueMember = "Id";
             tbERelationship.DataSource = relation;
+
+
+
+
+
+
+
         }
 
         private void btUpDateEmergency_Click_1(object sender, EventArgs e)
@@ -66,14 +75,31 @@ namespace H_Gates_Managment__System
                     patient.ContactAddress = tbEAddress.SelectedValue.ToString();
                     patient.ERelationshipID = (int)tbERelationship.SelectedValue;
                     // patient.
+                    if (tbEName.Text is null && tbENumber.Text is null)
+                    {
 
+                        MessageBox.Show("Please enter missing information");
 
-                    _db.SaveChanges();
+                    }
+                    else {
 
-                    MessageBox.Show("Patient successfully updated.");
+                        _db.SaveChanges();
+                        MessageBox.Show("Patient successfully updated.");
+                        PatientList patientList = new PatientList();
+                        patientList.Refresh();
+                        Hide();
+                    }
                 }
             }
-            catch { }
+            catch
+            {
+                MessageBox.Show("Server Unreachable, Please contact Administrator.");
+            }
+        }
+
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }
