@@ -26,22 +26,27 @@ namespace H_Gates_Managment__System
         { 
         
         InitializeComponent( );
-            _LoginPage = LoginPage;
+           _LoginPage = LoginPage;
             
         }
 
         private void MainPage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _LoginPage.Show();
-            Hide();
+            
         }
 
         private void BtViewPatients_Click(object sender, EventArgs e)
         {
-           
-            var PatientList=new PatientList();
-            PatientList.Show();
-            Hide();
+
+            var OpenForms = Application.OpenForms.Cast<Form>();
+            var isOpen = OpenForms.Any(q => q.Name == "PatientList");
+            if (!isOpen)
+            {
+                var Patientlist = new PatientList();
+
+                Patientlist.Show();
+                Hide();
+            }
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -64,22 +69,28 @@ namespace H_Gates_Managment__System
         private void bAddPatients_Click(object sender, EventArgs e)
         {
             var PatientsEntry = new PatientsEntry();
-            PatientsEntry.Show();
+            PatientsEntry.ShowDialog();
             Hide();
         }
 
         private void LabelAddPatients_Click(object sender, EventArgs e)
         {
             var PatientsEntry = new PatientsEntry();
-            PatientsEntry.Show();
+            PatientsEntry.ShowDialog();
             Hide();
         }
 
         private void Intake_Pagebt_Click(object sender, EventArgs e)
         {
-            var Intake_Page = new IntakePage();
-            Intake_Page.Show();
-            Hide();
+            var OpenForms=Application.OpenForms.Cast<Form>();
+            var isOpen = OpenForms.Any(q => q.Name == "IntakePage");
+            if (!isOpen)
+            {
+                var Intake_Page = new IntakePage();
+               
+                Intake_Page.Show();
+                Hide();
+            }
 
 
         }

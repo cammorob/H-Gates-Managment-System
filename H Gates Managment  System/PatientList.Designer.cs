@@ -503,7 +503,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PatientList";
             this.Text = "MainPage";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientList_FormClosing);
             this.Load += new System.EventHandler(this.PatientList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -89,7 +89,7 @@ namespace H_Gates_Managment__System
         {
 
             UpDateEmergencyContact upDateEmergencyContact = new UpDateEmergencyContact();
-            upDateEmergencyContact.Show();
+            upDateEmergencyContact.ShowDialog();
             Hide();
            
 

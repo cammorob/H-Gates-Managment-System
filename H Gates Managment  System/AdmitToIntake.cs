@@ -87,57 +87,58 @@ namespace H_Gates_Managment__System
         private void Intake_Submitbt_Click(object sender, EventArgs e)
         {
 
+            try {
+                if (isEditMode)
 
-            if (isEditMode)
+                {
+                    if (MessageBox.Show("Do You Want To edit This Record", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        var id = int.Parse(lblID.Text);
+                        var IntakeList = _db.Intakes.FirstOrDefault(q => q.Id == id);
+                        var Intake_Date = dpIntake_Date.Value;
 
-            {
-                if (MessageBox.Show("Do You Want To edit This Record", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                    var id = int.Parse(lblID.Text);
-                    var IntakeList = _db.Intakes.FirstOrDefault(q => q.Id == id);
-                    var Intake_Date = dpIntake_Date.Value;
+                        IntakeList.PatientID = (int)cbPatient_First_Name.SelectedValue;
+                        IntakeList.ConditionID = (int)cbCondition.SelectedValue;
+                        IntakeList.ProcedureID = (int)cbProcedure.SelectedValue;
+                        IntakeList.DoctorID = (int)cbDoctors_Last_Name.SelectedValue;
+                        IntakeList.RoomID = (int)cbRoom.SelectedValue;
+                        IntakeList.IntakeDate = Intake_Date;
+                        _db.SaveChanges();
+                        IntakePage intakePage = new IntakePage();
+                        intakePage.Refresh();
+                    }
+                }
+                else
+                {
 
-                    IntakeList.PatientID = (int)cbPatient_First_Name.SelectedValue;
-                    IntakeList.ConditionID = (int)cbCondition.SelectedValue;
-                    IntakeList.ProcedureID = (int)cbProcedure.SelectedValue;
-                    IntakeList.DoctorID = (int)cbDoctors_Last_Name.SelectedValue;
-                    IntakeList.RoomID = (int)cbRoom.SelectedValue;
-                    IntakeList.IntakeDate = Intake_Date;
+                    var newIntake = new Intake();
+                    newIntake.PatientID = (int)cbPatient_First_Name.SelectedValue;
+                    newIntake.ConditionID = (int)cbCondition.SelectedValue;
+                    newIntake.ProcedureID = (int)cbProcedure.SelectedValue;
+                    newIntake.DoctorID = (int)cbDoctors_Last_Name.SelectedValue;
+                    newIntake.RoomID = (int)cbRoom.SelectedValue;
+                    newIntake.IntakeDate = dpIntake_Date.Value;
+                    _db.Intakes.Add(newIntake);
                     _db.SaveChanges();
                     IntakePage intakePage = new IntakePage();
                     intakePage.Refresh();
+                    MessageBox.Show("Record added");
+                    if (MessageBox.Show("Do you want to add another record", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) 
+                    {
+                    
+                        Close();
+                    
+                    
+                    }
+
                 }
+              
+
             }
-            else
+            catch
             {
-                var newIntake = new Intake();
-                newIntake.PatientID = (int)cbPatient_First_Name.SelectedValue;
-                newIntake.ConditionID = (int)cbCondition.SelectedValue;
-                newIntake.ProcedureID = (int)cbProcedure.SelectedValue;
-                newIntake.DoctorID = (int)cbDoctors_Last_Name.SelectedValue;
-                newIntake.RoomID = (int)cbRoom.SelectedValue;
-                newIntake.IntakeDate = dpIntake_Date.Value;
-                _db.Intakes.Add(newIntake);
-                _db.SaveChanges();
-                IntakePage intakePage = new IntakePage();
-                intakePage.Refresh();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                MessageBox.Show("An unexpected error has occured, plesae contact you administrator");
+            
             }
         }
 

@@ -43,8 +43,17 @@
             this.Intake_Submitbt = new System.Windows.Forms.Button();
             this.dpIntake_Date = new System.Windows.Forms.DateTimePicker();
             this.tbExit = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
             this.IdLblL = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BTHome = new System.Windows.Forms.Button();
+            this.btLogout = new System.Windows.Forms.Button();
+            this.C_UserLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -180,31 +189,117 @@
             this.tbExit.UseVisualStyleBackColor = true;
             this.tbExit.Click += new System.EventHandler(this.tbExit_Click);
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(25, 101);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 13);
-            this.lblID.TabIndex = 19;
-            this.lblID.Visible = false;
-            // 
             // IdLblL
             // 
             this.IdLblL.AutoSize = true;
-            this.IdLblL.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLblL.Location = new System.Drawing.Point(166, 110);
+            this.IdLblL.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdLblL.Location = new System.Drawing.Point(263, 61);
             this.IdLblL.Name = "IdLblL";
-            this.IdLblL.Size = new System.Drawing.Size(0, 15);
+            this.IdLblL.Size = new System.Drawing.Size(0, 22);
             this.IdLblL.TabIndex = 20;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.BTHome);
+            this.panel1.Controls.Add(this.btLogout);
+            this.panel1.Controls.Add(this.C_UserLabel);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(660, 42);
+            this.panel1.TabIndex = 21;
+            // 
+            // BTHome
+            // 
+            this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTHome.Location = new System.Drawing.Point(797, 26);
+            this.BTHome.Name = "BTHome";
+            this.BTHome.Size = new System.Drawing.Size(75, 23);
+            this.BTHome.TabIndex = 18;
+            this.BTHome.Text = "Home";
+            this.BTHome.UseVisualStyleBackColor = true;
+            // 
+            // btLogout
+            // 
+            this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogout.Location = new System.Drawing.Point(878, 26);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 17;
+            this.btLogout.Text = "Log Out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            // 
+            // C_UserLabel
+            // 
+            this.C_UserLabel.AutoSize = true;
+            this.C_UserLabel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.C_UserLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.C_UserLabel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_UserLabel.Location = new System.Drawing.Point(711, 30);
+            this.C_UserLabel.Name = "C_UserLabel";
+            this.C_UserLabel.Size = new System.Drawing.Size(38, 15);
+            this.C_UserLabel.TabIndex = 16;
+            this.C_UserLabel.Text = "  User";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "H Gates Hospital";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(131, 45);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(313, 219);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "label9";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(310, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "label10";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Patient ID";
             // 
             // AdmitToIntake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(660, 450);
-            this.Controls.Add(this.IdLblL);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lblID);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.IdLblL);
             this.Controls.Add(this.tbExit);
             this.Controls.Add(this.dpIntake_Date);
             this.Controls.Add(this.Intake_Submitbt);
@@ -223,6 +318,8 @@
             this.Name = "AdmitToIntake";
             this.Text = "IntakeList";
             this.Load += new System.EventHandler(this.IntakeList_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,7 +342,15 @@
         private System.Windows.Forms.Button Intake_Submitbt;
         private System.Windows.Forms.DateTimePicker dpIntake_Date;
         private System.Windows.Forms.Button tbExit;
-        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label IdLblL;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BTHome;
+        private System.Windows.Forms.Button btLogout;
+        private System.Windows.Forms.Label C_UserLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
     }
 }

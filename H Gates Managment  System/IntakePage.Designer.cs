@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntakePage));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.intakeManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRecord = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +44,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btdelete = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntakelist)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,21 +79,21 @@
             // addRecord
             // 
             this.addRecord.Name = "addRecord";
-            this.addRecord.Size = new System.Drawing.Size(180, 22);
+            this.addRecord.Size = new System.Drawing.Size(147, 22);
             this.addRecord.Text = "Add Record";
             this.addRecord.Click += new System.EventHandler(this.addRecord_Click);
             // 
             // editRecordToolStripMenuItem
             // 
             this.editRecordToolStripMenuItem.Name = "editRecordToolStripMenuItem";
-            this.editRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editRecordToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.editRecordToolStripMenuItem.Text = "Edit Record";
             this.editRecordToolStripMenuItem.Click += new System.EventHandler(this.editRecordToolStripMenuItem_Click);
             // 
             // deleteRecord
             // 
             this.deleteRecord.Name = "deleteRecord";
-            this.deleteRecord.Size = new System.Drawing.Size(180, 22);
+            this.deleteRecord.Size = new System.Drawing.Size(147, 22);
             this.deleteRecord.Text = "Delete Record";
             this.deleteRecord.Click += new System.EventHandler(this.deleteRecord_Click);
             // 
@@ -103,7 +108,7 @@
             this.dgvIntakelist.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvIntakelist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvIntakelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntakelist.Location = new System.Drawing.Point(476, 76);
+            this.dgvIntakelist.Location = new System.Drawing.Point(539, 76);
             this.dgvIntakelist.MultiSelect = false;
             this.dgvIntakelist.Name = "dgvIntakelist";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -115,7 +120,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvIntakelist.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIntakelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIntakelist.Size = new System.Drawing.Size(708, 483);
+            this.dgvIntakelist.Size = new System.Drawing.Size(658, 483);
             this.dgvIntakelist.TabIndex = 2;
             // 
             // panel1
@@ -200,12 +205,34 @@
             this.btdelete.UseVisualStyleBackColor = false;
             this.btdelete.Click += new System.EventHandler(this.btdelete_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 261);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(108, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(131, 122);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(409, 437);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // IntakePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1271, 580);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btdelete);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvIntakelist);
@@ -220,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntakelist)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +270,7 @@
         private System.Windows.Forms.ToolStripMenuItem editRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteRecord;
         private System.Windows.Forms.Button btdelete;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

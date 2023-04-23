@@ -116,5 +116,7 @@ namespace H_Gates_Managment__System
             dgvIntakelist.Refresh();
 
         }
+
+       
     }
     }

@@ -209,12 +209,12 @@ namespace H_Gates_Managment__System
 
 
 
-        private void PatientList_FormClosing(object sender, FormClosingEventArgs e)
+       /* private void PatientList_FormClosing(object sender, FormClosingEventArgs e)
         {
             var MainPage = new MainPage();
             MainPage.Show();
             Hide();
-        }
+        }*/
 
         private void PbSearch_Click(object sender, EventArgs e)
         {
@@ -286,7 +286,7 @@ namespace H_Gates_Managment__System
                 VE_Con.tbContactAddress.Text = Emr.Cells["ContactAddress"].Value.ToString();
                 VE_Con.tbContactNumber.Text = Emr.Cells["EContactNo"].Value.ToString();
                 VE_Con.tbERelation.Text = Emr.Cells["RelationshipType"].Value.ToString();
-                VE_Con.Show();
+                VE_Con.ShowDialog();
 
                 
 
@@ -337,9 +337,18 @@ namespace H_Gates_Managment__System
 
         private void BTHome_Click(object sender, EventArgs e)
         {
-            var MainPage = new MainPage();
-            MainPage.Show();
-            Hide();
+           
+            //var OpenForms = Application.OpenForms.Cast<Form>();
+            //var isOpen = OpenForms.Any(q => q.Name == "MainPage");
+            //if (isOpen)
+            //{
+                var MainPage = new MainPage();
+                this.Close();
+
+                MainPage.Show();
+                
+            //}
+
         }
         
         public void GridViewPatients_SelectionChanged_1(object sender, EventArgs e)
