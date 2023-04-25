@@ -29,16 +29,15 @@ namespace H_Gates_Managment__System
 
         private void PatientsEntry_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var MainPage = new MainPage();
-            MainPage.Show();
-            Hide();
+          
         }
 
         private void Btback_Click(object sender, EventArgs e)
         {
-            var MainPage = new MainPage();
-            MainPage.Show();
-            Hide();
+
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Close();
 
         }
 

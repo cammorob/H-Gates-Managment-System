@@ -45,7 +45,7 @@ namespace H_Gates_Managment__System
                 var Patientlist = new PatientList();
 
                 Patientlist.Show();
-                Hide();
+                Close();
             }
         }
 
@@ -69,8 +69,9 @@ namespace H_Gates_Managment__System
         private void bAddPatients_Click(object sender, EventArgs e)
         {
             var PatientsEntry = new PatientsEntry();
+            PatientsEntry.MdiParent = MdiParent;
             PatientsEntry.ShowDialog();
-            Hide();
+            this.Close();
         }
 
         private void LabelAddPatients_Click(object sender, EventArgs e)

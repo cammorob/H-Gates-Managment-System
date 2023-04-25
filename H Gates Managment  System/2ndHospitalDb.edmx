@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HGatesDesktopAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="User" Type="nchar" MaxLength="150" />
+          <Property Name="Password" Type="nchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Conditions">
           <Key>
             <PropertyRef Name="Id" />
@@ -106,11 +114,11 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="nvarchar" MaxLength="50" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User" Type="nchar" MaxLength="50" />
+          <Property Name="Password" Type="nchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK__Doctors__Special__440B1D61">
           <End Role="Specializations" Type="Self.Specializations" Multiplicity="0..1" />
@@ -234,6 +242,7 @@
         </Association>
         <Function Name="GetAllPatients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HGatesDesktopAppModel1StoreContainer">
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmergencyRelationships" EntityType="Self.EmergencyRelationships" Schema="dbo" store:Type="Tables" />
@@ -410,14 +419,6 @@
           <Property Name="SpecializationName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctors__Special__440B1D61" FromRole="Specializations" ToRole="Doctors" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK__Intakes__Conditi__4F7CD00D">
           <End Role="Conditions" Type="Self.Condition" Multiplicity="0..1" />
           <End Role="Intakes" Type="Self.Intake" Multiplicity="*" />
@@ -550,7 +551,6 @@
           <EntitySet Name="Procedures" EntityType="Self.Procedure" />
           <EntitySet Name="Rooms" EntityType="Self.Room" />
           <EntitySet Name="Specializations" EntityType="Self.Specialization" />
-          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK__Intakes__Conditi__4F7CD00D" Association="Self.FK__Intakes__Conditi__4F7CD00D">
             <End Role="Conditions" EntitySet="Conditions" />
             <End Role="Intakes" EntitySet="Intakes" />
@@ -593,6 +593,8 @@
           </AssociationSet>
           <FunctionImport Name="GetPatientsList" ReturnType="Collection(HGatesDesktopAppModel1.GetPatientsList_Result)" />
           <FunctionImport Name="GetAllPatients" ReturnType="Collection(HGatesDesktopAppModel1.GetAllPatients_Result)" />
+          <EntitySet Name="Administrators" EntityType="HGatesDesktopAppModel1.Administrator" />
+          <EntitySet Name="Users" EntityType="HGatesDesktopAppModel1.User" />
         </EntityContainer>
         <ComplexType Name="GetPatientsList_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -614,6 +616,22 @@
           <Property Type="String" Name="StreetAddress" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="City" Nullable="false" MaxLength="70" />
         </ComplexType>
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="User" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -730,15 +748,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="GetAllPatients" FunctionName="HGatesDesktopAppModel1.Store.GetAllPatients">
             <ResultMapping>
               <ComplexTypeMapping TypeName="HGatesDesktopAppModel1.GetAllPatients_Result">
@@ -753,6 +762,24 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.Administrator">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HGatesDesktopAppModel1.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User1" ColumnName="User" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

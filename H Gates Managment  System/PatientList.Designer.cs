@@ -69,6 +69,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.getAllPatientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPatients)).BeginInit();
             this.pa.SuspendLayout();
@@ -76,6 +77,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getAllPatientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,13 +101,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(981, 76);
+            this.panel1.Size = new System.Drawing.Size(1187, 76);
             this.panel1.TabIndex = 0;
             // 
             // BTHome
             // 
             this.BTHome.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTHome.Location = new System.Drawing.Point(797, 26);
+            this.BTHome.Location = new System.Drawing.Point(967, 30);
             this.BTHome.Name = "BTHome";
             this.BTHome.Size = new System.Drawing.Size(75, 23);
             this.BTHome.TabIndex = 18;
@@ -116,7 +118,7 @@
             // btLogout
             // 
             this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(878, 26);
+            this.btLogout.Location = new System.Drawing.Point(1084, 30);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(75, 23);
             this.btLogout.TabIndex = 17;
@@ -152,12 +154,14 @@
             // 
             this.GridViewPatients.AllowUserToAddRows = false;
             this.GridViewPatients.AllowUserToDeleteRows = false;
+            this.GridViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewPatients.Location = new System.Drawing.Point(24, 87);
+            this.GridViewPatients.Location = new System.Drawing.Point(120, 127);
             this.GridViewPatients.Name = "GridViewPatients";
             this.GridViewPatients.ReadOnly = true;
             this.GridViewPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewPatients.Size = new System.Drawing.Size(528, 234);
+            this.GridViewPatients.ShowEditingIcon = false;
+            this.GridViewPatients.Size = new System.Drawing.Size(607, 378);
             this.GridViewPatients.TabIndex = 19;
             this.GridViewPatients.SelectionChanged += new System.EventHandler(this.GridViewPatients_SelectionChanged_1);
             // 
@@ -175,12 +179,12 @@
             this.pa.Controls.Add(this.btAddPatient);
             this.pa.Location = new System.Drawing.Point(401, 71);
             this.pa.Name = "pa";
-            this.pa.Size = new System.Drawing.Size(580, 376);
+            this.pa.Size = new System.Drawing.Size(786, 594);
             this.pa.TabIndex = 0;
             // 
             // btPrevious
             // 
-            this.btPrevious.Location = new System.Drawing.Point(205, 342);
+            this.btPrevious.Location = new System.Drawing.Point(299, 522);
             this.btPrevious.Name = "btPrevious";
             this.btPrevious.Size = new System.Drawing.Size(75, 23);
             this.btPrevious.TabIndex = 5;
@@ -189,7 +193,7 @@
             // 
             // BtNext
             // 
-            this.BtNext.Location = new System.Drawing.Point(311, 342);
+            this.BtNext.Location = new System.Drawing.Point(531, 522);
             this.BtNext.Name = "BtNext";
             this.BtNext.Size = new System.Drawing.Size(75, 23);
             this.BtNext.TabIndex = 4;
@@ -203,7 +207,7 @@
             this.PbSearch.BackColor = System.Drawing.SystemColors.Control;
             this.PbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbSearch.Image = ((System.Drawing.Image)(resources.GetObject("PbSearch.Image")));
-            this.PbSearch.Location = new System.Drawing.Point(522, 27);
+            this.PbSearch.Location = new System.Drawing.Point(728, 27);
             this.PbSearch.Name = "PbSearch";
             this.PbSearch.Size = new System.Drawing.Size(30, 18);
             this.PbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -214,7 +218,7 @@
             // tbSearch
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearch.Location = new System.Drawing.Point(378, 27);
+            this.tbSearch.Location = new System.Drawing.Point(584, 27);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(152, 18);
@@ -258,7 +262,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(0, 71);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(405, 376);
+            this.panel3.Size = new System.Drawing.Size(405, 391);
             this.panel3.TabIndex = 1;
             // 
             // tbDatePick
@@ -491,11 +495,22 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(0, 459);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(402, 218);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 450);
+            this.ClientSize = new System.Drawing.Size(1187, 668);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pa);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -515,6 +530,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getAllPatientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,5 +576,6 @@
         private System.Windows.Forms.ComboBox tbdropParish;
         private System.Windows.Forms.ComboBox cbListGender;
         private System.Windows.Forms.DateTimePicker tbDatePick;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

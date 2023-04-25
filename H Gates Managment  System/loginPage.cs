@@ -32,7 +32,7 @@ namespace H_Gates_Managment__System
                 var username = tbUserName.Text.Trim();
                 var password = tbPassword.Text;
                  
-                var user =_db.Users.FirstOrDefault(q=>q.username== username && q.password == password);
+                var user =_db.Administrators.FirstOrDefault(q=>q.User== username && q.Password == password);
 
                 if (user == null)
                 {

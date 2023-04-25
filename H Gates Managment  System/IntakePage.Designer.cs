@@ -62,7 +62,7 @@
             this.viewRoomsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(131, 580);
+            this.menuStrip1.Size = new System.Drawing.Size(131, 700);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -108,7 +108,7 @@
             this.dgvIntakelist.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvIntakelist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvIntakelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntakelist.Location = new System.Drawing.Point(539, 76);
+            this.dgvIntakelist.Location = new System.Drawing.Point(610, 76);
             this.dgvIntakelist.MultiSelect = false;
             this.dgvIntakelist.Name = "dgvIntakelist";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -120,7 +120,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvIntakelist.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIntakelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIntakelist.Size = new System.Drawing.Size(658, 483);
+            this.dgvIntakelist.Size = new System.Drawing.Size(658, 624);
             this.dgvIntakelist.TabIndex = 2;
             // 
             // panel1
@@ -196,7 +196,7 @@
             // btdelete
             // 
             this.btdelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btdelete.Location = new System.Drawing.Point(1190, 82);
+            this.btdelete.Location = new System.Drawing.Point(25, 665);
             this.btdelete.Name = "btdelete";
             this.btdelete.Size = new System.Drawing.Size(75, 23);
             this.btdelete.TabIndex = 5;
@@ -218,9 +218,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(131, 122);
+            this.pictureBox2.Location = new System.Drawing.Point(131, 76);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(409, 437);
+            this.pictureBox2.Size = new System.Drawing.Size(479, 624);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -230,7 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1271, 580);
+            this.ClientSize = new System.Drawing.Size(1271, 700);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btdelete);

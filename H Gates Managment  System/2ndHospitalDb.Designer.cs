@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Michael\source\repos\H Gates Managment  System\H Gates Managment  System\2ndHospitalDb.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Michael\OneDrive\Documents\vtdi document\Year 2\GitRepo\H Gates Managment  System\2ndHospitalDb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

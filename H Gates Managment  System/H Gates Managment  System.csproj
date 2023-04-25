@@ -282,6 +282,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Administrator.cs">
+      <DependentUpon>2ndHospitalDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Condition.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>

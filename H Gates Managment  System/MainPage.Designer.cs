@@ -101,7 +101,7 @@
             // btLogout
             // 
             this.btLogout.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogout.Location = new System.Drawing.Point(679, 16);
+            this.btLogout.Location = new System.Drawing.Point(929, 20);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(75, 23);
             this.btLogout.TabIndex = 13;
@@ -131,7 +131,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-4, -9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(167, 619);
+            this.panel1.Size = new System.Drawing.Size(167, 763);
             this.panel1.TabIndex = 15;
             // 
             // Intake_Pagebt
@@ -171,7 +171,7 @@
             this.panel2.Controls.Add(this.C_UserLabel);
             this.panel2.Location = new System.Drawing.Point(157, -6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(872, 48);
+            this.panel2.Size = new System.Drawing.Size(1021, 48);
             this.panel2.TabIndex = 16;
             // 
             // entityCommand1
@@ -191,7 +191,7 @@
             this.panel3.Controls.Add(this.bAddPatients);
             this.panel3.Location = new System.Drawing.Point(159, 242);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(870, 130);
+            this.panel3.Size = new System.Drawing.Size(1019, 130);
             this.panel3.TabIndex = 17;
             // 
             // button2
@@ -238,7 +238,7 @@
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1025, 603);
+            this.ClientSize = new System.Drawing.Size(1173, 752);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
