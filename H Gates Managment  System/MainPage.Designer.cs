@@ -45,6 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LabelAddPatients = new System.Windows.Forms.Label();
             this.bAddPatients = new System.Windows.Forms.Button();
+            this.btAdminstration = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,7 +92,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(10, 237);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 258);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(145, 115);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,6 +125,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btAdminstration);
             this.panel1.Controls.Add(this.Intake_Pagebt);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btRooms);
@@ -231,6 +233,16 @@
             this.bAddPatients.UseVisualStyleBackColor = true;
             this.bAddPatients.Click += new System.EventHandler(this.bAddPatients_Click);
             // 
+            // btAdminstration
+            // 
+            this.btAdminstration.Location = new System.Drawing.Point(16, 208);
+            this.btAdminstration.Name = "btAdminstration";
+            this.btAdminstration.Size = new System.Drawing.Size(121, 23);
+            this.btAdminstration.TabIndex = 15;
+            this.btAdminstration.Text = "Administation";
+            this.btAdminstration.UseVisualStyleBackColor = true;
+            this.btAdminstration.Click += new System.EventHandler(this.btAdminstration_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +254,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.IsMdiContainer = true;
             this.Name = "MainPage";
             this.Text = "MainPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainPage_FormClosing);
@@ -275,5 +288,6 @@
         private System.Windows.Forms.Button bAddPatients;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Intake_Pagebt;
+        public System.Windows.Forms.Button btAdminstration;
     }
 }

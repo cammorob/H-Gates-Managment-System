@@ -160,7 +160,6 @@
             this.GridViewPatients.Name = "GridViewPatients";
             this.GridViewPatients.ReadOnly = true;
             this.GridViewPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewPatients.ShowEditingIcon = false;
             this.GridViewPatients.Size = new System.Drawing.Size(607, 378);
             this.GridViewPatients.TabIndex = 19;
             this.GridViewPatients.SelectionChanged += new System.EventHandler(this.GridViewPatients_SelectionChanged_1);

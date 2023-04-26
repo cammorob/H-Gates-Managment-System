@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,11 +29,21 @@ namespace H_Gates_Managment__System
         {
             try
             {
+                SHA256 sha = SHA256.Create();
 
                 var username = tbUserName.Text.Trim();
                 var password = tbPassword.Text;
+
+                byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(password));  
+                StringBuilder stringBuilder = new StringBuilder();
+
+                for(int i=0; i<data.Length; i++)
+                { 
+                    stringBuilder.Append(data[i].ToString("x2")); 
+                }
+                var hashed_password= stringBuilder.ToString();
                  
-                var user =_db.Administrators.FirstOrDefault(q=>q.User== username && q.Password == password);
+                var user =_db.Users.FirstOrDefault(q=>q.User1== username && q.Password == hashed_password);
 
                 if (user == null)
                 {
@@ -46,12 +57,15 @@ namespace H_Gates_Managment__System
 
                 else
                 {
-                    var MainPage = new MainPage(this);
-                    MainPage.Show();
-                    CurrentUser = username;
-                    tbUserName.Clear();
+                   var role = user.UserRoles.FirstOrDefault();
+                   var roleSname = role.Role.ShortName.TrimEnd();
+                   var MainPage = new MainPage(this,roleSname);
+                    
+                   MainPage.Show();
+                   CurrentUser = username;
+                   tbUserName.Clear();
                     tbPassword.Clear(); 
-                    Hide();
+                    this.Hide();
                 
                 }
                 

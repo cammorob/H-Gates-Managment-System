@@ -446,7 +446,6 @@
             this.Controls.Add(this.panel4);
             this.Name = "PatientsEntry";
             this.Text = "PatientsEntry";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientsEntry_FormClosing);
             this.Load += new System.EventHandler(this.PatientsEntry_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

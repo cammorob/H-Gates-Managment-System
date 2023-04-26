@@ -12,11 +12,13 @@ namespace H_Gates_Managment__System
     using System;
     using System.Collections.Generic;
     
-    public partial class Administrator
+    public partial class UserRole
     {
         public int Id { get; set; }
-        public string User { get; set; }
-        public string Password { get; set; }
-        public Nullable<bool> isActive { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<int> RoleId { get; set; }
+    
+        public virtual Role Role { get; set; }
+        public virtual User User { get; set; }
     }
 }

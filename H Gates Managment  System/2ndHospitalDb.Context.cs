@@ -39,6 +39,8 @@ namespace H_Gates_Managment__System
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
         public virtual DbSet<Administrator> Administrators { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
     
         public virtual ObjectResult<GetPatientsList_Result> GetPatientsList()

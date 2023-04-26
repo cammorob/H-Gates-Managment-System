@@ -27,7 +27,11 @@
         <AssociationConnector Association="HGatesDesktopAppModel1.FK__Intakes__RoomID__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="HGatesDesktopAppModel1.FK__Patients__Parish__4AB81AF0" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HGatesDesktopAppModel1.Administrator" Width="1.5" PointX="7.375" PointY="3.75" />
-        <EntityTypeShape EntityType="HGatesDesktopAppModel1.User" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HGatesDesktopAppModel1.Role" Width="1.5" PointX="7.375" PointY="1" />
+        <EntityTypeShape EntityType="HGatesDesktopAppModel1.UserRole" Width="1.5" PointX="9.625" PointY="0.875" />
+        <EntityTypeShape EntityType="HGatesDesktopAppModel1.User" Width="1.5" PointX="7.375" PointY="10.875" />
+        <AssociationConnector Association="HGatesDesktopAppModel1.FK_UserRoles_Roles" />
+        <AssociationConnector Association="HGatesDesktopAppModel1.FK_UserRoles_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
