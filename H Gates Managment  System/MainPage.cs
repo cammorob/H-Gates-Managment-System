@@ -17,6 +17,7 @@ namespace H_Gates_Managment__System
         private readonly HGatesDesktopAppEntities2 _db;
         private loginPage _LoginPage;
         public string _RoleName;
+        public User _user;
 
         public MainPage()
         {
@@ -25,11 +26,14 @@ namespace H_Gates_Managment__System
 
         }
 
-        public MainPage(loginPage LoginPage, string roleSname)
+        public MainPage(loginPage LoginPage, User user )
         {
             InitializeComponent();
             _LoginPage = LoginPage;
-            _RoleName = roleSname;  
+            _user = user;
+
+            _RoleName= user.UserRoles.FirstOrDefault().Role.ShortName;
+            
 
 
         }
@@ -50,20 +54,30 @@ namespace H_Gates_Managment__System
             }
         }
 
+
+        public void ShowUser()
+        {
+
+            var username = _user.User1;
+            stripstatuslabel.Text = $"Logged in As: {username}";
+
+        }
         private void MainPage_Load(object sender, EventArgs e)
         {
-            if (loginPage.CurrentUser != null)
+            try
             {
-                C_UserLabel.Text = loginPage.CurrentUser;
-            }
-            
-            if(_RoleName!="admin")
-            {
+               ShowUser();
+                if (_RoleName.Trim() != "admin")
+                {
 
-                btAdminstration.Enabled=false;
+                    btAdminstration.Enabled = false;
+
+
+                }
+            } catch
+            {
                 
-
-            }
+            } 
           
            
 
@@ -138,9 +152,9 @@ namespace H_Gates_Managment__System
                 {
                     
                     var Administration = new Administration();
-                    //Administration.MdiParent = this;
+                    Administration.MdiParent = MdiParent;
                     Administration.Show();
-
+                    Hide();
                     
                 }
             }

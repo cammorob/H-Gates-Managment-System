@@ -31,13 +31,19 @@ namespace H_Gates_Managment__System
 
         private void Btback_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                var MainPage = new MainPage();
 
 
-            var MainPage = new MainPage();
-           
-
-            MainPage.Show();
-            Hide();
+                MainPage.Show();
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("An error has occured");
+            }
 
         }
 

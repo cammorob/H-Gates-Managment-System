@@ -153,6 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "loginPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginPage";
             this.Click += new System.EventHandler(this.Label2_Click);
             this.ResumeLayout(false);

@@ -285,6 +285,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>2ndHospitalDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AddN&amp;D.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddN&amp;D.Designer.cs">
+      <DependentUpon>AddN&amp;D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrator.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
@@ -411,12 +423,25 @@
     <Compile Include="UserRole.cs">
       <DependentUpon>2ndHospitalDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Users Administration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users Administration.Designer.cs">
+      <DependentUpon>Users Administration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="View_Emergency_Contact.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View_Emergency_Contact.Designer.cs">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddN&amp;D.resx">
+      <DependentUpon>AddN&amp;D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +474,9 @@
     </Compile>
     <EmbeddedResource Include="UpDateEmergencyContact.resx">
       <DependentUpon>UpDateEmergencyContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users Administration.resx">
+      <DependentUpon>Users Administration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View_Emergency_Contact.resx">
       <DependentUpon>View_Emergency_Contact.cs</DependentUpon>

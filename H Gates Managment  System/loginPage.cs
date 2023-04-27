@@ -33,17 +33,14 @@ namespace H_Gates_Managment__System
 
                 var username = tbUserName.Text.Trim();
                 var password = tbPassword.Text;
+                var hashed_password = Utils.HashPassword(password);
 
-                byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(password));  
-                StringBuilder stringBuilder = new StringBuilder();
+            
 
-                for(int i=0; i<data.Length; i++)
-                { 
-                    stringBuilder.Append(data[i].ToString("x2")); 
-                }
-                var hashed_password= stringBuilder.ToString();
+                
                  
-                var user =_db.Users.FirstOrDefault(q=>q.User1== username && q.Password == hashed_password);
+                var user =_db.Users.FirstOrDefault(q=>q.User1== username &&
+                q.Password == hashed_password && q.isAcitive==true);
 
                 if (user == null)
                 {
@@ -57,14 +54,13 @@ namespace H_Gates_Managment__System
 
                 else
                 {
-                   var role = user.UserRoles.FirstOrDefault();
-                   var roleSname = role.Role.ShortName.TrimEnd();
-                   var MainPage = new MainPage(this,roleSname);
+                  
+                   var MainPage = new MainPage(this,user);
                     
                    MainPage.Show();
-                   CurrentUser = username;
-                   tbUserName.Clear();
-                    tbPassword.Clear(); 
+                   CurrentUser = user.User1;
+                   //tbUserName.Clear();
+                    //tbPassword.Clear(); 
                     this.Hide();
                 
                 }
