@@ -222,7 +222,7 @@
             // 
             this.tsiLognText.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stripstatuslabel});
-            this.tsiLognText.Location = new System.Drawing.Point(0, 730);
+            this.tsiLognText.Location = new System.Drawing.Point(0, 514);
             this.tsiLognText.Name = "tsiLognText";
             this.tsiLognText.Size = new System.Drawing.Size(1403, 22);
             this.tsiLognText.TabIndex = 19;
@@ -239,7 +239,7 @@
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1403, 752);
+            this.ClientSize = new System.Drawing.Size(1403, 536);
             this.Controls.Add(this.tsiLognText);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);

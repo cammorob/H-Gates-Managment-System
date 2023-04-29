@@ -157,9 +157,11 @@
             this.GridViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewPatients.Location = new System.Drawing.Point(120, 127);
+            this.GridViewPatients.MultiSelect = false;
             this.GridViewPatients.Name = "GridViewPatients";
             this.GridViewPatients.ReadOnly = true;
             this.GridViewPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridViewPatients.ShowCellErrors = false;
             this.GridViewPatients.Size = new System.Drawing.Size(607, 378);
             this.GridViewPatients.TabIndex = 19;
             this.GridViewPatients.SelectionChanged += new System.EventHandler(this.GridViewPatients_SelectionChanged_1);

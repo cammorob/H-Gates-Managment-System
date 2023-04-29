@@ -108,7 +108,7 @@
             this.dgvIntakelist.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvIntakelist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvIntakelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntakelist.Location = new System.Drawing.Point(610, 76);
+            this.dgvIntakelist.Location = new System.Drawing.Point(706, 76);
             this.dgvIntakelist.MultiSelect = false;
             this.dgvIntakelist.Name = "dgvIntakelist";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -120,7 +120,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvIntakelist.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIntakelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIntakelist.Size = new System.Drawing.Size(658, 624);
+            this.dgvIntakelist.Size = new System.Drawing.Size(562, 624);
             this.dgvIntakelist.TabIndex = 2;
             // 
             // panel1
@@ -220,7 +220,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(131, 76);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(479, 624);
+            this.pictureBox2.Size = new System.Drawing.Size(579, 624);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;

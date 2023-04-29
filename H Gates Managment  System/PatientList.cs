@@ -219,22 +219,25 @@ namespace H_Gates_Managment__System
         private void PbSearch_Click(object sender, EventArgs e)
         {
             string searchValue = tbSearch.Text;
-            var rowIndex = 0;
+            var rowIndex = -1;
             GridViewPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
                 bool valueResult = true;
                 foreach (DataGridViewRow row in GridViewPatients.Rows)
                 {
-                    for (int i = 1; i < row.Cells.Count; i++)
+                    for (int i = 0; i == row.Cells.Count; i++)
                     {
-                        if (row.Cells[i].Value != null && row.Cells[i].Value.ToString() == (searchValue))
+                        if (row.Cells[0].Value.ToString().Contains (searchValue.ToString()))
                         {
-                            //rowIndex = row.Index;
-                            GridViewPatients.Rows[rowIndex].Selected = true;
-
+                            rowIndex = row.Index;
+                        GridViewPatients.ClearSelection();
+                           row.Selected = true;
+                        GridViewPatients.FirstDisplayedScrollingRowIndex = rowIndex;
+                        GridViewPatients.Focus();
                             valueResult = false;
-                            rowIndex++;
+                            
+                           // rowIndex++;
                         }
                     }
                     if (valueResult != false)
@@ -250,7 +253,7 @@ namespace H_Gates_Managment__System
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+               // MessageBox.Show(exc.Message);
                 //throw;
             }
         }
