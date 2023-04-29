@@ -138,6 +138,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Users";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administration_FormClosing);
+            this.Load += new System.EventHandler(this.doctorsToolStripMenuItem1_Click);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();

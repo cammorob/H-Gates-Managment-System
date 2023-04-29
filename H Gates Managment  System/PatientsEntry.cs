@@ -34,11 +34,23 @@ namespace H_Gates_Managment__System
             try
             {
 
-                var MainPage = new MainPage();
+               
 
+                var OpenForms = Application.OpenForms.Cast<Form>();
+                var isOpen = OpenForms.Any(q => q.Name == "MainPage");
+                if (!isOpen)
+                {
+                    var MainPage = new MainPage();
+                    ; MainPage.Show();
+                    Close();
+                    //Hide();
+                }
+                else
+                {
 
-                MainPage.Show();
-                Close();
+                    Close();
+                }
+               
             }
             catch
             {

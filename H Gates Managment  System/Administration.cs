@@ -74,8 +74,14 @@ namespace H_Gates_Managment__System
 
         private void Administration_Load(object sender, EventArgs e)
         {
-
+            label = "Manage Doctors";
+            HeaderLabel();
+            var doctors = _db.Doctors.Select(q => new { Name = q.FirstName + " " + q.LastName, Specialization = q.Specialization.SpecializationName, q.LicensureDate }).ToList();
+            dgvUsers.DataSource = doctors;
         }
+
+
+    
 
         public void GetNurses()
         {
@@ -104,8 +110,31 @@ namespace H_Gates_Managment__System
 
         private void Administration_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var MainPage=new MainPage();
-            MainPage.Show();
+            try
+            {
+
+
+
+                var OpenForms = Application.OpenForms.Cast<Form>();
+                var isOpen = OpenForms.Any(q => q.Name == "MainPage");
+                if (!isOpen)
+                {
+                    var MainPage = new MainPage();
+                    MainPage.Show();
+                    Close();
+                    //Hide();
+                }
+                else
+                {
+
+                   
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("An error has occured");
+            }
 
         }
     }

@@ -104,7 +104,7 @@ namespace H_Gates_Managment__System
                 var PatientEntry = new PatientsEntry();
 
                 PatientEntry.Show();
-                Hide();
+                //Hide();
             }
         }
 
@@ -153,8 +153,8 @@ namespace H_Gates_Managment__System
                     
                     var Administration = new Administration();
                     Administration.MdiParent = MdiParent;
-                    Administration.Show();
-                    Hide();
+                    Administration.ShowDialog();
+                   
                     
                 }
             }

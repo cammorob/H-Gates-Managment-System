@@ -77,5 +77,18 @@ namespace H_Gates_Managment__System
             }
         }
 
+        private void loginPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void loginPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            
+                System.Windows.Forms.Application.Exit();
+            
+            
+        }
     }
 }
